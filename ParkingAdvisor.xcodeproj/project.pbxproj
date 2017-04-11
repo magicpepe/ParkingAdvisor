@@ -1,1207 +1,623 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>067D7A8EE4D6FE88DCDC18C8</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>6C24AC545B5933788FF2F701</string>
-				<string>1BAE6EC73489FCC20AC9F816</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>0A7F686F486643FF0F6A1546</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>[CP] Check Pods Manifest.lock</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
-if [[ $? != 0 ]] ; then
-    cat &lt;&lt; EOM
-error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
-EOM
-    exit 1
-fi
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>1BAE6EC73489FCC20AC9F816</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-ParkingAdvisor.release.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-ParkingAdvisor/Pods-ParkingAdvisor.release.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>63A822A1A9103D4F1018F8A7</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>C57C89200A64C46BD5F9F362</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>6C24AC545B5933788FF2F701</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-ParkingAdvisor.debug.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-ParkingAdvisor/Pods-ParkingAdvisor.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>708D50331E9B502E00DB4ED9</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>708D506D1E9B529600DB4ED9</string>
-				<string>708D503E1E9B502E00DB4ED9</string>
-				<string>708D50531E9B502F00DB4ED9</string>
-				<string>708D505E1E9B502F00DB4ED9</string>
-				<string>708D503D1E9B502E00DB4ED9</string>
-				<string>067D7A8EE4D6FE88DCDC18C8</string>
-				<string>63A822A1A9103D4F1018F8A7</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>708D50341E9B502E00DB4ED9</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>LastSwiftUpdateCheck</key>
-				<string>0830</string>
-				<key>LastUpgradeCheck</key>
-				<string>0830</string>
-				<key>ORGANIZATIONNAME</key>
-				<string>MCLAB</string>
-				<key>TargetAttributes</key>
-				<dict>
-					<key>708D503B1E9B502E00DB4ED9</key>
-					<dict>
-						<key>CreatedOnToolsVersion</key>
-						<string>8.3</string>
-						<key>DevelopmentTeam</key>
-						<string>XW3GGB6ENP</string>
-						<key>ProvisioningStyle</key>
-						<string>Automatic</string>
-					</dict>
-					<key>708D504F1E9B502F00DB4ED9</key>
-					<dict>
-						<key>CreatedOnToolsVersion</key>
-						<string>8.3</string>
-						<key>DevelopmentTeam</key>
-						<string>XW3GGB6ENP</string>
-						<key>ProvisioningStyle</key>
-						<string>Automatic</string>
-						<key>TestTargetID</key>
-						<string>708D503B1E9B502E00DB4ED9</string>
-					</dict>
-					<key>708D505A1E9B502F00DB4ED9</key>
-					<dict>
-						<key>CreatedOnToolsVersion</key>
-						<string>8.3</string>
-						<key>DevelopmentTeam</key>
-						<string>XW3GGB6ENP</string>
-						<key>ProvisioningStyle</key>
-						<string>Automatic</string>
-						<key>TestTargetID</key>
-						<string>708D503B1E9B502E00DB4ED9</string>
-					</dict>
-				</dict>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>708D50371E9B502E00DB4ED9</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-				<string>Base</string>
-			</array>
-			<key>mainGroup</key>
-			<string>708D50331E9B502E00DB4ED9</string>
-			<key>productRefGroup</key>
-			<string>708D503D1E9B502E00DB4ED9</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>708D503B1E9B502E00DB4ED9</string>
-				<string>708D504F1E9B502F00DB4ED9</string>
-				<string>708D505A1E9B502F00DB4ED9</string>
-			</array>
-		</dict>
-		<key>708D50371E9B502E00DB4ED9</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>708D50621E9B502F00DB4ED9</string>
-				<string>708D50631E9B502F00DB4ED9</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>708D50381E9B502E00DB4ED9</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>708D50421E9B502E00DB4ED9</string>
-				<string>708D50401E9B502E00DB4ED9</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>708D50391E9B502E00DB4ED9</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>74D4410FF03F55A7434F1BD1</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>708D503A1E9B502E00DB4ED9</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>708D504A1E9B502E00DB4ED9</string>
-				<string>708D50471E9B502E00DB4ED9</string>
-				<string>708D506E1E9B529600DB4ED9</string>
-				<string>708D50451E9B502E00DB4ED9</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>708D503B1E9B502E00DB4ED9</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>708D50641E9B502F00DB4ED9</string>
-			<key>buildPhases</key>
-			<array>
-				<string>0A7F686F486643FF0F6A1546</string>
-				<string>708D50381E9B502E00DB4ED9</string>
-				<string>708D50391E9B502E00DB4ED9</string>
-				<string>708D503A1E9B502E00DB4ED9</string>
-				<string>BDECE3173806BB00AA291E42</string>
-				<string>734532EDE8A4C44F23F6847D</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>ParkingAdvisor</string>
-			<key>productName</key>
-			<string>ParkingAdvisor</string>
-			<key>productReference</key>
-			<string>708D503C1E9B502E00DB4ED9</string>
-			<key>productType</key>
-			<string>com.apple.product-type.application</string>
-		</dict>
-		<key>708D503C1E9B502E00DB4ED9</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.application</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>ParkingAdvisor.app</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>708D503D1E9B502E00DB4ED9</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>708D503C1E9B502E00DB4ED9</string>
-				<string>708D50501E9B502F00DB4ED9</string>
-				<string>708D505B1E9B502F00DB4ED9</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>708D503E1E9B502E00DB4ED9</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>708D503F1E9B502E00DB4ED9</string>
-				<string>708D50411E9B502E00DB4ED9</string>
-				<string>708D50431E9B502E00DB4ED9</string>
-				<string>708D50461E9B502E00DB4ED9</string>
-				<string>708D50481E9B502E00DB4ED9</string>
-				<string>708D504B1E9B502E00DB4ED9</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>ParkingAdvisor</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>708D503F1E9B502E00DB4ED9</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>AppDelegate.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>708D50401E9B502E00DB4ED9</key>
-		<dict>
-			<key>fileRef</key>
-			<string>708D503F1E9B502E00DB4ED9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>708D50411E9B502E00DB4ED9</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>ViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>708D50421E9B502E00DB4ED9</key>
-		<dict>
-			<key>fileRef</key>
-			<string>708D50411E9B502E00DB4ED9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>708D50431E9B502E00DB4ED9</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>708D50441E9B502E00DB4ED9</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>Main.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>708D50441E9B502E00DB4ED9</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.storyboard</string>
-			<key>name</key>
-			<string>Base</string>
-			<key>path</key>
-			<string>Base.lproj/Main.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>708D50451E9B502E00DB4ED9</key>
-		<dict>
-			<key>fileRef</key>
-			<string>708D50431E9B502E00DB4ED9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>708D50461E9B502E00DB4ED9</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>folder.assetcatalog</string>
-			<key>path</key>
-			<string>Assets.xcassets</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>708D50471E9B502E00DB4ED9</key>
-		<dict>
-			<key>fileRef</key>
-			<string>708D50461E9B502E00DB4ED9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>708D50481E9B502E00DB4ED9</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>708D50491E9B502E00DB4ED9</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>LaunchScreen.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>708D50491E9B502E00DB4ED9</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.storyboard</string>
-			<key>name</key>
-			<string>Base</string>
-			<key>path</key>
-			<string>Base.lproj/LaunchScreen.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>708D504A1E9B502E00DB4ED9</key>
-		<dict>
-			<key>fileRef</key>
-			<string>708D50481E9B502E00DB4ED9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>708D504B1E9B502E00DB4ED9</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>708D504C1E9B502F00DB4ED9</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>708D50551E9B502F00DB4ED9</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>708D504D1E9B502F00DB4ED9</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>708D504E1E9B502F00DB4ED9</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>708D504F1E9B502F00DB4ED9</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>708D50671E9B502F00DB4ED9</string>
-			<key>buildPhases</key>
-			<array>
-				<string>708D504C1E9B502F00DB4ED9</string>
-				<string>708D504D1E9B502F00DB4ED9</string>
-				<string>708D504E1E9B502F00DB4ED9</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>708D50521E9B502F00DB4ED9</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>ParkingAdvisorTests</string>
-			<key>productName</key>
-			<string>ParkingAdvisorTests</string>
-			<key>productReference</key>
-			<string>708D50501E9B502F00DB4ED9</string>
-			<key>productType</key>
-			<string>com.apple.product-type.bundle.unit-test</string>
-		</dict>
-		<key>708D50501E9B502F00DB4ED9</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>ParkingAdvisorTests.xctest</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>708D50511E9B502F00DB4ED9</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>708D50341E9B502E00DB4ED9</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>708D503B1E9B502E00DB4ED9</string>
-			<key>remoteInfo</key>
-			<string>ParkingAdvisor</string>
-		</dict>
-		<key>708D50521E9B502F00DB4ED9</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>708D503B1E9B502E00DB4ED9</string>
-			<key>targetProxy</key>
-			<string>708D50511E9B502F00DB4ED9</string>
-		</dict>
-		<key>708D50531E9B502F00DB4ED9</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>708D50541E9B502F00DB4ED9</string>
-				<string>708D50561E9B502F00DB4ED9</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>ParkingAdvisorTests</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>708D50541E9B502F00DB4ED9</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>ParkingAdvisorTests.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>708D50551E9B502F00DB4ED9</key>
-		<dict>
-			<key>fileRef</key>
-			<string>708D50541E9B502F00DB4ED9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>708D50561E9B502F00DB4ED9</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>708D50571E9B502F00DB4ED9</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>708D50601E9B502F00DB4ED9</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>708D50581E9B502F00DB4ED9</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>708D50591E9B502F00DB4ED9</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>708D505A1E9B502F00DB4ED9</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>708D506A1E9B502F00DB4ED9</string>
-			<key>buildPhases</key>
-			<array>
-				<string>708D50571E9B502F00DB4ED9</string>
-				<string>708D50581E9B502F00DB4ED9</string>
-				<string>708D50591E9B502F00DB4ED9</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>708D505D1E9B502F00DB4ED9</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>ParkingAdvisorUITests</string>
-			<key>productName</key>
-			<string>ParkingAdvisorUITests</string>
-			<key>productReference</key>
-			<string>708D505B1E9B502F00DB4ED9</string>
-			<key>productType</key>
-			<string>com.apple.product-type.bundle.ui-testing</string>
-		</dict>
-		<key>708D505B1E9B502F00DB4ED9</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>ParkingAdvisorUITests.xctest</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>708D505C1E9B502F00DB4ED9</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>708D50341E9B502E00DB4ED9</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>708D503B1E9B502E00DB4ED9</string>
-			<key>remoteInfo</key>
-			<string>ParkingAdvisor</string>
-		</dict>
-		<key>708D505D1E9B502F00DB4ED9</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>708D503B1E9B502E00DB4ED9</string>
-			<key>targetProxy</key>
-			<string>708D505C1E9B502F00DB4ED9</string>
-		</dict>
-		<key>708D505E1E9B502F00DB4ED9</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>708D505F1E9B502F00DB4ED9</string>
-				<string>708D50611E9B502F00DB4ED9</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>ParkingAdvisorUITests</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>708D505F1E9B502F00DB4ED9</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>ParkingAdvisorUITests.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>708D50601E9B502F00DB4ED9</key>
-		<dict>
-			<key>fileRef</key>
-			<string>708D505F1E9B502F00DB4ED9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>708D50611E9B502F00DB4ED9</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>708D50621E9B502F00DB4ED9</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_ANALYZER_NONNULL</key>
-				<string>YES</string>
-				<key>CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_DOCUMENTATION_COMMENTS</key>
-				<string>YES</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INFINITE_RECURSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_SUSPICIOUS_MOVE</key>
-				<string>YES</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>ENABLE_TESTABILITY</key>
-				<string>YES</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_NO_COMMON_BLOCKS</key>
-				<string>YES</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>10.3</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SWIFT_ACTIVE_COMPILATION_CONDITIONS</key>
-				<string>DEBUG</string>
-				<key>SWIFT_OPTIMIZATION_LEVEL</key>
-				<string>-Onone</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>708D50631E9B502F00DB4ED9</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_ANALYZER_NONNULL</key>
-				<string>YES</string>
-				<key>CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_DOCUMENTATION_COMMENTS</key>
-				<string>YES</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INFINITE_RECURSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_SUSPICIOUS_MOVE</key>
-				<string>YES</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf-with-dsym</string>
-				<key>ENABLE_NS_ASSERTIONS</key>
-				<string>NO</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_NO_COMMON_BLOCKS</key>
-				<string>YES</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>10.3</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SWIFT_OPTIMIZATION_LEVEL</key>
-				<string>-Owholemodule</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>708D50641E9B502F00DB4ED9</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>708D50651E9B502F00DB4ED9</string>
-				<string>708D50661E9B502F00DB4ED9</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>708D50651E9B502F00DB4ED9</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>6C24AC545B5933788FF2F701</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>DEVELOPMENT_TEAM</key>
-				<string>XW3GGB6ENP</string>
-				<key>INFOPLIST_FILE</key>
-				<string>ParkingAdvisor/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>MCLAB.ParkingAdvisor</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SWIFT_VERSION</key>
-				<string>3.0</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>708D50661E9B502F00DB4ED9</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>1BAE6EC73489FCC20AC9F816</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>DEVELOPMENT_TEAM</key>
-				<string>XW3GGB6ENP</string>
-				<key>INFOPLIST_FILE</key>
-				<string>ParkingAdvisor/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>MCLAB.ParkingAdvisor</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SWIFT_VERSION</key>
-				<string>3.0</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>708D50671E9B502F00DB4ED9</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>708D50681E9B502F00DB4ED9</string>
-				<string>708D50691E9B502F00DB4ED9</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>708D50681E9B502F00DB4ED9</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES</key>
-				<string>YES</string>
-				<key>BUNDLE_LOADER</key>
-				<string>$(TEST_HOST)</string>
-				<key>DEVELOPMENT_TEAM</key>
-				<string>XW3GGB6ENP</string>
-				<key>INFOPLIST_FILE</key>
-				<string>ParkingAdvisorTests/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>MCLAB.ParkingAdvisorTests</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SWIFT_VERSION</key>
-				<string>3.0</string>
-				<key>TEST_HOST</key>
-				<string>$(BUILT_PRODUCTS_DIR)/ParkingAdvisor.app/ParkingAdvisor</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>708D50691E9B502F00DB4ED9</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES</key>
-				<string>YES</string>
-				<key>BUNDLE_LOADER</key>
-				<string>$(TEST_HOST)</string>
-				<key>DEVELOPMENT_TEAM</key>
-				<string>XW3GGB6ENP</string>
-				<key>INFOPLIST_FILE</key>
-				<string>ParkingAdvisorTests/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>MCLAB.ParkingAdvisorTests</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SWIFT_VERSION</key>
-				<string>3.0</string>
-				<key>TEST_HOST</key>
-				<string>$(BUILT_PRODUCTS_DIR)/ParkingAdvisor.app/ParkingAdvisor</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>708D506A1E9B502F00DB4ED9</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>708D506B1E9B502F00DB4ED9</string>
-				<string>708D506C1E9B502F00DB4ED9</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>708D506B1E9B502F00DB4ED9</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES</key>
-				<string>YES</string>
-				<key>DEVELOPMENT_TEAM</key>
-				<string>XW3GGB6ENP</string>
-				<key>INFOPLIST_FILE</key>
-				<string>ParkingAdvisorUITests/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>MCLAB.ParkingAdvisorUITests</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SWIFT_VERSION</key>
-				<string>3.0</string>
-				<key>TEST_TARGET_NAME</key>
-				<string>ParkingAdvisor</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>708D506C1E9B502F00DB4ED9</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES</key>
-				<string>YES</string>
-				<key>DEVELOPMENT_TEAM</key>
-				<string>XW3GGB6ENP</string>
-				<key>INFOPLIST_FILE</key>
-				<string>ParkingAdvisorUITests/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>MCLAB.ParkingAdvisorUITests</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SWIFT_VERSION</key>
-				<string>3.0</string>
-				<key>TEST_TARGET_NAME</key>
-				<string>ParkingAdvisor</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>708D506D1E9B529600DB4ED9</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text</string>
-			<key>path</key>
-			<string>Podfile</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>708D506E1E9B529600DB4ED9</key>
-		<dict>
-			<key>fileRef</key>
-			<string>708D506D1E9B529600DB4ED9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>734532EDE8A4C44F23F6847D</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>[CP] Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods-ParkingAdvisor/Pods-ParkingAdvisor-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>74D4410FF03F55A7434F1BD1</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C57C89200A64C46BD5F9F362</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BDECE3173806BB00AA291E42</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>[CP] Embed Pods Frameworks</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods-ParkingAdvisor/Pods-ParkingAdvisor-frameworks.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>C57C89200A64C46BD5F9F362</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods-ParkingAdvisor.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>708D50341E9B502E00DB4ED9</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		708D50401E9B502E00DB4ED9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708D503F1E9B502E00DB4ED9 /* AppDelegate.swift */; };
+		708D50421E9B502E00DB4ED9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708D50411E9B502E00DB4ED9 /* ViewController.swift */; };
+		708D50451E9B502E00DB4ED9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 708D50431E9B502E00DB4ED9 /* Main.storyboard */; };
+		708D50471E9B502E00DB4ED9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 708D50461E9B502E00DB4ED9 /* Assets.xcassets */; };
+		708D504A1E9B502E00DB4ED9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 708D50481E9B502E00DB4ED9 /* LaunchScreen.storyboard */; };
+		708D50551E9B502F00DB4ED9 /* ParkingAdvisorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708D50541E9B502F00DB4ED9 /* ParkingAdvisorTests.swift */; };
+		708D50601E9B502F00DB4ED9 /* ParkingAdvisorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708D505F1E9B502F00DB4ED9 /* ParkingAdvisorUITests.swift */; };
+		708D506E1E9B529600DB4ED9 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 708D506D1E9B529600DB4ED9 /* Podfile */; };
+		74D4410FF03F55A7434F1BD1 /* libPods-ParkingAdvisor.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C57C89200A64C46BD5F9F362 /* libPods-ParkingAdvisor.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		708D50511E9B502F00DB4ED9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 708D50341E9B502E00DB4ED9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 708D503B1E9B502E00DB4ED9;
+			remoteInfo = ParkingAdvisor;
+		};
+		708D505C1E9B502F00DB4ED9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 708D50341E9B502E00DB4ED9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 708D503B1E9B502E00DB4ED9;
+			remoteInfo = ParkingAdvisor;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1BAE6EC73489FCC20AC9F816 /* Pods-ParkingAdvisor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkingAdvisor.release.xcconfig"; path = "Pods/Target Support Files/Pods-ParkingAdvisor/Pods-ParkingAdvisor.release.xcconfig"; sourceTree = "<group>"; };
+		6C24AC545B5933788FF2F701 /* Pods-ParkingAdvisor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkingAdvisor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ParkingAdvisor/Pods-ParkingAdvisor.debug.xcconfig"; sourceTree = "<group>"; };
+		708D503C1E9B502E00DB4ED9 /* ParkingAdvisor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParkingAdvisor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		708D503F1E9B502E00DB4ED9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		708D50411E9B502E00DB4ED9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		708D50441E9B502E00DB4ED9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		708D50461E9B502E00DB4ED9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		708D50491E9B502E00DB4ED9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		708D504B1E9B502E00DB4ED9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		708D50501E9B502F00DB4ED9 /* ParkingAdvisorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParkingAdvisorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		708D50541E9B502F00DB4ED9 /* ParkingAdvisorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingAdvisorTests.swift; sourceTree = "<group>"; };
+		708D50561E9B502F00DB4ED9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		708D505B1E9B502F00DB4ED9 /* ParkingAdvisorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParkingAdvisorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		708D505F1E9B502F00DB4ED9 /* ParkingAdvisorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingAdvisorUITests.swift; sourceTree = "<group>"; };
+		708D50611E9B502F00DB4ED9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		708D506D1E9B529600DB4ED9 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		C57C89200A64C46BD5F9F362 /* libPods-ParkingAdvisor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ParkingAdvisor.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		708D50391E9B502E00DB4ED9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74D4410FF03F55A7434F1BD1 /* libPods-ParkingAdvisor.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		708D504D1E9B502F00DB4ED9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		708D50581E9B502F00DB4ED9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		067D7A8EE4D6FE88DCDC18C8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6C24AC545B5933788FF2F701 /* Pods-ParkingAdvisor.debug.xcconfig */,
+				1BAE6EC73489FCC20AC9F816 /* Pods-ParkingAdvisor.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		63A822A1A9103D4F1018F8A7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C57C89200A64C46BD5F9F362 /* libPods-ParkingAdvisor.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		708D50331E9B502E00DB4ED9 = {
+			isa = PBXGroup;
+			children = (
+				708D506D1E9B529600DB4ED9 /* Podfile */,
+				708D503E1E9B502E00DB4ED9 /* ParkingAdvisor */,
+				708D50531E9B502F00DB4ED9 /* ParkingAdvisorTests */,
+				708D505E1E9B502F00DB4ED9 /* ParkingAdvisorUITests */,
+				708D503D1E9B502E00DB4ED9 /* Products */,
+				067D7A8EE4D6FE88DCDC18C8 /* Pods */,
+				63A822A1A9103D4F1018F8A7 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		708D503D1E9B502E00DB4ED9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				708D503C1E9B502E00DB4ED9 /* ParkingAdvisor.app */,
+				708D50501E9B502F00DB4ED9 /* ParkingAdvisorTests.xctest */,
+				708D505B1E9B502F00DB4ED9 /* ParkingAdvisorUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		708D503E1E9B502E00DB4ED9 /* ParkingAdvisor */ = {
+			isa = PBXGroup;
+			children = (
+				708D503F1E9B502E00DB4ED9 /* AppDelegate.swift */,
+				708D50411E9B502E00DB4ED9 /* ViewController.swift */,
+				708D50431E9B502E00DB4ED9 /* Main.storyboard */,
+				708D50461E9B502E00DB4ED9 /* Assets.xcassets */,
+				708D50481E9B502E00DB4ED9 /* LaunchScreen.storyboard */,
+				708D504B1E9B502E00DB4ED9 /* Info.plist */,
+			);
+			path = ParkingAdvisor;
+			sourceTree = "<group>";
+		};
+		708D50531E9B502F00DB4ED9 /* ParkingAdvisorTests */ = {
+			isa = PBXGroup;
+			children = (
+				708D50541E9B502F00DB4ED9 /* ParkingAdvisorTests.swift */,
+				708D50561E9B502F00DB4ED9 /* Info.plist */,
+			);
+			path = ParkingAdvisorTests;
+			sourceTree = "<group>";
+		};
+		708D505E1E9B502F00DB4ED9 /* ParkingAdvisorUITests */ = {
+			isa = PBXGroup;
+			children = (
+				708D505F1E9B502F00DB4ED9 /* ParkingAdvisorUITests.swift */,
+				708D50611E9B502F00DB4ED9 /* Info.plist */,
+			);
+			path = ParkingAdvisorUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		708D503B1E9B502E00DB4ED9 /* ParkingAdvisor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 708D50641E9B502F00DB4ED9 /* Build configuration list for PBXNativeTarget "ParkingAdvisor" */;
+			buildPhases = (
+				0A7F686F486643FF0F6A1546 /* [CP] Check Pods Manifest.lock */,
+				708D50381E9B502E00DB4ED9 /* Sources */,
+				708D50391E9B502E00DB4ED9 /* Frameworks */,
+				708D503A1E9B502E00DB4ED9 /* Resources */,
+				BDECE3173806BB00AA291E42 /* [CP] Embed Pods Frameworks */,
+				734532EDE8A4C44F23F6847D /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ParkingAdvisor;
+			productName = ParkingAdvisor;
+			productReference = 708D503C1E9B502E00DB4ED9 /* ParkingAdvisor.app */;
+			productType = "com.apple.product-type.application";
+		};
+		708D504F1E9B502F00DB4ED9 /* ParkingAdvisorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 708D50671E9B502F00DB4ED9 /* Build configuration list for PBXNativeTarget "ParkingAdvisorTests" */;
+			buildPhases = (
+				708D504C1E9B502F00DB4ED9 /* Sources */,
+				708D504D1E9B502F00DB4ED9 /* Frameworks */,
+				708D504E1E9B502F00DB4ED9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				708D50521E9B502F00DB4ED9 /* PBXTargetDependency */,
+			);
+			name = ParkingAdvisorTests;
+			productName = ParkingAdvisorTests;
+			productReference = 708D50501E9B502F00DB4ED9 /* ParkingAdvisorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		708D505A1E9B502F00DB4ED9 /* ParkingAdvisorUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 708D506A1E9B502F00DB4ED9 /* Build configuration list for PBXNativeTarget "ParkingAdvisorUITests" */;
+			buildPhases = (
+				708D50571E9B502F00DB4ED9 /* Sources */,
+				708D50581E9B502F00DB4ED9 /* Frameworks */,
+				708D50591E9B502F00DB4ED9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				708D505D1E9B502F00DB4ED9 /* PBXTargetDependency */,
+			);
+			name = ParkingAdvisorUITests;
+			productName = ParkingAdvisorUITests;
+			productReference = 708D505B1E9B502F00DB4ED9 /* ParkingAdvisorUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		708D50341E9B502E00DB4ED9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = MCLAB;
+				TargetAttributes = {
+					708D503B1E9B502E00DB4ED9 = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = XW3GGB6ENP;
+						ProvisioningStyle = Automatic;
+					};
+					708D504F1E9B502F00DB4ED9 = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = XW3GGB6ENP;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 708D503B1E9B502E00DB4ED9;
+					};
+					708D505A1E9B502F00DB4ED9 = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = XW3GGB6ENP;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 708D503B1E9B502E00DB4ED9;
+					};
+				};
+			};
+			buildConfigurationList = 708D50371E9B502E00DB4ED9 /* Build configuration list for PBXProject "ParkingAdvisor" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 708D50331E9B502E00DB4ED9;
+			productRefGroup = 708D503D1E9B502E00DB4ED9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				708D503B1E9B502E00DB4ED9 /* ParkingAdvisor */,
+				708D504F1E9B502F00DB4ED9 /* ParkingAdvisorTests */,
+				708D505A1E9B502F00DB4ED9 /* ParkingAdvisorUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		708D503A1E9B502E00DB4ED9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				708D504A1E9B502E00DB4ED9 /* LaunchScreen.storyboard in Resources */,
+				708D50471E9B502E00DB4ED9 /* Assets.xcassets in Resources */,
+				708D506E1E9B529600DB4ED9 /* Podfile in Resources */,
+				708D50451E9B502E00DB4ED9 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		708D504E1E9B502F00DB4ED9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		708D50591E9B502F00DB4ED9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0A7F686F486643FF0F6A1546 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		734532EDE8A4C44F23F6847D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ParkingAdvisor/Pods-ParkingAdvisor-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BDECE3173806BB00AA291E42 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ParkingAdvisor/Pods-ParkingAdvisor-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		708D50381E9B502E00DB4ED9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				708D50421E9B502E00DB4ED9 /* ViewController.swift in Sources */,
+				708D50401E9B502E00DB4ED9 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		708D504C1E9B502F00DB4ED9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				708D50551E9B502F00DB4ED9 /* ParkingAdvisorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		708D50571E9B502F00DB4ED9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				708D50601E9B502F00DB4ED9 /* ParkingAdvisorUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		708D50521E9B502F00DB4ED9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 708D503B1E9B502E00DB4ED9 /* ParkingAdvisor */;
+			targetProxy = 708D50511E9B502F00DB4ED9 /* PBXContainerItemProxy */;
+		};
+		708D505D1E9B502F00DB4ED9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 708D503B1E9B502E00DB4ED9 /* ParkingAdvisor */;
+			targetProxy = 708D505C1E9B502F00DB4ED9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		708D50431E9B502E00DB4ED9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				708D50441E9B502E00DB4ED9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		708D50481E9B502E00DB4ED9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				708D50491E9B502E00DB4ED9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		708D50621E9B502F00DB4ED9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		708D50631E9B502F00DB4ED9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		708D50651E9B502F00DB4ED9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C24AC545B5933788FF2F701 /* Pods-ParkingAdvisor.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = XW3GGB6ENP;
+				INFOPLIST_FILE = ParkingAdvisor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = MCLAB.ParkingAdvisor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		708D50661E9B502F00DB4ED9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1BAE6EC73489FCC20AC9F816 /* Pods-ParkingAdvisor.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = XW3GGB6ENP;
+				INFOPLIST_FILE = ParkingAdvisor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = MCLAB.ParkingAdvisor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		708D50681E9B502F00DB4ED9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = XW3GGB6ENP;
+				INFOPLIST_FILE = ParkingAdvisorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = MCLAB.ParkingAdvisorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ParkingAdvisor.app/ParkingAdvisor";
+			};
+			name = Debug;
+		};
+		708D50691E9B502F00DB4ED9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = XW3GGB6ENP;
+				INFOPLIST_FILE = ParkingAdvisorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = MCLAB.ParkingAdvisorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ParkingAdvisor.app/ParkingAdvisor";
+			};
+			name = Release;
+		};
+		708D506B1E9B502F00DB4ED9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = XW3GGB6ENP;
+				INFOPLIST_FILE = ParkingAdvisorUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = MCLAB.ParkingAdvisorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = ParkingAdvisor;
+			};
+			name = Debug;
+		};
+		708D506C1E9B502F00DB4ED9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = XW3GGB6ENP;
+				INFOPLIST_FILE = ParkingAdvisorUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = MCLAB.ParkingAdvisorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = ParkingAdvisor;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		708D50371E9B502E00DB4ED9 /* Build configuration list for PBXProject "ParkingAdvisor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				708D50621E9B502F00DB4ED9 /* Debug */,
+				708D50631E9B502F00DB4ED9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		708D50641E9B502F00DB4ED9 /* Build configuration list for PBXNativeTarget "ParkingAdvisor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				708D50651E9B502F00DB4ED9 /* Debug */,
+				708D50661E9B502F00DB4ED9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		708D50671E9B502F00DB4ED9 /* Build configuration list for PBXNativeTarget "ParkingAdvisorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				708D50681E9B502F00DB4ED9 /* Debug */,
+				708D50691E9B502F00DB4ED9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		708D506A1E9B502F00DB4ED9 /* Build configuration list for PBXNativeTarget "ParkingAdvisorUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				708D506B1E9B502F00DB4ED9 /* Debug */,
+				708D506C1E9B502F00DB4ED9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 708D50341E9B502E00DB4ED9 /* Project object */;
+}

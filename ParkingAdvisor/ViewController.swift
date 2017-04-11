@@ -20,6 +20,9 @@ class ViewController: UIViewController {
         let mapView = GMSMapView.map(withFrame: .zero, camera: camera)
         
         let marker = GMSMarker()
+        
+        NSLog("123")
+        
         marker.position = camera.target
         marker.snippet = "Hello World"
         marker.appearAnimation = kGMSMarkerAnimationPop
