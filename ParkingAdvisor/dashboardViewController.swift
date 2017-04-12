@@ -17,7 +17,8 @@ class dashboardViewController: UIViewController {
     private var progress: UInt8 = 0
     private var animationProgress: UInt8 = 0
     
-    private var dangerousLevel = 0.8
+    // 為了讓Timer到達指定等級停止 , 需要是小數
+    private var dangerousLevel = 1.0
     
     @IBOutlet private weak var storyboardCircularProgress1: KYCircularProgress!
     @IBOutlet private weak var progressLabel: UILabel!
@@ -35,7 +36,7 @@ class dashboardViewController: UIViewController {
 //        configureStoryboardProgress2()
 //        configureStoryboardProgress3()
         
-        Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(dashboardViewController.updateProgress), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(dashboardViewController.updateProgress), userInfo: nil, repeats: true)
 //        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(dashboardViewController.updateAnimationProgress), userInfo: nil, repeats: true)
     }
     
@@ -43,9 +44,12 @@ class dashboardViewController: UIViewController {
         halfCircularProgress = KYCircularProgress(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height/2), showGuide: true)
         let center = CGPoint(x: view.frame.width / 2, y: view.frame.height / 4)
         halfCircularProgress.path = UIBezierPath(arcCenter: center, radius: CGFloat((halfCircularProgress.frame).width/3), startAngle: CGFloat(Double.pi), endAngle: CGFloat(0.0), clockwise: true)
-        halfCircularProgress.colors = [UIColor(rgba: 0xA6E39DAA), UIColor(rgba: 0xAEC1E3AA), UIColor(rgba: 0xAEC1E3AA), UIColor(rgba: 0xF3C0ABAA)]
+//        halfCircularProgress.colors = [UIColor(rgba: 0xA6E39DAA), UIColor(rgba: 0xAEC1E3AA), UIColor(rgba: 0xAEC1E3AA), UIColor(rgba: 0xF3C0ABAA)]
+        halfCircularProgress.colors = [UIColor(rgba: 0x02C874AA), UIColor(rgba: 0xAEC1E3AA), UIColor(rgba: 0xAEC1E3AA), UIColor(rgba: 0xFF2D2DAA)]
+
         halfCircularProgress.guideColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 0.4)
-        
+        halfCircularProgress.lineWidth = 10.0
+        halfCircularProgress.guideLineWidth = 15.0
         let labelWidth = CGFloat(80.0)
         let textLabel = UILabel(frame: CGRect(x: (view.frame.width - labelWidth) / 2, y: (view.frame.height - labelWidth) / 4, width: labelWidth, height: 32.0))
         textLabel.font = UIFont(name: "HelveticaNeue", size: 24)
@@ -116,7 +120,7 @@ class dashboardViewController: UIViewController {
     
     @objc private func updateProgress() {
         
-        if Double(progress) / Double(UInt8.max) <= dangerousLevel  {
+        if Double(progress) / Double(UInt8.max) < dangerousLevel  {
             progress = progress &+ 1
             let normalizedProgress = Double(progress) / Double(UInt8.max)
             halfCircularProgress.progress = normalizedProgress
