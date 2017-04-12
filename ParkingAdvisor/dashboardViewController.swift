@@ -12,13 +12,16 @@ import KYCircularProgress
 class dashboardViewController: UIViewController {
     
     private var halfCircularProgress: KYCircularProgress!
+    private var myCircleProgress: KYCircularProgress!
+    
+    
     private var fourColorCircularProgress: KYCircularProgress!
     private var starProgress: KYCircularProgress!
     private var progress: UInt8 = 0
     private var animationProgress: UInt8 = 0
     
     // 為了讓Timer到達指定等級停止 , 需要是小數
-    private var dangerousLevel = 1.0
+    private var dangerousLevel = 1.1
     
     @IBOutlet private weak var storyboardCircularProgress1: KYCircularProgress!
     @IBOutlet private weak var progressLabel: UILabel!
@@ -30,6 +33,7 @@ class dashboardViewController: UIViewController {
         super.viewDidLoad()
         
         configureHalfCircularProgress()
+        configureMyCircleProgress()
 //        configureFourColorCircularProgress()
 //        configureStarProgress()
 //        configureStoryboardProgress1()
@@ -41,15 +45,15 @@ class dashboardViewController: UIViewController {
     }
     
     private func configureHalfCircularProgress() {
-        halfCircularProgress = KYCircularProgress(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height/2), showGuide: true)
+        halfCircularProgress = KYCircularProgress(frame: CGRect(x: 0, y: 90, width: view.frame.width, height: view.frame.height/2), showGuide: true)
         let center = CGPoint(x: view.frame.width / 2, y: view.frame.height / 4)
         halfCircularProgress.path = UIBezierPath(arcCenter: center, radius: CGFloat((halfCircularProgress.frame).width/3), startAngle: CGFloat(Double.pi), endAngle: CGFloat(0.0), clockwise: true)
 //        halfCircularProgress.colors = [UIColor(rgba: 0xA6E39DAA), UIColor(rgba: 0xAEC1E3AA), UIColor(rgba: 0xAEC1E3AA), UIColor(rgba: 0xF3C0ABAA)]
         halfCircularProgress.colors = [UIColor(rgba: 0x02C874AA), UIColor(rgba: 0xAEC1E3AA), UIColor(rgba: 0xAEC1E3AA), UIColor(rgba: 0xFF2D2DAA)]
 
         halfCircularProgress.guideColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 0.4)
-        halfCircularProgress.lineWidth = 10.0
-        halfCircularProgress.guideLineWidth = 15.0
+        halfCircularProgress.lineWidth = 15.0
+        halfCircularProgress.guideLineWidth = 20.0
         let labelWidth = CGFloat(80.0)
         let textLabel = UILabel(frame: CGRect(x: (view.frame.width - labelWidth) / 2, y: (view.frame.height - labelWidth) / 4, width: labelWidth, height: 32.0))
         textLabel.font = UIFont(name: "HelveticaNeue", size: 24)
@@ -66,7 +70,32 @@ class dashboardViewController: UIViewController {
         
         view.addSubview(halfCircularProgress)
     }
-    
+    private func configureMyCircleProgress(){
+        
+        //fourColorCircularProgress = KYCircularProgress(frame: CGRect(x: 20.0, y: halfCircularProgress.frame.height/1.75, width: view.frame.width/3, height: view.frame.height/3))
+        myCircleProgress = KYCircularProgress(frame: CGRect(x: 0, y: 300, width: view.frame.width, height: view.frame.height/2), showGuide: true)
+        let center = CGPoint(x: view.frame.width / 2, y: view.frame.height / 4)
+        myCircleProgress.path = UIBezierPath(arcCenter: center, radius: CGFloat((halfCircularProgress.frame).width/3), startAngle: CGFloat(Double.pi)*1.5, endAngle: CGFloat(Double.pi)*3.5, clockwise: true)
+
+        myCircleProgress.colors = [UIColor(rgba: 0x28FF28AA), UIColor(rgba: 0x0080FFAA), UIColor(rgba: 0xFF77FFAA), UIColor(rgba: 0xFF5151AA)]
+
+        let labelWidth = CGFloat(80.0)
+        let textLabel = UILabel(frame: CGRect(x: (view.frame.width - labelWidth) / 2, y: view.frame.height / 4, width: labelWidth, height: 32.0))
+        textLabel.font = UIFont(name: "HelveticaNeue", size: 24)
+        textLabel.textAlignment = .center
+        textLabel.textColor = .green
+        textLabel.alpha = 0.3
+        myCircleProgress.addSubview(textLabel)
+        
+        myCircleProgress.progressChanged {
+            (progress: Double, circularProgress: KYCircularProgress) in
+            print("progress: \(progress)")
+            textLabel.text = "\(Int(progress * 100.0))%"
+        }
+        view.addSubview(myCircleProgress)
+
+    }
+
 //    private func configureFourColorCircularProgress() {
 //        fourColorCircularProgress = KYCircularProgress(frame: CGRect(x: 20.0, y: halfCircularProgress.frame.height/1.75, width: view.frame.width/3, height: view.frame.height/3))
 //        fourColorCircularProgress.colors = [UIColor(rgba: 0xA6E39D11), UIColor(rgba: 0xAEC1E355), UIColor(rgba: 0xAEC1E3AA), UIColor(rgba: 0xF3C0ABFF)]
@@ -124,17 +153,19 @@ class dashboardViewController: UIViewController {
             progress = progress &+ 1
             let normalizedProgress = Double(progress) / Double(UInt8.max)
             halfCircularProgress.progress = normalizedProgress
-        
+            myCircleProgress.progress = normalizedProgress
+
         }
 
-        
-        
         
 //        fourColorCircularProgress.progress = normalizedProgress
 //        starProgress.progress = normalizedProgress
 //        storyboardCircularProgress1.progress = normalizedProgress
+        
+
     }
     
+
 //    @objc private func updateAnimationProgress() {
 //        animationProgress = animationProgress &+ 50
 //        let normalizedProgress = Double(animationProgress) / Double(UInt8.max)
@@ -142,9 +173,11 @@ class dashboardViewController: UIViewController {
 //        storyboardCircularProgress2.set(progress: normalizedProgress, duration: 0.75)
 //        storyboardCircularProgress3.set(progress: normalizedProgress, duration: 0.25)
 //    }
+
 }
+
 //
-//extension ViewController: KYCircularProgressDelegate {
+//extension dashboardViewController: KYCircularProgressDelegate {
 //    func progressChanged(progress: Double, circularProgress: KYCircularProgress) {
 //        if circularProgress == storyboardCircularProgress2 {
 //            progressLabel2.text = "\(Int(progress * 100.0))%"
