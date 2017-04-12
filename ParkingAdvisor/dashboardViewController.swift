@@ -16,6 +16,9 @@ class dashboardViewController: UIViewController {
     private var starProgress: KYCircularProgress!
     private var progress: UInt8 = 0
     private var animationProgress: UInt8 = 0
+    
+    private var dangerousLevel = 0.8
+    
     @IBOutlet private weak var storyboardCircularProgress1: KYCircularProgress!
     @IBOutlet private weak var progressLabel: UILabel!
     @IBOutlet fileprivate weak var storyboardCircularProgress2: KYCircularProgress!
@@ -26,14 +29,14 @@ class dashboardViewController: UIViewController {
         super.viewDidLoad()
         
         configureHalfCircularProgress()
-        configureFourColorCircularProgress()
-        configureStarProgress()
+//        configureFourColorCircularProgress()
+//        configureStarProgress()
 //        configureStoryboardProgress1()
 //        configureStoryboardProgress2()
 //        configureStoryboardProgress3()
         
-        Timer.scheduledTimer(timeInterval: 0.03, target: self, selector: #selector(dashboardViewController.updateProgress), userInfo: nil, repeats: true)
-        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(dashboardViewController.updateAnimationProgress), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(dashboardViewController.updateProgress), userInfo: nil, repeats: true)
+//        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(dashboardViewController.updateAnimationProgress), userInfo: nil, repeats: true)
     }
     
     private func configureHalfCircularProgress() {
@@ -60,30 +63,30 @@ class dashboardViewController: UIViewController {
         view.addSubview(halfCircularProgress)
     }
     
-    private func configureFourColorCircularProgress() {
-        fourColorCircularProgress = KYCircularProgress(frame: CGRect(x: 20.0, y: halfCircularProgress.frame.height/1.75, width: view.frame.width/3, height: view.frame.height/3))
-        fourColorCircularProgress.colors = [UIColor(rgba: 0xA6E39D11), UIColor(rgba: 0xAEC1E355), UIColor(rgba: 0xAEC1E3AA), UIColor(rgba: 0xF3C0ABFF)]
-        
-        view.addSubview(fourColorCircularProgress)
-    }
-    
-    private func configureStarProgress() {
-        starProgress = KYCircularProgress(frame: CGRect(x: view.frame.width - 150.0, y: halfCircularProgress.frame.height/1.5, width: view.frame.width/3, height: view.frame.height/3))
-        
-        starProgress.colors = [.purple, UIColor(rgba: 0xFFF77A55), .orange]
-        starProgress.lineWidth = 3.0
-        
-        let path = UIBezierPath()
-        path.move(to: CGPoint(x: 50.0, y: 2.0))
-        path.addLine(to: CGPoint(x: 84.0, y: 86.0))
-        path.addLine(to: CGPoint(x: 6.0, y: 33.0))
-        path.addLine(to: CGPoint(x: 96.0, y: 33.0))
-        path.addLine(to: CGPoint(x: 17.0, y: 86.0))
-        path.close()
-        starProgress.path = path
-        
-        view.addSubview(starProgress)
-    }
+//    private func configureFourColorCircularProgress() {
+//        fourColorCircularProgress = KYCircularProgress(frame: CGRect(x: 20.0, y: halfCircularProgress.frame.height/1.75, width: view.frame.width/3, height: view.frame.height/3))
+//        fourColorCircularProgress.colors = [UIColor(rgba: 0xA6E39D11), UIColor(rgba: 0xAEC1E355), UIColor(rgba: 0xAEC1E3AA), UIColor(rgba: 0xF3C0ABFF)]
+//        
+//        view.addSubview(fourColorCircularProgress)
+//    }
+//    
+//    private func configureStarProgress() {
+//        starProgress = KYCircularProgress(frame: CGRect(x: view.frame.width - 150.0, y: halfCircularProgress.frame.height/1.5, width: view.frame.width/3, height: view.frame.height/3))
+//        
+//        starProgress.colors = [.purple, UIColor(rgba: 0xFFF77A55), .orange]
+//        starProgress.lineWidth = 3.0
+//        
+//        let path = UIBezierPath()
+//        path.move(to: CGPoint(x: 50.0, y: 2.0))
+//        path.addLine(to: CGPoint(x: 84.0, y: 86.0))
+//        path.addLine(to: CGPoint(x: 6.0, y: 33.0))
+//        path.addLine(to: CGPoint(x: 96.0, y: 33.0))
+//        path.addLine(to: CGPoint(x: 17.0, y: 86.0))
+//        path.close()
+//        starProgress.path = path
+//        
+//        view.addSubview(starProgress)
+//    }
     
 //    private func configureStoryboardProgress1() {
 //        storyboardCircularProgress1.progressChanged {
@@ -112,22 +115,29 @@ class dashboardViewController: UIViewController {
 //    }
     
     @objc private func updateProgress() {
-        progress = progress &+ 1
-        let normalizedProgress = Double(progress) / Double(UInt8.max)
         
-        halfCircularProgress.progress = normalizedProgress
-        fourColorCircularProgress.progress = normalizedProgress
-        starProgress.progress = normalizedProgress
+        if Double(progress) / Double(UInt8.max) <= dangerousLevel  {
+            progress = progress &+ 1
+            let normalizedProgress = Double(progress) / Double(UInt8.max)
+            halfCircularProgress.progress = normalizedProgress
+        
+        }
+
+        
+        
+        
+//        fourColorCircularProgress.progress = normalizedProgress
+//        starProgress.progress = normalizedProgress
 //        storyboardCircularProgress1.progress = normalizedProgress
     }
     
-    @objc private func updateAnimationProgress() {
-        animationProgress = animationProgress &+ 50
-        let normalizedProgress = Double(animationProgress) / Double(UInt8.max)
-        
+//    @objc private func updateAnimationProgress() {
+//        animationProgress = animationProgress &+ 50
+//        let normalizedProgress = Double(animationProgress) / Double(UInt8.max)
+//        
 //        storyboardCircularProgress2.set(progress: normalizedProgress, duration: 0.75)
 //        storyboardCircularProgress3.set(progress: normalizedProgress, duration: 0.25)
-    }
+//    }
 }
 //
 //extension ViewController: KYCircularProgressDelegate {
