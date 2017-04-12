@@ -16,6 +16,7 @@
 		708D50601E9B502F00DB4ED9 /* ParkingAdvisorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708D505F1E9B502F00DB4ED9 /* ParkingAdvisorUITests.swift */; };
 		708D506E1E9B529600DB4ED9 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 708D506D1E9B529600DB4ED9 /* Podfile */; };
 		70CE34171E9C9DCF00595C55 /* KYCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CE34161E9C9DCF00595C55 /* KYCircularProgress.swift */; };
+		70CE341F1E9CA63200595C55 /* dashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CE341E1E9CA63200595C55 /* dashboardViewController.swift */; };
 		C63AF44FAB73C5F295208BF5 /* Pods_ParkingAdvisor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE202D790BFCB9DC884D5090 /* Pods_ParkingAdvisor.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		708D50611E9B502F00DB4ED9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		708D506D1E9B529600DB4ED9 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		70CE34161E9C9DCF00595C55 /* KYCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYCircularProgress.swift; sourceTree = "<group>"; };
+		70CE341E1E9CA63200595C55 /* dashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dashboardViewController.swift; sourceTree = "<group>"; };
 		BE202D790BFCB9DC884D5090 /* Pods_ParkingAdvisor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParkingAdvisor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -129,6 +131,7 @@
 				70CE34161E9C9DCF00595C55 /* KYCircularProgress.swift */,
 				708D503F1E9B502E00DB4ED9 /* AppDelegate.swift */,
 				708D50411E9B502E00DB4ED9 /* ViewController.swift */,
+				70CE341E1E9CA63200595C55 /* dashboardViewController.swift */,
 				708D50431E9B502E00DB4ED9 /* Main.storyboard */,
 				708D50461E9B502E00DB4ED9 /* Assets.xcassets */,
 				708D50481E9B502E00DB4ED9 /* LaunchScreen.storyboard */,
@@ -347,6 +350,7 @@
 				70CE34171E9C9DCF00595C55 /* KYCircularProgress.swift in Sources */,
 				708D50421E9B502E00DB4ED9 /* ViewController.swift in Sources */,
 				708D50401E9B502E00DB4ED9 /* AppDelegate.swift in Sources */,
+				70CE341F1E9CA63200595C55 /* dashboardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,6 +507,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = XW3GGB6ENP;
 				INFOPLIST_FILE = ParkingAdvisor/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MCLAB.ParkingAdvisor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -517,6 +522,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = XW3GGB6ENP;
 				INFOPLIST_FILE = ParkingAdvisor/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MCLAB.ParkingAdvisor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
