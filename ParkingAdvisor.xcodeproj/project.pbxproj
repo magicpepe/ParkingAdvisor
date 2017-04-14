@@ -18,6 +18,8 @@
 		70CE34171E9C9DCF00595C55 /* KYCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CE34161E9C9DCF00595C55 /* KYCircularProgress.swift */; };
 		70CE341F1E9CA63200595C55 /* dashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CE341E1E9CA63200595C55 /* dashboardViewController.swift */; };
 		70CE34211EA0B6B000595C55 /* picts in Resources */ = {isa = PBXBuildFile; fileRef = 70CE34201EA0B6AF00595C55 /* picts */; };
+		70CE34231EA0BD0700595C55 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CE34221EA0BD0700595C55 /* MenuViewController.swift */; };
+		70CE34251EA0C4BB00595C55 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CE34241EA0C4BB00595C55 /* BaseViewController.swift */; };
 		C63AF44FAB73C5F295208BF5 /* Pods_ParkingAdvisor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE202D790BFCB9DC884D5090 /* Pods_ParkingAdvisor.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +60,8 @@
 		70CE34161E9C9DCF00595C55 /* KYCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYCircularProgress.swift; sourceTree = "<group>"; };
 		70CE341E1E9CA63200595C55 /* dashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dashboardViewController.swift; sourceTree = "<group>"; };
 		70CE34201EA0B6AF00595C55 /* picts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = picts; sourceTree = "<group>"; };
+		70CE34221EA0BD0700595C55 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		70CE34241EA0C4BB00595C55 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseViewController.swift; path = ../BaseViewController.swift; sourceTree = "<group>"; };
 		BE202D790BFCB9DC884D5090 /* Pods_ParkingAdvisor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParkingAdvisor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -131,10 +135,12 @@
 		708D503E1E9B502E00DB4ED9 /* ParkingAdvisor */ = {
 			isa = PBXGroup;
 			children = (
+				70CE34241EA0C4BB00595C55 /* BaseViewController.swift */,
 				70CE34161E9C9DCF00595C55 /* KYCircularProgress.swift */,
 				708D503F1E9B502E00DB4ED9 /* AppDelegate.swift */,
 				708D50411E9B502E00DB4ED9 /* ViewController.swift */,
 				70CE341E1E9CA63200595C55 /* dashboardViewController.swift */,
+				70CE34221EA0BD0700595C55 /* MenuViewController.swift */,
 				708D50431E9B502E00DB4ED9 /* Main.storyboard */,
 				708D50461E9B502E00DB4ED9 /* Assets.xcassets */,
 				708D50481E9B502E00DB4ED9 /* LaunchScreen.storyboard */,
@@ -352,9 +358,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				70CE34171E9C9DCF00595C55 /* KYCircularProgress.swift in Sources */,
+				70CE34231EA0BD0700595C55 /* MenuViewController.swift in Sources */,
 				708D50421E9B502E00DB4ED9 /* ViewController.swift in Sources */,
 				708D50401E9B502E00DB4ED9 /* AppDelegate.swift in Sources */,
 				70CE341F1E9CA63200595C55 /* dashboardViewController.swift in Sources */,
+				70CE34251EA0C4BB00595C55 /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

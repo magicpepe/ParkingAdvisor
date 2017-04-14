@@ -9,7 +9,7 @@
 import UIKit
 import GoogleMaps
 
-class ViewController: UIViewController {
+class ViewController: BaseViewController {
     
     @IBOutlet weak var btn_next: UIButton!
 
@@ -39,14 +39,8 @@ class ViewController: UIViewController {
         view.bringSubview(toFront: btn_next)
         // Do any additional setup after loading the view, typically from a nib.
         
-//        let myButton = UIButton(
-//            title:"Next",
-//            style:.plain,
-//            target:self,
-//            action:#selector(ViewController.btn_goDashboard)
-//        )
-//        self.navigationItem.rightBarButtonItem = rightButton
-
+        addSlideMenuButton()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -65,5 +59,7 @@ class ViewController: UIViewController {
 //            dashboardViewController(), animated: true)
 //
 //    }
-}
+    
+    
+    }
 
