@@ -16,31 +16,32 @@ class dashboardViewController: UIViewController {
     
     
     private var fourColorCircularProgress: KYCircularProgress!
-    private var starProgress: KYCircularProgress!
     private var progress: UInt8 = 0
     private var animationProgress: UInt8 = 0
     
     // 為了讓Timer到達指定等級停止 , 需要是小數
     private var dangerousLevel = 1.1
     
-    @IBOutlet private weak var storyboardCircularProgress1: KYCircularProgress!
-    @IBOutlet private weak var progressLabel: UILabel!
-    @IBOutlet fileprivate weak var storyboardCircularProgress2: KYCircularProgress!
-    @IBOutlet fileprivate weak var progressLabel2: UILabel!
-    @IBOutlet private weak var storyboardCircularProgress3: KYCircularProgress!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        self.title = "危險指數"
+//        let myButton = UIButton(frame: CGRect(
+//            x: 100, y: 250, width: 120, height: 40))
+//        myButton.setTitle("Back", for: .normal)
+//        myButton.backgroundColor = UIColor.blue
+//        myButton.addTarget(
+//            self,
+//            action: #selector(dashboardViewController.btn_goBack),
+//            for: .touchUpInside)
+//        self.view.addSubview(myButton)
+
+        
         configureHalfCircularProgress()
         configureMyCircleProgress()
-//        configureFourColorCircularProgress()
-//        configureStarProgress()
-//        configureStoryboardProgress1()
-//        configureStoryboardProgress2()
-//        configureStoryboardProgress3()
         
-        Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(dashboardViewController.updateProgress), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 0.015, target: self, selector: #selector(dashboardViewController.updateProgress), userInfo: nil, repeats: true)
 //        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(dashboardViewController.updateAnimationProgress), userInfo: nil, repeats: true)
     }
     
@@ -96,56 +97,6 @@ class dashboardViewController: UIViewController {
 
     }
 
-//    private func configureFourColorCircularProgress() {
-//        fourColorCircularProgress = KYCircularProgress(frame: CGRect(x: 20.0, y: halfCircularProgress.frame.height/1.75, width: view.frame.width/3, height: view.frame.height/3))
-//        fourColorCircularProgress.colors = [UIColor(rgba: 0xA6E39D11), UIColor(rgba: 0xAEC1E355), UIColor(rgba: 0xAEC1E3AA), UIColor(rgba: 0xF3C0ABFF)]
-//        
-//        view.addSubview(fourColorCircularProgress)
-//    }
-//    
-//    private func configureStarProgress() {
-//        starProgress = KYCircularProgress(frame: CGRect(x: view.frame.width - 150.0, y: halfCircularProgress.frame.height/1.5, width: view.frame.width/3, height: view.frame.height/3))
-//        
-//        starProgress.colors = [.purple, UIColor(rgba: 0xFFF77A55), .orange]
-//        starProgress.lineWidth = 3.0
-//        
-//        let path = UIBezierPath()
-//        path.move(to: CGPoint(x: 50.0, y: 2.0))
-//        path.addLine(to: CGPoint(x: 84.0, y: 86.0))
-//        path.addLine(to: CGPoint(x: 6.0, y: 33.0))
-//        path.addLine(to: CGPoint(x: 96.0, y: 33.0))
-//        path.addLine(to: CGPoint(x: 17.0, y: 86.0))
-//        path.close()
-//        starProgress.path = path
-//        
-//        view.addSubview(starProgress)
-//    }
-    
-//    private func configureStoryboardProgress1() {
-//        storyboardCircularProgress1.progressChanged {
-//            (progress: Double, circularProgress: KYCircularProgress) in
-//            self.progressLabel.text = String.init(format: "%.2f", progress * 100.0) + "%"
-//        }
-//    }
-    
-//    private func configureStoryboardProgress2() {
-//        storyboardCircularProgress2.delegate = self
-//    }
-//    
-//    private func configureStoryboardProgress3() {
-//        storyboardCircularProgress3.delegate = self
-//        
-//        let path = UIBezierPath()
-//        path.move(to: CGPoint(x: 50.0, y: 2.0))
-//        path.addLine(to: CGPoint(x: 84.0, y: 86.0))
-//        path.addLine(to: CGPoint(x: 6.0, y: 33.0))
-//        path.addLine(to: CGPoint(x: 96.0, y: 33.0))
-//        path.addLine(to: CGPoint(x: 17.0, y: 86.0))
-//        path.close()
-//        storyboardCircularProgress3.path = path
-//        
-//        storyboardCircularProgress3.colors = [.white, .groupTableViewBackground, .gray, .darkGray]
-//    }
     
     @objc private func updateProgress() {
         
@@ -158,9 +109,6 @@ class dashboardViewController: UIViewController {
         }
 
         
-//        fourColorCircularProgress.progress = normalizedProgress
-//        starProgress.progress = normalizedProgress
-//        storyboardCircularProgress1.progress = normalizedProgress
         
 
     }
@@ -174,6 +122,12 @@ class dashboardViewController: UIViewController {
 //        storyboardCircularProgress3.set(progress: normalizedProgress, duration: 0.25)
 //    }
 
+    
+    
+        // MARK: - Button
+//    func btn_goBack() {
+//        self.navigationController?.popViewController(animated: true)
+//    }
 }
 
 //

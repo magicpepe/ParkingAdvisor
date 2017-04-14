@@ -17,6 +17,7 @@
 		708D506E1E9B529600DB4ED9 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 708D506D1E9B529600DB4ED9 /* Podfile */; };
 		70CE34171E9C9DCF00595C55 /* KYCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CE34161E9C9DCF00595C55 /* KYCircularProgress.swift */; };
 		70CE341F1E9CA63200595C55 /* dashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CE341E1E9CA63200595C55 /* dashboardViewController.swift */; };
+		70CE34211EA0B6B000595C55 /* picts in Resources */ = {isa = PBXBuildFile; fileRef = 70CE34201EA0B6AF00595C55 /* picts */; };
 		C63AF44FAB73C5F295208BF5 /* Pods_ParkingAdvisor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE202D790BFCB9DC884D5090 /* Pods_ParkingAdvisor.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		708D506D1E9B529600DB4ED9 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		70CE34161E9C9DCF00595C55 /* KYCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYCircularProgress.swift; sourceTree = "<group>"; };
 		70CE341E1E9CA63200595C55 /* dashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dashboardViewController.swift; sourceTree = "<group>"; };
+		70CE34201EA0B6AF00595C55 /* picts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = picts; sourceTree = "<group>"; };
 		BE202D790BFCB9DC884D5090 /* Pods_ParkingAdvisor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParkingAdvisor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -105,6 +107,7 @@
 		708D50331E9B502E00DB4ED9 = {
 			isa = PBXGroup;
 			children = (
+				70CE34201EA0B6AF00595C55 /* picts */,
 				708D506D1E9B529600DB4ED9 /* Podfile */,
 				708D503E1E9B502E00DB4ED9 /* ParkingAdvisor */,
 				708D50531E9B502F00DB4ED9 /* ParkingAdvisorTests */,
@@ -271,6 +274,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70CE34211EA0B6B000595C55 /* picts in Resources */,
 				708D504A1E9B502E00DB4ED9 /* LaunchScreen.storyboard in Resources */,
 				708D50471E9B502E00DB4ED9 /* Assets.xcassets in Resources */,
 				708D506E1E9B529600DB4ED9 /* Podfile in Resources */,
