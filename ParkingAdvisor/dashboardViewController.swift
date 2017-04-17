@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import KYCircularProgress
-
 class dashboardViewController: UIViewController {
     
     private var halfCircularProgress: KYCircularProgress!
