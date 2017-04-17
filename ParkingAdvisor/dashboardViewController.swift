@@ -16,12 +16,19 @@ class dashboardViewController: UIViewController {
     private var fourColorCircularProgress: KYCircularProgress!
     private var progress: UInt8 = 0
     private var animationProgress: UInt8 = 0
+    private var animationTimer = Timer()
     
     // 為了讓Timer到達指定等級停止 , 需要是小數
-    private var dangerousLevel = 1.1
+    private var dangerousLevel = 0.93
     
+    //button
     private var isStart : Bool = false
     @IBOutlet weak var btn_pict_start: UIButton!
+   
+    //Timer for stop time count
+    @IBOutlet weak var Lbl_timer: UILabel!
+    var stopTimer = Timer()
+    var time_count = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,8 +48,13 @@ class dashboardViewController: UIViewController {
 //        configureHalfCircularProgress()
         configureMyCircleProgress()
         
-        Timer.scheduledTimer(timeInterval: 0.015, target: self, selector: #selector(dashboardViewController.updateProgress), userInfo: nil, repeats: true)
+        animationTimer = Timer.scheduledTimer(timeInterval: 0.015, target: self, selector: #selector(dashboardViewController.updateProgress), userInfo: nil, repeats: true)
 //        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(dashboardViewController.updateAnimationProgress), userInfo: nil, repeats: true)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        animationTimer.invalidate()
     }
     
     private func configureHalfCircularProgress() {
@@ -107,10 +119,6 @@ class dashboardViewController: UIViewController {
             myCircleProgress.progress = normalizedProgress
 
         }
-
-        
-        
-
     }
     
 
@@ -131,12 +139,23 @@ class dashboardViewController: UIViewController {
     @IBAction func btn_StartStop(_ sender: Any) {
         if isStart{
             btn_pict_start.setImage(UIImage(named:"START"), for: .normal)
+            stopTimer.invalidate()
+            time_count = 0
+            Lbl_timer.text = "00 : 00 : 00"
+            
             isStart = false
         }else{
             btn_pict_start.setImage(UIImage(named:"STOP"), for: .normal)
+            stopTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(dashboardViewController.updateTime), userInfo: nil, repeats: true)
             isStart = true
 
         }
+    }
+    
+    //MARK: - Timer stop count
+    func updateTime(){
+        time_count+=1
+        Lbl_timer.text = "\(time_count/3600) : \(time_count/60%60) : \(time_count%60)"
     }
 }
 

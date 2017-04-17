@@ -116,16 +116,6 @@ class DashboardViewController2: UIViewController {
     }
     
     
-    //    @objc private func updateAnimationProgress() {
-    //        animationProgress = animationProgress &+ 50
-    //        let normalizedProgress = Double(animationProgress) / Double(UInt8.max)
-    //
-    //        storyboardCircularProgress2.set(progress: normalizedProgress, duration: 0.75)
-    //        storyboardCircularProgress3.set(progress: normalizedProgress, duration: 0.25)
-    //    }
-    
-    
-    
     // MARK: - Button
     //    func btn_goBack() {
     //        self.navigationController?.popViewController(animated: true)
