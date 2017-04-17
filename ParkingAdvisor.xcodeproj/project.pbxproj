@@ -9,10 +9,12 @@
 /* Begin PBXBuildFile section */
 		283651C31EA1332F00A014E1 /* KYCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283651C21EA1332F00A014E1 /* KYCircularProgress.swift */; };
 		283651C51EA13EDA00A014E1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 283651C41EA13EDA00A014E1 /* CoreLocation.framework */; };
+		701E4D3F1EA485D800CAC177 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701E4D3E1EA485D800CAC177 /* HistoryViewController.swift */; };
+		701E4D411EA4AA5800CAC177 /* DashboardViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701E4D401EA4AA5800CAC177 /* DashboardViewController2.swift */; };
+		701E4D431EA4B68D00CAC177 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 701E4D421EA4B68D00CAC177 /* Assets.xcassets */; };
 		708D50401E9B502E00DB4ED9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708D503F1E9B502E00DB4ED9 /* AppDelegate.swift */; };
 		708D50421E9B502E00DB4ED9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708D50411E9B502E00DB4ED9 /* ViewController.swift */; };
 		708D50451E9B502E00DB4ED9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 708D50431E9B502E00DB4ED9 /* Main.storyboard */; };
-		708D50471E9B502E00DB4ED9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 708D50461E9B502E00DB4ED9 /* Assets.xcassets */; };
 		708D504A1E9B502E00DB4ED9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 708D50481E9B502E00DB4ED9 /* LaunchScreen.storyboard */; };
 		708D50551E9B502F00DB4ED9 /* ParkingAdvisorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708D50541E9B502F00DB4ED9 /* ParkingAdvisorTests.swift */; };
 		708D50601E9B502F00DB4ED9 /* ParkingAdvisorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708D505F1E9B502F00DB4ED9 /* ParkingAdvisorUITests.swift */; };
@@ -46,11 +48,13 @@
 		283651C21EA1332F00A014E1 /* KYCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KYCircularProgress.swift; path = ../Pods/KYCircularProgress/Source/KYCircularProgress.swift; sourceTree = "<group>"; };
 		283651C41EA13EDA00A014E1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		6C24AC545B5933788FF2F701 /* Pods-ParkingAdvisor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkingAdvisor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ParkingAdvisor/Pods-ParkingAdvisor.debug.xcconfig"; sourceTree = "<group>"; };
+		701E4D3E1EA485D800CAC177 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryViewController.swift; path = ../HistoryViewController.swift; sourceTree = "<group>"; };
+		701E4D401EA4AA5800CAC177 /* DashboardViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController2.swift; sourceTree = "<group>"; };
+		701E4D421EA4B68D00CAC177 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		708D503C1E9B502E00DB4ED9 /* ParkingAdvisor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParkingAdvisor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		708D503F1E9B502E00DB4ED9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		708D50411E9B502E00DB4ED9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		708D50441E9B502E00DB4ED9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		708D50461E9B502E00DB4ED9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		708D50491E9B502E00DB4ED9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		708D504B1E9B502E00DB4ED9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		708D50501E9B502F00DB4ED9 /* ParkingAdvisorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParkingAdvisorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,14 +143,16 @@
 		708D503E1E9B502E00DB4ED9 /* ParkingAdvisor */ = {
 			isa = PBXGroup;
 			children = (
+				701E4D3E1EA485D800CAC177 /* HistoryViewController.swift */,
 				283651C21EA1332F00A014E1 /* KYCircularProgress.swift */,
 				70CE34241EA0C4BB00595C55 /* BaseViewController.swift */,
 				708D503F1E9B502E00DB4ED9 /* AppDelegate.swift */,
 				708D50411E9B502E00DB4ED9 /* ViewController.swift */,
 				70CE341E1E9CA63200595C55 /* dashboardViewController.swift */,
+				701E4D401EA4AA5800CAC177 /* DashboardViewController2.swift */,
 				70CE34221EA0BD0700595C55 /* MenuViewController.swift */,
 				708D50431E9B502E00DB4ED9 /* Main.storyboard */,
-				708D50461E9B502E00DB4ED9 /* Assets.xcassets */,
+				701E4D421EA4B68D00CAC177 /* Assets.xcassets */,
 				708D50481E9B502E00DB4ED9 /* LaunchScreen.storyboard */,
 				708D504B1E9B502E00DB4ED9 /* Info.plist */,
 			);
@@ -286,9 +292,9 @@
 			files = (
 				70CE34211EA0B6B000595C55 /* picts in Resources */,
 				708D504A1E9B502E00DB4ED9 /* LaunchScreen.storyboard in Resources */,
-				708D50471E9B502E00DB4ED9 /* Assets.xcassets in Resources */,
 				708D506E1E9B529600DB4ED9 /* Podfile in Resources */,
 				708D50451E9B502E00DB4ED9 /* Main.storyboard in Resources */,
+				701E4D431EA4B68D00CAC177 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,9 +369,11 @@
 			files = (
 				70CE34231EA0BD0700595C55 /* MenuViewController.swift in Sources */,
 				708D50421E9B502E00DB4ED9 /* ViewController.swift in Sources */,
+				701E4D411EA4AA5800CAC177 /* DashboardViewController2.swift in Sources */,
 				708D50401E9B502E00DB4ED9 /* AppDelegate.swift in Sources */,
 				283651C31EA1332F00A014E1 /* KYCircularProgress.swift in Sources */,
 				70CE341F1E9CA63200595C55 /* dashboardViewController.swift in Sources */,
+				701E4D3F1EA485D800CAC177 /* HistoryViewController.swift in Sources */,
 				70CE34251EA0C4BB00595C55 /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

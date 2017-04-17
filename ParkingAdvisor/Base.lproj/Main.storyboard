@@ -24,6 +24,62 @@
             </objects>
             <point key="canvasLocation" x="-164" y="50"/>
         </scene>
+        <!--History View Controller-->
+        <scene sceneID="eEs-2X-Ul5">
+            <objects>
+                <viewController restorationIdentifier="History" storyboardIdentifier="History" id="QpH-pn-nXW" customClass="HistoryViewController" customModule="ParkingAdvisor" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kjC-kO-d3z"/>
+                        <viewControllerLayoutGuide type="bottom" id="er2-Uf-V9L"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="m4S-hv-KhY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="46" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DiQ-Vy-7pb">
+                                <rect key="frame" x="0.0" y="60" width="375" height="607"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6CC-b3-swT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="620" y="788.45577211394311"/>
+        </scene>
+        <!--Dashboard View Controller2-->
+        <scene sceneID="n2i-ji-ByW">
+            <objects>
+                <viewController restorationIdentifier="Dashboard2" storyboardIdentifier="Dashboard2" id="eHN-Wt-v26" customClass="DashboardViewController2" customModule="ParkingAdvisor" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PQR-Wa-Kpb"/>
+                        <viewControllerLayoutGuide type="bottom" id="GYM-TE-9xh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Edc-2p-AdQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pnk-IE-8Qn">
+                                <rect key="frame" x="137" y="467" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="START"/>
+                                <connections>
+                                    <action selector="btn_StopStart:" destination="eHN-Wt-v26" eventType="touchUpInside" id="aOe-hZ-GGg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="btn_pict_start" destination="Pnk-IE-8Qn" id="MTA-fS-sy0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XPb-51-eUC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1501.5999999999999" y="456.52173913043481"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -68,13 +124,26 @@
                     <view key="view" contentMode="scaleToFill" id="Ioe-dR-QcU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VZd-aB-g2G">
+                                <rect key="frame" x="137" y="473" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="START"/>
+                                <connections>
+                                    <action selector="btn_StartStop:" destination="8hC-Zc-hEE" eventType="touchUpInside" id="Jrq-C5-1kh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="EuL-u2-btg"/>
+                    <connections>
+                        <outlet property="btn_pict_start" destination="VZd-aB-g2G" id="BOq-zg-r2J"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mba-VG-IV5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1473" y="50"/>
+            <point key="canvasLocation" x="1493.5999999999999" y="-246.02698650674665"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="QeN-Nd-Y8q">
@@ -107,7 +176,7 @@
                                         <rect key="frame" x="0.0" y="22" width="315" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ArJ-7q-YSg" id="7Lo-qd-KfB">
-                                            <rect key="frame" x="0.0" y="0.0" width="315" height="53.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="315" height="54"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tBT-nX-A9E">
@@ -165,6 +234,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="START" width="109" height="109"/>
         <image name="Stop-button" width="1274" height="1056"/>
     </resources>
 </document>

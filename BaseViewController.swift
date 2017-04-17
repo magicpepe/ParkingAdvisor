@@ -37,6 +37,20 @@ class BaseViewController: UIViewController , SlideMenuDelegate {
             self.openViewControllerBasedOnIdentifier("Dashboard")
             
             break
+        case 2:
+            print("Play\n", terminator: "")
+            
+            self.openViewControllerBasedOnIdentifier("Dashboard2")
+            
+            break
+
+        case 3:
+            print("Play\n", terminator: "")
+            
+            self.openViewControllerBasedOnIdentifier("History")
+            
+            break
+
         default:
             print("default\n", terminator: "")
         }
