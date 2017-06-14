@@ -1,20 +1,23 @@
 PODS:
-  - GoogleMaps (2.1.0):
-    - GoogleMaps/Maps (= 2.1.0)
-  - GoogleMaps/Base (2.1.0)
-  - GoogleMaps/Maps (2.1.0):
-    - GoogleMaps/Base (= 2.1.0)
-  - GooglePlaces (2.1.0):
-    - GoogleMaps/Base (= 2.1.0)
+  - GoogleMaps (2.2.0):
+    - GoogleMaps/Maps (= 2.2.0)
+  - GoogleMaps/Base (2.2.0)
+  - GoogleMaps/Maps (2.2.0):
+    - GoogleMaps/Base
+  - GooglePlaces (2.2.0):
+    - GoogleMaps/Base (= 2.2.0)
+  - KYCircularProgress (1.0.0)
 
 DEPENDENCIES:
   - GoogleMaps
   - GooglePlaces
+  - KYCircularProgress
 
 SPEC CHECKSUMS:
-  GoogleMaps: 06589b9a38097bce0cd6e90f0fd9b5e4b4a9344c
-  GooglePlaces: 16e96266483b8010e9f275399403647978523c86
+  GoogleMaps: 104c418d61ab8a05dff06ed0784c25ea9d37da45
+  GooglePlaces: bca867d5e9da15384c794b945e4226848bc6e9d9
+  KYCircularProgress: e83d5346247c917182b451c6357fd96b3c3d71b6
 
-PODFILE CHECKSUM: 7e525061ddee7ce85758afe52e6ce7625ffaf2e1
+PODFILE CHECKSUM: 84e2a23fbb80445baeeac3bdd28ffb109ed0a778
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.2.1
