@@ -9,7 +9,7 @@ INPUT:
 	user's location
 OUTPUT:
 	JSON格式
-	green/yellow/red point 的位置，以總共不超過20個為限制
+	green/yellow/red point 的位置，以總共不超過10個為限制
 EXAMPLE:
 	input:
 		127.0.0.1/api_1?lat=23.56789&lon=120.213456
