@@ -16,10 +16,19 @@ class dashboardViewController: UIViewController {
     private var fourColorCircularProgress: KYCircularProgress!
     private var progress: UInt8 = 0
     private var animationProgress: UInt8 = 0
+    private var animationTimer = Timer()
     
     // 為了讓Timer到達指定等級停止 , 需要是小數
-    private var dangerousLevel = 1.1
+    private var dangerousLevel = 0.93
     
+    //button
+    private var isStart : Bool = false
+    @IBOutlet weak var btn_pict_start: UIButton!
+   
+    //Timer for stop time count
+    @IBOutlet weak var Lbl_timer: UILabel!
+    var stopTimer = Timer()
+    var time_count = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,11 +45,16 @@ class dashboardViewController: UIViewController {
 //        self.view.addSubview(myButton)
 
         
-        configureHalfCircularProgress()
+//        configureHalfCircularProgress()
         configureMyCircleProgress()
         
-        Timer.scheduledTimer(timeInterval: 0.015, target: self, selector: #selector(dashboardViewController.updateProgress), userInfo: nil, repeats: true)
+        animationTimer = Timer.scheduledTimer(timeInterval: 0.015, target: self, selector: #selector(dashboardViewController.updateProgress), userInfo: nil, repeats: true)
 //        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(dashboardViewController.updateAnimationProgress), userInfo: nil, repeats: true)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        animationTimer.invalidate()
     }
     
     private func configureHalfCircularProgress() {
@@ -72,9 +86,9 @@ class dashboardViewController: UIViewController {
     private func configureMyCircleProgress(){
         
         //fourColorCircularProgress = KYCircularProgress(frame: CGRect(x: 20.0, y: halfCircularProgress.frame.height/1.75, width: view.frame.width/3, height: view.frame.height/3))
-        myCircleProgress = KYCircularProgress(frame: CGRect(x: 0, y: 300, width: view.frame.width, height: view.frame.height/2), showGuide: true)
+        myCircleProgress = KYCircularProgress(frame: CGRect(x: 0, y: 90, width: view.frame.width, height: view.frame.height/2), showGuide: true)
         let center = CGPoint(x: view.frame.width / 2, y: view.frame.height / 4)
-        myCircleProgress.path = UIBezierPath(arcCenter: center, radius: CGFloat((halfCircularProgress.frame).width/3), startAngle: CGFloat(Double.pi)*1.5, endAngle: CGFloat(Double.pi)*3.5, clockwise: true)
+        myCircleProgress.path = UIBezierPath(arcCenter: center, radius: CGFloat(view.frame.width/3), startAngle: CGFloat(Double.pi)*1.5, endAngle: CGFloat(Double.pi)*3.5, clockwise: true)
 
         myCircleProgress.colors = [UIColor(rgba: 0x28FF28AA), UIColor(rgba: 0x0080FFAA), UIColor(rgba: 0xFF77FFAA), UIColor(rgba: 0xFF5151AA)]
 
@@ -101,14 +115,10 @@ class dashboardViewController: UIViewController {
         if Double(progress) / Double(UInt8.max) < dangerousLevel  {
             progress = progress &+ 1
             let normalizedProgress = Double(progress) / Double(UInt8.max)
-            halfCircularProgress.progress = normalizedProgress
+//            halfCircularProgress.progress = normalizedProgress
             myCircleProgress.progress = normalizedProgress
 
         }
-
-        
-        
-
     }
     
 
@@ -126,6 +136,27 @@ class dashboardViewController: UIViewController {
 //    func btn_goBack() {
 //        self.navigationController?.popViewController(animated: true)
 //    }
+    @IBAction func btn_StartStop(_ sender: Any) {
+        if isStart{
+            btn_pict_start.setImage(UIImage(named:"START"), for: .normal)
+            stopTimer.invalidate()
+            time_count = 0
+            Lbl_timer.text = "00 : 00 : 00"
+            
+            isStart = false
+        }else{
+            btn_pict_start.setImage(UIImage(named:"STOP"), for: .normal)
+            stopTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(dashboardViewController.updateTime), userInfo: nil, repeats: true)
+            isStart = true
+
+        }
+    }
+    
+    //MARK: - Timer stop count
+    func updateTime(){
+        time_count+=1
+        Lbl_timer.text = "\(time_count/3600) : \(time_count/60%60) : \(time_count%60)"
+    }
 }
 
 //

@@ -27,7 +27,7 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "MyMap"
+        navigationItem.title = "暫停一下"
         
         locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
