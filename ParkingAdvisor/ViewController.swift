@@ -150,44 +150,25 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate{
         
         if let dataFromString = data.data(using: .utf8 , allowLossyConversion: false){
             let json = JSON(data:dataFromString)
-//            print("data parsing from string :\(json)")
-//            let ss = json[0]["red"]
-//            print("number of green : \(ss)")
             let Garray = json[0]["green"]["location"].arrayValue
             let Yarray = json[0]["yellow"]["location"].arrayValue
             let Rarray = json[0]["red"]["location"].arrayValue
             
-            showPointAtMap(green: Garray as NSArray, yellow: Yarray as NSArray , red: Rarray as NSArray)
+            showPointAtMap(arrayToShow: Garray as NSArray,color : "green")
+            showPointAtMap(arrayToShow: Yarray as NSArray,color : "yellow")
+            showPointAtMap(arrayToShow: Rarray as NSArray,color : "red")
+
         }
     }
     
-    func showPointAtMap(green:NSArray , yellow:NSArray , red:NSArray  ){
-        // dirty code ....
-        for i in (0..<green.count) where i % 2 == 0 {
-            let position = CLLocationCoordinate2D(latitude: Double(String(describing: green[i+1]))! , longitude: Double(String(describing: green[i]))! )
+    func showPointAtMap(arrayToShow :NSArray ,color :String){
+        for i in (0..<arrayToShow.count) where i % 2 == 0 {
+            let position = CLLocationCoordinate2D(latitude: Double(String(describing: arrayToShow[i+1]))! , longitude: Double(String(describing: arrayToShow[i]))! )
             let point = GMSMarker(position: position)
-            point.title = "kk"
-            point.icon = UIImage(named: "map_point_green")
+            point.title = color
+            point.icon = UIImage(named: "map_point_"+color)
             point.map = self.mapView
-            print("\(point)")
-            
-        }
-        for i in (0..<yellow.count) where i % 2 == 0 {
-            let position = CLLocationCoordinate2D(latitude: Double(String(describing: yellow[i+1]))! , longitude: Double(String(describing: yellow[i]))! )
-            let point = GMSMarker(position: position)
-            point.title = "kk"
-            point.icon = UIImage(named: "map_point_yellow")
-            point.map = self.mapView
-            print("\(point)")
-            
-        }
-        for i in (0..<red.count) where i % 2 == 0 {
-            let position = CLLocationCoordinate2D(latitude: Double(String(describing: red[i+1]))! , longitude: Double(String(describing: red[i]))! )
-            let point = GMSMarker(position: position)
-            point.title = "kk"
-            point.icon = UIImage(named: "map_point_red")
-            point.map = self.mapView
-            print("\(point)")
+//            print("\(point)")
             
         }
         
