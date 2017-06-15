@@ -1,23 +1,26 @@
 PODS:
-  - GoogleMaps (2.2.0):
-    - GoogleMaps/Maps (= 2.2.0)
-  - GoogleMaps/Base (2.2.0)
-  - GoogleMaps/Maps (2.2.0):
+  - GoogleMaps (2.3.0):
+    - GoogleMaps/Maps (= 2.3.0)
+  - GoogleMaps/Base (2.3.0)
+  - GoogleMaps/Maps (2.3.0):
     - GoogleMaps/Base
-  - GooglePlaces (2.2.0):
-    - GoogleMaps/Base (= 2.2.0)
-  - KYCircularProgress (1.0.0)
+  - GooglePlaces (2.3.0):
+    - GoogleMaps/Base (= 2.3.0)
+  - KYCircularProgress (1.0.1)
+  - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
   - GoogleMaps
   - GooglePlaces
   - KYCircularProgress
+  - SwiftyJSON
 
 SPEC CHECKSUMS:
-  GoogleMaps: 104c418d61ab8a05dff06ed0784c25ea9d37da45
-  GooglePlaces: bca867d5e9da15384c794b945e4226848bc6e9d9
-  KYCircularProgress: e83d5346247c917182b451c6357fd96b3c3d71b6
+  GoogleMaps: 340a6a0bebd17c2db8abcd3921976c7c53c86cb8
+  GooglePlaces: 74d322c74184ea4576184089b496d291cf0dcd38
+  KYCircularProgress: b782af0a68dd2032a4a523e722ec8d571c285cf2
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 84e2a23fbb80445baeeac3bdd28ffb109ed0a778
+PODFILE CHECKSUM: 63ea37028d5633e7f947d18aa81ff4560f42035f
 
 COCOAPODS: 1.2.1

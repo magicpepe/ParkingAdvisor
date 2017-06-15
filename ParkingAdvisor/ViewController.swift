@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMaps
+import SwiftyJSON
 
 class ViewController: BaseViewController ,CLLocationManagerDelegate{
     
@@ -57,7 +58,7 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate{
         // Do any additional setup after loading the view, typically from a nib.
         
         addSlideMenuButton()
-        
+        getPointFromAPI(location: locationManager.location!.coordinate)
     }
 
     override func didReceiveMemoryWarning() {
@@ -78,7 +79,7 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate{
         
         let camera = GMSCameraPosition.camera(withLatitude: (locationManager.location?.coordinate.latitude)!,
                                               longitude: (locationManager.location?.coordinate.longitude)!,
-                                              zoom: 14)
+                                              zoom: 18)
         
         
         //        let camera = GMSCameraPosition.camera(withLatitude: locValue.latitude,
@@ -107,6 +108,60 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate{
         if !isMapInit{
             initMap(location: locValue)
         }
+    }
+    
+    
+    
+    
+    // MARK: - MAP POINT
+    
+    func getPointFromAPI(location:CLLocationCoordinate2D){
+//        let json = JSON(jsonObject)
+        let data : String = "[" +
+            "{" +
+            "\"green\": {" +
+                "\"number\": 3," +
+                "\"location\": [" +
+                "\"123.123,24.123\"," +
+                "\"122.122,21.111\"," +
+                "\"123.111,79.1234\"" +
+                "]" +
+            "}," +
+            "\"yellow\": {" +
+                "\"number\": 1," +
+                "\"location\": [" +
+                "\"123.111,79.1234\"" +
+                "]" +
+            "}," +
+            "\"red\": {" +
+                "\"number\": 4," +
+                "\"location\": [" +
+                "\"123.123,24.123\"," +
+                "\"122.122,21.111\"," +
+                "\"123.111,79.1234\"," +
+                "\"122.122,21.111\"" +
+                "]" +
+            "}" +
+        "}" +
+        "]"
+//        print("origin data :\(data)")
+        
+        if let dataFromString = data.data(using: .utf8 , allowLossyConversion: false){
+            let json = JSON(data:dataFromString)
+//            print("data parsing from string :\(json)")
+//            let ss = json[0]["red"]
+//            print("number of green : \(ss)")
+            let Garray = json[0]["green"]["location"].arrayValue
+            let Yarray = json[0]["yellow"]["location"].arrayValue
+            let Rarray = json[0]["red"]["location"].arrayValue
+            
+            showPointAtMap(green: Garray as NSArray, yellow: Yarray as NSArray , red: Rarray as NSArray)
+        }
+    }
+    
+    func showPointAtMap(green:NSArray , yellow:NSArray , red:NSArray ){
+//        print("green:\n\(green)")
+        
     }
    
     
