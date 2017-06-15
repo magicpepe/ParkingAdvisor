@@ -16,8 +16,10 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate{
 
     let locationManager = CLLocationManager()
     var isMapInit : Bool = false
+    var mapView:GMSMapView!
+    
     override func loadView() {
-
+        
         super.loadView()
         
         
@@ -58,7 +60,11 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate{
         // Do any additional setup after loading the view, typically from a nib.
         
         addSlideMenuButton()
-        getPointFromAPI(location: locationManager.location!.coordinate)
+        
+//        getPointFromAPI(location: locationManager.location!.coordinate)
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -71,6 +77,8 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate{
     @IBAction func btn_goNext(_ sender: UIButton) {
         performSegue(withIdentifier:"goDashBoard" , sender:nil)
     }
+    
+    // MARK: - MAP Init
 
     func initMap(location:CLLocationCoordinate2D) {
         
@@ -79,15 +87,10 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate{
         
         let camera = GMSCameraPosition.camera(withLatitude: (locationManager.location?.coordinate.latitude)!,
                                               longitude: (locationManager.location?.coordinate.longitude)!,
-                                              zoom: 18)
+                                              zoom: 17)
         
         
-        //        let camera = GMSCameraPosition.camera(withLatitude: locValue.latitude,
-        //                                              longitude: locValue.longitude,
-        //                                              zoom: 14)
-        
-        //        let mapView = GMSMapView.map(withFrame: CGRect(x:0 ,y:90 , width:view.frame.width,height : view.frame.height/2), camera: camera)
-        let mapView = GMSMapView.map(withFrame: CGRect(x:0 ,y:0 , width:view.frame.width,height : view.frame.height), camera: camera)
+        self.mapView = GMSMapView.map(withFrame: CGRect(x:0 ,y:0 , width:view.frame.width,height : view.frame.height), camera: camera)
         mapView.settings.myLocationButton = true
         let marker = GMSMarker()
         
@@ -96,21 +99,22 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate{
         //        marker.appearAnimation = GMSMarkerAnimationPop
         marker.map = mapView
         
-        //        view = mapView
-        //        ui_mapView.view=mapView
-        view.addSubview(mapView)
+
+//        view.addSubview(mapView)
+        view = mapView
         view.bringSubview(toFront: btn_next)
         isMapInit = true
     }
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let locValue:CLLocationCoordinate2D = manager.location!.coordinate
         print("locations = \(locValue.latitude) \(locValue.longitude)")
         if !isMapInit{
             initMap(location: locValue)
+            getPointFromAPI(location: locationManager.location!.coordinate)
+
         }
     }
-    
-    
     
     
     // MARK: - MAP POINT
@@ -122,48 +126,54 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate{
             "\"green\": {" +
                 "\"number\": 3," +
                 "\"location\": [" +
-                "\"123.123,24.123\"," +
-                "\"122.122,21.111\"," +
-                "\"123.111,79.1234\"" +
+                "\"120.644490\",\"24.178780\"," +
+                "\"120.645097\",\"24.178535\"," +
+                "\"120.645456\",\"24.178824\"" +
                 "]" +
             "}," +
             "\"yellow\": {" +
                 "\"number\": 1," +
                 "\"location\": [" +
-                "\"123.111,79.1234\"" +
+                "\"120.645102\",\"24.179225\"" +
                 "]" +
             "}," +
             "\"red\": {" +
-                "\"number\": 4," +
+                "\"number\": 2," +
                 "\"location\": [" +
-                "\"123.123,24.123\"," +
-                "\"122.122,21.111\"," +
-                "\"123.111,79.1234\"," +
-                "\"122.122,21.111\"" +
+                "\"120.645102\",\"24.179225\"," +
+                "\"120.644920\",\"24.178804\"" +
                 "]" +
             "}" +
         "}" +
         "]"
-//        print("origin data :\(data)")
+        print("origin data :\(data)")
         
         if let dataFromString = data.data(using: .utf8 , allowLossyConversion: false){
             let json = JSON(data:dataFromString)
-//            print("data parsing from string :\(json)")
-//            let ss = json[0]["red"]
-//            print("number of green : \(ss)")
             let Garray = json[0]["green"]["location"].arrayValue
             let Yarray = json[0]["yellow"]["location"].arrayValue
             let Rarray = json[0]["red"]["location"].arrayValue
             
-            showPointAtMap(green: Garray as NSArray, yellow: Yarray as NSArray , red: Rarray as NSArray)
+            showPointAtMap(arrayToShow: Garray as NSArray,color : "green")
+            showPointAtMap(arrayToShow: Yarray as NSArray,color : "yellow")
+            showPointAtMap(arrayToShow: Rarray as NSArray,color : "red")
+
         }
     }
     
-    func showPointAtMap(green:NSArray , yellow:NSArray , red:NSArray ){
-//        print("green:\n\(green)")
+    func showPointAtMap(arrayToShow :NSArray ,color :String){
+        for i in (0..<arrayToShow.count) where i % 2 == 0 {
+            let position = CLLocationCoordinate2D(latitude: Double(String(describing: arrayToShow[i+1]))! , longitude: Double(String(describing: arrayToShow[i]))! )
+            let point = GMSMarker(position: position)
+            point.title = color
+            point.icon = UIImage(named: "map_point_"+color)
+            point.map = self.mapView
+//            print("\(point)")
+            
+        }
+        
         
     }
    
-    
 }
 

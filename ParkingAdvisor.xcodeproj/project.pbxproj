@@ -25,6 +25,8 @@
 		70CE34251EA0C4BB00595C55 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CE34241EA0C4BB00595C55 /* BaseViewController.swift */; };
 		B100B7721EC41545008175AA /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100B7711EC41545008175AA /* TestViewController.swift */; };
 		B118D7091EF2770500DB64B7 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B118D7081EF2770500DB64B7 /* SwiftyJSON.swift */; };
+		B118D7131EF2B3E200DB64B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708D50411E9B502E00DB4ED9 /* ViewController.swift */; };
+		B118D71C1EF2B3E300DB64B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708D50411E9B502E00DB4ED9 /* ViewController.swift */; };
 		C63AF44FAB73C5F295208BF5 /* Pods_ParkingAdvisor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE202D790BFCB9DC884D5090 /* Pods_ParkingAdvisor.framework */; };
 /* End PBXBuildFile section */
 
@@ -513,6 +515,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B118D7131EF2B3E200DB64B7 /* ViewController.swift in Sources */,
 				708D50551E9B502F00DB4ED9 /* ParkingAdvisorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -521,6 +524,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B118D71C1EF2B3E300DB64B7 /* ViewController.swift in Sources */,
 				708D50601E9B502F00DB4ED9 /* ParkingAdvisorUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
