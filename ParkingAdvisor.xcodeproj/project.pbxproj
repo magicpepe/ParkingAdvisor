@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2817CD651F01365B002DDEB7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2817CD641F01365B002DDEB7 /* DetailViewController.swift */; };
 		283651C31EA1332F00A014E1 /* KYCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283651C21EA1332F00A014E1 /* KYCircularProgress.swift */; };
 		283651C51EA13EDA00A014E1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 283651C41EA13EDA00A014E1 /* CoreLocation.framework */; };
 		701E4D3F1EA485D800CAC177 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701E4D3E1EA485D800CAC177 /* HistoryViewController.swift */; };
@@ -98,6 +99,7 @@
 
 /* Begin PBXFileReference section */
 		1BAE6EC73489FCC20AC9F816 /* Pods-ParkingAdvisor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkingAdvisor.release.xcconfig"; path = "Pods/Target Support Files/Pods-ParkingAdvisor/Pods-ParkingAdvisor.release.xcconfig"; sourceTree = "<group>"; };
+		2817CD641F01365B002DDEB7 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		283651C21EA1332F00A014E1 /* KYCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KYCircularProgress.swift; path = ../Pods/KYCircularProgress/Source/KYCircularProgress.swift; sourceTree = "<group>"; };
 		283651C41EA13EDA00A014E1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		6C24AC545B5933788FF2F701 /* Pods-ParkingAdvisor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkingAdvisor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ParkingAdvisor/Pods-ParkingAdvisor.debug.xcconfig"; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				701E4D3E1EA485D800CAC177 /* HistoryViewController.swift */,
 				283651C21EA1332F00A014E1 /* KYCircularProgress.swift */,
 				70CE34241EA0C4BB00595C55 /* BaseViewController.swift */,
+				2817CD641F01365B002DDEB7 /* DetailViewController.swift */,
 				708D503F1E9B502E00DB4ED9 /* AppDelegate.swift */,
 				708D50411E9B502E00DB4ED9 /* ViewController.swift */,
 				70CE341E1E9CA63200595C55 /* dashboardViewController.swift */,
@@ -498,6 +501,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2817CD651F01365B002DDEB7 /* DetailViewController.swift in Sources */,
 				70CE34231EA0BD0700595C55 /* MenuViewController.swift in Sources */,
 				708D50421E9B502E00DB4ED9 /* ViewController.swift in Sources */,
 				701E4D411EA4AA5800CAC177 /* DashboardViewController2.swift in Sources */,

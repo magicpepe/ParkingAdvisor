@@ -10,13 +10,18 @@ import UIKit
 import GoogleMaps
 import SwiftyJSON
 
-class ViewController: BaseViewController ,CLLocationManagerDelegate{
+class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetailVCProtocol, GMSMapViewDelegate{
     
-    @IBOutlet weak var btn_next: UIButton!
+//    @IBOutlet weak var btn_next: UIButton!
 
+    var detailVCisOn : Bool = false
+    var DetailVC : DetailViewController! = nil
+    
     let locationManager = CLLocationManager()
     var isMapInit : Bool = false
     var mapView:GMSMapView!
+    
+    
     
     override func loadView() {
         
@@ -91,6 +96,7 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate{
         
         
         self.mapView = GMSMapView.map(withFrame: CGRect(x:0 ,y:0 , width:view.frame.width,height : view.frame.height), camera: camera)
+        mapView.delegate = self
         mapView.settings.myLocationButton = true
         let marker = GMSMarker()
         
@@ -102,7 +108,7 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate{
 
 //        view.addSubview(mapView)
         view = mapView
-        view.bringSubview(toFront: btn_next)
+//        view.bringSubview(toFront: btn_next)
         isMapInit = true
     }
     
@@ -169,12 +175,74 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate{
             point.title = color
             point.icon = UIImage(named: "map_point_"+color)
             point.map = self.mapView
-//            print("\(point)")
+
+            //            print("\(point)")
             
         }
         
         
     }
-   
+    // MARK: - MAP Delegate
+    
+    func mapView(_ mapView : GMSMapView, didTapMarker marker: GMSMarker){
+        
+        NSLog("marker did tap")
+        
+        if(detailVCisOn == true){
+            self.updateVC()
+            return
+        }
+        self.showVC()
+        
+        
+    }
+
+    
+    // MARK: - DetailView Controll
+    
+    func closeVC() {
+        
+        NSLog("closeVC")
+        
+        if(detailVCisOn == true){
+            let viewBack : UIView = view.subviews.last!
+
+            UIView.animate(withDuration: 0.3, animations: { () -> Void in
+                //        self.willMove(toParentViewController: nil)
+                var frameMenu : CGRect = viewBack.frame
+                frameMenu.origin.y = 2 * UIScreen.main.bounds.size.height
+                viewBack.frame = frameMenu
+
+                viewBack.layoutIfNeeded()
+                viewBack.backgroundColor = UIColor.clear
+                //        self.removeFromParentViewController()
+            }, completion: { (finished) -> Void in
+                viewBack.removeFromSuperview()
+            })
+            detailVCisOn = false
+            DetailVC = nil
+        }
+        
+    }
+    
+    func showVC(){
+        
+        
+        let DetailVC : DetailViewController = storyboard!.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        DetailVC.delegate = self
+        
+        self.view.addSubview(DetailVC.view)
+        self.addChildViewController(DetailVC)
+//        DetailVC.view.layoutIfNeeded()
+
+        DetailVC.view.frame = CGRect(x: 0, y: 400, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height/2)
+        
+        detailVCisOn = true
+
+    }
+    
+    func updateVC(){
+        return
+    }
 }
 
