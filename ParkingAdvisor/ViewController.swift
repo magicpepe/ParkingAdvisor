@@ -138,10 +138,9 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
                 "]" +
             "}," +
             "\"yellow\": {" +
-                "\"number\": 2," +
+                "\"number\": 1," +
                 "\"location\": [" +
-                "\"120.644335\",\"24.179941\"," +
-                "\"120.645135\",\"24.177714\"" +
+                "\"120.645102\",\"24.179225\"" +
                 "]" +
             "}," +
             "\"red\": {" +

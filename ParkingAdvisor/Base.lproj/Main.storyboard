@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xHf-Ah-QAs">
-<<<<<<< HEAD
-    <device id="retina5_5" orientation="portrait">
-=======
     <device id="retina4_7" orientation="portrait">
->>>>>>> Develop
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -205,12 +201,9 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="gia-7e-8p9"/>
-<<<<<<< HEAD
-=======
                     <connections>
                         <segue destination="8hC-Zc-hEE" kind="show" identifier="goDashBoard" id="8zU-mV-lRC"/>
                     </connections>
->>>>>>> Develop
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -337,11 +330,7 @@
                                         <rect key="frame" x="0.0" y="22" width="315" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ArJ-7q-YSg" id="7Lo-qd-KfB">
-<<<<<<< HEAD
-                                            <rect key="frame" x="0.0" y="0.0" width="354" height="53.666666666666664"/>
-=======
                                             <rect key="frame" x="0.0" y="0.0" width="315" height="53.5"/>
->>>>>>> Develop
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tBT-nX-A9E">
