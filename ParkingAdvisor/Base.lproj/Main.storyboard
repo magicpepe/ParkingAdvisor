@@ -185,7 +185,47 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XPb-51-eUC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1501.171875" y="456.36896046852121"/>
+            <point key="canvasLocation" x="2502" y="-851"/>
+        </scene>
+        <!--Monitor View Controller-->
+        <scene sceneID="KLb-Dv-sEI">
+            <objects>
+                <viewController id="feq-gZ-jWM" customClass="MonitorViewController" customModule="ParkingAdvisor" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KzG-Tm-SC8"/>
+                        <viewControllerLayoutGuide type="bottom" id="L6v-05-yAJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Dt7-Ml-Yqw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rvE-p6-TzP">
+                                <rect key="frame" x="140" y="475" width="94" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="START"/>
+                                <connections>
+                                    <action selector="btn_StopStart:" destination="feq-gZ-jWM" eventType="touchUpInside" id="1zb-CI-zJ3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="djX-cY-APi">
+                                <rect key="frame" x="258" y="485" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="show"/>
+                                <connections>
+                                    <action selector="btn_ShowDescribe:" destination="feq-gZ-jWM" eventType="touchUpInside" id="sDF-TZ-ASy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="b0S-xC-nLa"/>
+                    <connections>
+                        <outlet property="btn_start" destination="rvE-p6-TzP" id="8e2-g7-cdF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="knc-xL-EME" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1500" y="49.925037481259373"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -200,10 +240,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="gia-7e-8p9"/>
-                    <connections>
-                        <segue destination="8hC-Zc-hEE" kind="show" identifier="goDashBoard" id="8zU-mV-lRC"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="gia-7e-8p9">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="P4b-iA-673">
+                            <connections>
+                                <segue destination="feq-gZ-jWM" kind="show" id="hpp-gb-3rG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -274,18 +317,18 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="HZ9-2F-yVY"/>
                                 <exclude reference="Op9-yg-Z0Z"/>
                                 <exclude reference="ZM0-gV-VsY"/>
                                 <exclude reference="dCK-NZ-6ic"/>
-                                <exclude reference="HZ9-2F-yVY"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
                             <mask key="constraints">
+                                <include reference="HZ9-2F-yVY"/>
                                 <include reference="Op9-yg-Z0Z"/>
                                 <include reference="ZM0-gV-VsY"/>
                                 <include reference="dCK-NZ-6ic"/>
-                                <include reference="HZ9-2F-yVY"/>
                             </mask>
                         </variation>
                     </view>
@@ -297,7 +340,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mba-VG-IV5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1493.5999999999999" y="-246.02698650674665"/>
+            <point key="canvasLocation" x="1500" y="-851"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="QeN-Nd-Y8q">
