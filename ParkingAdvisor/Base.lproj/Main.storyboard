@@ -13,7 +13,7 @@
         <scene sceneID="TF6-dA-Us7">
             <objects>
                 <navigationController hidesBarsOnSwipe="YES" id="xHf-Ah-QAs" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rY1-JZ-rzO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="rY1-JZ-rzO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -187,10 +187,10 @@
             </objects>
             <point key="canvasLocation" x="2502" y="-851"/>
         </scene>
-        <!--Report View Controller-->
+        <!--Monitor View Controller-->
         <scene sceneID="KLb-Dv-sEI">
             <objects>
-                <viewController id="feq-gZ-jWM" customClass="ReportViewController" customModule="ParkingAdvisor" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="feq-gZ-jWM" customClass="MonitorViewController" customModule="ParkingAdvisor" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KzG-Tm-SC8"/>
                         <viewControllerLayoutGuide type="bottom" id="L6v-05-yAJ"/>
@@ -198,13 +198,34 @@
                     <view key="view" contentMode="scaleToFill" id="Dt7-Ml-Yqw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rvE-p6-TzP">
+                                <rect key="frame" x="140" y="475" width="94" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="START"/>
+                                <connections>
+                                    <action selector="btn_StopStart:" destination="feq-gZ-jWM" eventType="touchUpInside" id="1zb-CI-zJ3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="djX-cY-APi">
+                                <rect key="frame" x="258" y="485" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="show"/>
+                                <connections>
+                                    <action selector="btn_ShowDescribe:" destination="feq-gZ-jWM" eventType="touchUpInside" id="sDF-TZ-ASy"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="b0S-xC-nLa"/>
+                    <connections>
+                        <outlet property="btn_start" destination="rvE-p6-TzP" id="8e2-g7-cdF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="knc-xL-EME" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1500" y="50"/>
+            <point key="canvasLocation" x="1500" y="49.925037481259373"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
