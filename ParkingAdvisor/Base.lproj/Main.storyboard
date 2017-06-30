@@ -68,7 +68,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZRH-DX-fKf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1500" y="1235.5322338830586"/>
+            <point key="canvasLocation" x="1684" y="1543"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="sF1-Bb-zyo">
@@ -138,12 +138,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hhb-FE-6dL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2317.5999999999999" y="1235.5322338830586"/>
+            <point key="canvasLocation" x="2502" y="1543"/>
         </scene>
-        <!--Item-->
+        <!--DashboardViewController2-->
         <scene sceneID="n2i-ji-ByW">
             <objects>
-                <viewController restorationIdentifier="Dashboard2" storyboardIdentifier="Dashboard2" id="eHN-Wt-v26" customClass="DashboardViewController2" customModule="ParkingAdvisor" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="Dashboard2" storyboardIdentifier="Dashboard2" id="eHN-Wt-v26" userLabel="DashboardViewController2" customClass="DashboardViewController2" customModule="ParkingAdvisor" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PQR-Wa-Kpb"/>
                         <viewControllerLayoutGuide type="bottom" id="GYM-TE-9xh"/>
@@ -172,10 +172,10 @@
             </objects>
             <point key="canvasLocation" x="2502" y="-787"/>
         </scene>
-        <!--Item-->
+        <!--MonitorViewController-->
         <scene sceneID="KLb-Dv-sEI">
             <objects>
-                <viewController id="feq-gZ-jWM" customClass="MonitorViewController" customModule="ParkingAdvisor" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="feq-gZ-jWM" userLabel="MonitorViewController" customClass="MonitorViewController" customModule="ParkingAdvisor" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KzG-Tm-SC8"/>
                         <viewControllerLayoutGuide type="bottom" id="L6v-05-yAJ"/>
@@ -200,6 +200,11 @@
                                     <action selector="btn_ShowDescribe:" destination="feq-gZ-jWM" eventType="touchUpInside" id="sDF-TZ-ASy"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6YA-j1-hMz">
+                                <rect key="frame" x="57" y="119" width="260" height="260"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -207,16 +212,17 @@
                     <navigationItem key="navigationItem" id="b0S-xC-nLa"/>
                     <connections>
                         <outlet property="btn_start" destination="rvE-p6-TzP" id="8e2-g7-cdF"/>
+                        <outlet property="uiview_mapView" destination="6YA-j1-hMz" id="X8V-fd-q3F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="knc-xL-EME" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2502" y="540"/>
+            <point key="canvasLocation" x="2501.5999999999999" y="539.28035982008998"/>
         </scene>
-        <!--Item-->
+        <!--ViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController restorationIdentifier="Home" storyboardIdentifier="Home" id="BYZ-38-t0r" customClass="ViewController" customModule="ParkingAdvisor" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="Home" storyboardIdentifier="Home" id="BYZ-38-t0r" userLabel="ViewController" customClass="ViewController" customModule="ParkingAdvisor" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -232,10 +238,10 @@
             </objects>
             <point key="canvasLocation" x="2502" y="-120"/>
         </scene>
-        <!--Item-->
+        <!--dashboardViewController-->
         <scene sceneID="pGg-vn-Tzv">
             <objects>
-                <viewController restorationIdentifier="Dashboard" storyboardIdentifier="Dashboard" id="8hC-Zc-hEE" customClass="dashboardViewController" customModule="ParkingAdvisor" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="Dashboard" storyboardIdentifier="Dashboard" id="8hC-Zc-hEE" userLabel="dashboardViewController" customClass="dashboardViewController" customModule="ParkingAdvisor" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Pzd-zq-lj5"/>
                         <viewControllerLayoutGuide type="bottom" id="D6c-eg-MUp"/>
@@ -321,7 +327,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mba-VG-IV5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1426" y="-788"/>
+            <point key="canvasLocation" x="1393" y="-788"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="QeN-Nd-Y8q">
@@ -408,7 +414,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xFY-kp-cEQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1306" y="50"/>
+            <point key="canvasLocation" x="-474" y="50"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="D1l-R7-bF7">
@@ -428,7 +434,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l5t-Dg-fAH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="620" y="49.925037481259373"/>
+            <point key="canvasLocation" x="620" y="50"/>
         </scene>
     </scenes>
     <resources>

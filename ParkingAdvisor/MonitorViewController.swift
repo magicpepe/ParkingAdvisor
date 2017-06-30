@@ -7,18 +7,28 @@
 //
 
 import UIKit
+import GoogleMaps
 
-class MonitorViewController: UIViewController {
+class MonitorViewController: UIViewController,CLLocationManagerDelegate,GMSMapViewDelegate {
 
 //    預設未監控狀態
     private var isStart : Bool = false
+    var isMapInit : Bool = false
     var isDescribeViewShow : Bool = false
     var DescribeView : UITextView?
+
+    let locationManager = CLLocationManager()
+    var mapView:GMSMapView!
+
+    
     @IBOutlet weak var btn_start : UIButton!
+    @IBOutlet weak var uiview_mapView: UIView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initDescirbeView()
+        initMap(location: CLLocationCoordinate2D.init(latitude: 24.178846, longitude: 120.645111))
         // Do any additional setup after loading the view.
     }
 
@@ -38,7 +48,49 @@ class MonitorViewController: UIViewController {
         
     }
     
+    // MARK: - MAP
     
+    func initMap(location:CLLocationCoordinate2D) {
+        
+        let locValue:CLLocationCoordinate2D = location
+        print("initMaps Locations = \(locValue.latitude) \(locValue.longitude)")
+        
+        let camera = GMSCameraPosition.camera(withLatitude: (locationManager.location?.coordinate.latitude)!,
+                                              longitude: (locationManager.location?.coordinate.longitude)!,
+                                              zoom: 16)
+        
+        
+        self.mapView = GMSMapView.map(withFrame: uiview_mapView.frame, camera: camera)
+        mapView.delegate = self
+//        mapView.settings.myLocationButton = true
+        let marker = GMSMarker()
+        
+        marker.position = camera.target
+        marker.snippet = "Hello World"
+        //        marker.appearAnimation = GMSMarkerAnimationPop
+        marker.map = mapView
+        
+        
+        //        view.addSubview(mapView)
+        
+        uiview_mapView = mapView
+        self.view.addSubview(uiview_mapView)
+//        view = mapView
+        //        view.bringSubview(toFront: btn_next)
+        isMapInit = true
+    }
+    
+    // MARK: - LocationManager
+
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
+//        print("locations = \(locValue.latitude) \(locValue.longitude)")
+//        if !isMapInit{
+//            initMap(location: locValue)
+//        }
+//    }
+
+
     // MARK: - Button
     
     @IBAction func btn_StopStart(_ sender: Any){
