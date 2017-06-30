@@ -227,8 +227,6 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
     }
     
     func showVC(){
-        
-        
         let DetailVC : DetailViewController = storyboard!.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
         DetailVC.delegate = self
         
