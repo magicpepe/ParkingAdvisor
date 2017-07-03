@@ -20,7 +20,6 @@ class dashboardViewController: UIViewController {
         super.viewDidLoad()
         
         configureMyCircleProgress()
-        animationTimer = Timer.scheduledTimer(timeInterval: 0.015, target: self, selector: #selector(dashboardViewController.updateProgress), userInfo: nil, repeats: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
