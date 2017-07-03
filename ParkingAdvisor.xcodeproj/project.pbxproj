@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		280C1E861F0ABF4600CE2B1C /* PASingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280C1E851F0ABF4600CE2B1C /* PASingleton.swift */; };
 		2817CD651F01365B002DDEB7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2817CD641F01365B002DDEB7 /* DetailViewController.swift */; };
 		283651C31EA1332F00A014E1 /* KYCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283651C21EA1332F00A014E1 /* KYCircularProgress.swift */; };
 		283651C51EA13EDA00A014E1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 283651C41EA13EDA00A014E1 /* CoreLocation.framework */; };
@@ -102,6 +103,7 @@
 
 /* Begin PBXFileReference section */
 		1BAE6EC73489FCC20AC9F816 /* Pods-ParkingAdvisor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkingAdvisor.release.xcconfig"; path = "Pods/Target Support Files/Pods-ParkingAdvisor/Pods-ParkingAdvisor.release.xcconfig"; sourceTree = "<group>"; };
+		280C1E851F0ABF4600CE2B1C /* PASingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PASingleton.swift; sourceTree = "<group>"; };
 		2817CD641F01365B002DDEB7 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		283651C21EA1332F00A014E1 /* KYCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KYCircularProgress.swift; path = ../Pods/KYCircularProgress/Source/KYCircularProgress.swift; sourceTree = "<group>"; };
 		283651C41EA13EDA00A014E1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -222,6 +224,7 @@
 				701E4D401EA4AA5800CAC177 /* DashboardViewController2.swift */,
 				70CE34221EA0BD0700595C55 /* MenuViewController.swift */,
 				B1E934201F04CCD900F45213 /* MonitorViewController.swift */,
+				280C1E851F0ABF4600CE2B1C /* PASingleton.swift */,
 				708D50431E9B502E00DB4ED9 /* Main.storyboard */,
 				701E4D421EA4B68D00CAC177 /* Assets.xcassets */,
 				708D50481E9B502E00DB4ED9 /* LaunchScreen.storyboard */,
@@ -510,6 +513,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				280C1E861F0ABF4600CE2B1C /* PASingleton.swift in Sources */,
 				2817CD651F01365B002DDEB7 /* DetailViewController.swift in Sources */,
 				70CE34231EA0BD0700595C55 /* MenuViewController.swift in Sources */,
 				B1E934211F04CCD900F45213 /* MonitorViewController.swift in Sources */,

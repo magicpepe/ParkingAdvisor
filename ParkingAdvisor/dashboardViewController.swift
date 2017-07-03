@@ -7,6 +7,7 @@
 //
 
 import UIKit
+
 class dashboardViewController: UIViewController {
     
     private var myCircleProgress: KYCircularProgress!
@@ -31,6 +32,7 @@ class dashboardViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(true)
         animationTimer.invalidate()
+        
     }
     
     private func configureMyCircleProgress(){
