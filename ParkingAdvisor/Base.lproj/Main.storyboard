@@ -5,7 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -32,7 +31,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6CC-b3-swT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="620" y="788.45577211394311"/>
+            <point key="canvasLocation" x="-822" y="686"/>
         </scene>
         <!--Test View Controller-->
         <scene sceneID="JkF-5I-LQ5">
@@ -140,6 +139,25 @@
             </objects>
             <point key="canvasLocation" x="2502" y="1543"/>
         </scene>
+        <!--設定-->
+        <scene sceneID="hVU-eI-bv0">
+            <objects>
+                <viewController id="H5X-yx-UeK" customClass="SettingViewController" customModule="ParkingAdvisor" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hVO-dW-jKy"/>
+                        <viewControllerLayoutGuide type="bottom" id="mmz-45-lOo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Q8j-oD-1e1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="設定" image="tap_icon_setting_g" id="O1v-Gn-u9h"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YWL-DK-QJC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3998" y="681"/>
+        </scene>
         <!--DashboardViewController2-->
         <scene sceneID="n2i-ji-ByW">
             <objects>
@@ -170,7 +188,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XPb-51-eUC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2502" y="-787"/>
+            <point key="canvasLocation" x="5108" y="-297"/>
         </scene>
         <!--MonitorViewController-->
         <scene sceneID="KLb-Dv-sEI">
@@ -208,7 +226,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="f0H-E5-8KW"/>
+                    <tabBarItem key="tabBarItem" title="行車監控" image="tap_icon_moniter_g" id="f0H-E5-8KW"/>
                     <navigationItem key="navigationItem" id="b0S-xC-nLa"/>
                     <connections>
                         <outlet property="btn_start" destination="rvE-p6-TzP" id="8e2-g7-cdF"/>
@@ -217,7 +235,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="knc-xL-EME" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2501.5999999999999" y="539.28035982008998"/>
+            <point key="canvasLocation" x="2169" y="680"/>
         </scene>
         <!--ViewController-->
         <scene sceneID="tne-QT-ifu">
@@ -232,11 +250,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="nJK-aD-pOh"/>
+                    <tabBarItem key="tabBarItem" title="周遭評估" image="tap_icon_map_g" id="nJK-aD-pOh"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2502" y="-120"/>
+            <point key="canvasLocation" x="1252" y="681"/>
         </scene>
         <!--dashboardViewController-->
         <scene sceneID="pGg-vn-Tzv">
@@ -250,84 +268,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VZd-aB-g2G">
-                                <rect key="frame" x="147.5" y="483.5" width="80" height="80"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="VZd-aB-g2G" secondAttribute="height" multiplier="1:1" id="NyE-c0-a6A"/>
-                                    <constraint firstAttribute="height" constant="80" id="PJp-lu-aU1"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="PQA-rt-QnC"/>
-                                    <constraint firstAttribute="width" constant="80" id="eI1-an-HqD"/>
-                                    <constraint firstAttribute="width" secondItem="VZd-aB-g2G" secondAttribute="height" multiplier="1:1" id="xcf-Dh-Uta"/>
-                                </constraints>
-                                <state key="normal" image="START"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="PJp-lu-aU1"/>
-                                        <exclude reference="PQA-rt-QnC"/>
-                                        <exclude reference="eI1-an-HqD"/>
-                                        <exclude reference="xcf-Dh-Uta"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular">
-                                    <mask key="constraints">
-                                        <include reference="xcf-Dh-Uta"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="PJp-lu-aU1"/>
-                                        <include reference="PQA-rt-QnC"/>
-                                        <include reference="eI1-an-HqD"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <action selector="btn_StartStop:" destination="8hC-Zc-hEE" eventType="touchUpInside" id="Jrq-C5-1kh"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00 : 00 :00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mH5-KS-tUF">
-                                <rect key="frame" x="144" y="439" width="87" height="20.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="mH5-KS-tUF" secondAttribute="height" multiplier="17:4" id="cad-8b-Bs3"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vb2-ft-Wg1">
+                                <rect key="frame" x="31" y="85" width="313" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.3529411764705882" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="您現在位置的停車安全指數為">
+                                        <attributes>
+                                            <color key="NSColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="19" name="PingFangTC-Medium"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9TE-pz-73R">
+                                <rect key="frame" x="43" y="559" width="288" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZy-n3-y0U">
+                                <rect key="frame" x="43" y="530" width="288" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.99724740932642486" green="0.97419257918615321" blue="0.8000209860835531" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="mH5-KS-tUF" firstAttribute="centerX" secondItem="Ioe-dR-QcU" secondAttribute="centerX" id="HZ9-2F-yVY"/>
-                            <constraint firstItem="VZd-aB-g2G" firstAttribute="centerY" secondItem="Ioe-dR-QcU" secondAttribute="centerY" constant="190" id="Op9-yg-Z0Z"/>
-                            <constraint firstItem="VZd-aB-g2G" firstAttribute="centerX" secondItem="Ioe-dR-QcU" secondAttribute="centerX" id="ZM0-gV-VsY"/>
-                            <constraint firstItem="VZd-aB-g2G" firstAttribute="top" secondItem="mH5-KS-tUF" secondAttribute="bottom" constant="24" id="dCK-NZ-6ic"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="HZ9-2F-yVY"/>
-                                <exclude reference="Op9-yg-Z0Z"/>
-                                <exclude reference="ZM0-gV-VsY"/>
-                                <exclude reference="dCK-NZ-6ic"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular">
-                            <mask key="constraints">
-                                <include reference="HZ9-2F-yVY"/>
-                                <include reference="Op9-yg-Z0Z"/>
-                                <include reference="ZM0-gV-VsY"/>
-                                <include reference="dCK-NZ-6ic"/>
-                            </mask>
-                        </variation>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="M2I-RL-i59"/>
+                    <tabBarItem key="tabBarItem" title="定點掃描" image="tap_icon_scan_g" id="M2I-RL-i59"/>
                     <navigationItem key="navigationItem" id="EuL-u2-btg"/>
-                    <connections>
-                        <outlet property="Lbl_timer" destination="mH5-KS-tUF" id="FcT-XZ-IXl"/>
-                        <outlet property="btn_pict_start" destination="VZd-aB-g2G" id="BOq-zg-r2J"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mba-VG-IV5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1393" y="-788"/>
+            <point key="canvasLocation" x="405.60000000000002" y="680.5097451274363"/>
+        </scene>
+        <!--危險回報-->
+        <scene sceneID="CT6-V4-fdD">
+            <objects>
+                <viewController id="cDp-mA-lHG" customClass="ReportViewController" customModule="ParkingAdvisor" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yii-7H-o7N"/>
+                        <viewControllerLayoutGuide type="bottom" id="cEw-WM-IvB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nBa-I6-c9C">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="危險回報" image="tap_icon_report_g" id="Xg2-10-9GX"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cJH-6E-ZfQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3150" y="679"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="QeN-Nd-Y8q">
@@ -414,7 +411,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xFY-kp-cEQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-474" y="50"/>
+            <point key="canvasLocation" x="-822" y="-184"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="D1l-R7-bF7">
@@ -426,18 +423,24 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="y52-ul-8y2"/>
-                        <segue destination="feq-gZ-jWM" kind="relationship" relationship="viewControllers" id="N3M-aa-qch"/>
-                        <segue destination="8hC-Zc-hEE" kind="relationship" relationship="viewControllers" id="XgT-ry-ZwR"/>
-                        <segue destination="eHN-Wt-v26" kind="relationship" relationship="viewControllers" id="tL9-tI-6jn"/>
+                        <segue destination="8hC-Zc-hEE" kind="relationship" relationship="viewControllers" id="AoH-PX-qbx"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="8j8-k6-AJZ"/>
+                        <segue destination="feq-gZ-jWM" kind="relationship" relationship="viewControllers" id="eqF-yl-gKe"/>
+                        <segue destination="cDp-mA-lHG" kind="relationship" relationship="viewControllers" id="y7E-PR-1vk"/>
+                        <segue destination="H5X-yx-UeK" kind="relationship" relationship="viewControllers" id="fWk-gS-uxk"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l5t-Dg-fAH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="620" y="50"/>
+            <point key="canvasLocation" x="2172" y="-457"/>
         </scene>
     </scenes>
     <resources>
         <image name="START" width="109" height="109"/>
+        <image name="tap_icon_map_g" width="32" height="28"/>
+        <image name="tap_icon_moniter_g" width="23" height="23"/>
+        <image name="tap_icon_report_g" width="39" height="30"/>
+        <image name="tap_icon_scan_g" width="25" height="26"/>
+        <image name="tap_icon_setting_g" width="23" height="5"/>
     </resources>
 </document>

@@ -22,13 +22,8 @@ class dashboardViewController: UIViewController {
     private var dangerousLevel = 0.93
     
     //button
-    private var isStart : Bool = false
     @IBOutlet weak var btn_pict_start: UIButton!
    
-    //Timer for stop time count
-    @IBOutlet weak var Lbl_timer: UILabel!
-    var stopTimer = Timer()
-    var time_count = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,53 +52,65 @@ class dashboardViewController: UIViewController {
         animationTimer.invalidate()
     }
     
-    private func configureHalfCircularProgress() {
-        halfCircularProgress = KYCircularProgress(frame: CGRect(x: 0, y: 90, width: view.frame.width, height: view.frame.height/2), showGuide: true)
-        let center = CGPoint(x: view.frame.width / 2, y: view.frame.height / 4)
-        halfCircularProgress.path = UIBezierPath(arcCenter: center, radius: CGFloat((halfCircularProgress.frame).width/3), startAngle: CGFloat(Double.pi), endAngle: CGFloat(0.0), clockwise: true)
+//    private func configureHalfCircularProgress() {
+//        halfCircularProgress = KYCircularProgress(frame: CGRect(x: 0, y: 90, width: view.frame.width, height: view.frame.height/2), showGuide: true)
+//        let center = CGPoint(x: view.frame.width / 2, y: view.frame.height / 4 )
+//        halfCircularProgress.path = UIBezierPath(arcCenter: center, radius: CGFloat((halfCircularProgress.frame).width/3), startAngle: CGFloat(Double.pi), endAngle: CGFloat(0.0), clockwise: true)
 //        halfCircularProgress.colors = [UIColor(rgba: 0xA6E39DAA), UIColor(rgba: 0xAEC1E3AA), UIColor(rgba: 0xAEC1E3AA), UIColor(rgba: 0xF3C0ABAA)]
-        halfCircularProgress.colors = [UIColor(rgba: 0x02C874AA), UIColor(rgba: 0xAEC1E3AA), UIColor(rgba: 0xAEC1E3AA), UIColor(rgba: 0xFF2D2DAA)]
-
-        halfCircularProgress.guideColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 0.4)
-        halfCircularProgress.lineWidth = 15.0
-        halfCircularProgress.guideLineWidth = 20.0
-        let labelWidth = CGFloat(80.0)
-        let textLabel = UILabel(frame: CGRect(x: (view.frame.width - labelWidth) / 2, y: (view.frame.height - labelWidth) / 4, width: labelWidth, height: 32.0))
-        textLabel.font = UIFont(name: "HelveticaNeue", size: 24)
-        textLabel.textAlignment = .center
-        textLabel.textColor = .green
-        textLabel.alpha = 0.3
-        halfCircularProgress.addSubview(textLabel)
-        
-        halfCircularProgress.progressChanged {
-            (progress: Double, circularProgress: KYCircularProgress) in
-            print("progress: \(progress)")
-            textLabel.text = "\(Int(progress * 100.0))%"
-        }
-        
-        view.addSubview(halfCircularProgress)
-    }
+//        halfCircularProgress.colors = [UIColor(rgba: 0x02C874AA), UIColor(rgba: 0xAEC1E3AA), UIColor(rgba: 0xAEC1E3AA), UIColor(rgba: 0xFF2D2DAA)]
+//
+//        halfCircularProgress.guideColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 0.4)
+//        halfCircularProgress.lineWidth = 15.0
+//        halfCircularProgress.guideLineWidth = 20.0
+//        let labelWidth = CGFloat(80.0)
+//        let textLabel = UILabel(frame: CGRect(x: (view.frame.width - labelWidth) / 2, y: (view.frame.height - labelWidth) / 4, width: labelWidth, height: 32.0))
+//        textLabel.font = UIFont(name: "HelveticaNeue", size: 24)
+//        textLabel.textAlignment = .center
+//        textLabel.textColor = .green
+//        textLabel.alpha = 0.3
+//        halfCircularProgress.addSubview(textLabel)
+//        
+//        halfCircularProgress.progressChanged {
+//            (progress: Double, circularProgress: KYCircularProgress) in
+//            print("progress: \(progress)")
+//            textLabel.text = "\(Int(progress * 100.0))%"
+//        }
+//        
+//        view.addSubview(halfCircularProgress)
+//    }
     private func configureMyCircleProgress(){
         
         //fourColorCircularProgress = KYCircularProgress(frame: CGRect(x: 20.0, y: halfCircularProgress.frame.height/1.75, width: view.frame.width/3, height: view.frame.height/3))
-        myCircleProgress = KYCircularProgress(frame: CGRect(x: 0, y: 90, width: view.frame.width, height: view.frame.height/2), showGuide: true)
-        let center = CGPoint(x: view.frame.width / 2, y: view.frame.height / 4)
-        myCircleProgress.path = UIBezierPath(arcCenter: center, radius: CGFloat(view.frame.width/3), startAngle: CGFloat(Double.pi)*1.5, endAngle: CGFloat(Double.pi)*3.5, clockwise: true)
-
-        myCircleProgress.colors = [UIColor(rgba: 0x28FF28AA), UIColor(rgba: 0x0080FFAA), UIColor(rgba: 0xFF77FFAA), UIColor(rgba: 0xFF5151AA)]
-
-        let labelWidth = CGFloat(80.0)
-        let textLabel = UILabel(frame: CGRect(x: (view.frame.width - labelWidth) / 2, y: view.frame.height / 4, width: labelWidth, height: 32.0))
-        textLabel.font = UIFont(name: "HelveticaNeue", size: 24)
+        myCircleProgress = KYCircularProgress(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height), showGuide: true)
+        let center = CGPoint(x: view.frame.width / 2, y: view.frame.height / 2)
+        let radius = CGFloat(view.frame.width/3) + 20.0
+        let lineWidth = 15.0
+        myCircleProgress.path = UIBezierPath(arcCenter: center, radius: radius, startAngle: CGFloat(Double.pi)*1.5, endAngle: CGFloat(Double.pi)*3.5, clockwise: true)
+        myCircleProgress.lineWidth = lineWidth
+        myCircleProgress.guideLineWidth = lineWidth
+        myCircleProgress.guideColor = UIColor(rgba: 0xF6F6F6FF)
+        
+        
+//        myCircleProgress.colors = [UIColor(rgba: 0x28FF28AA), UIColor(rgba: 0x0080FFAA), UIColor(rgba: 0xFF77FFAA), UIColor(rgba: 0xFF5151AA)]
+        myCircleProgress.colors = [UIColor(rgba: 0x5AC8FAFF)]
+        
+        let background_circle = UIView.init(frame: CGRect( x:0, y:0, width: radius * 2, height: radius * 2 ))
+        background_circle.center = center
+        background_circle.backgroundColor = UIColor(rgba: 0xF6F6F6FF)
+        background_circle.layer.cornerRadius = radius
+        myCircleProgress.addSubview(background_circle)
+        
+        let labelWidth = CGFloat(180.0)
+        let textLabel = UILabel(frame: CGRect(x: (view.frame.width - labelWidth) / 2, y: (view.frame.height - 180) / 2 , width: labelWidth, height: 180.0))
+        textLabel.font = UIFont(name: "HelveticaNeue", size: 135)
         textLabel.textAlignment = .center
-        textLabel.textColor = .green
-        textLabel.alpha = 0.3
+        textLabel.textColor = UIColor(rgba: 0x5AC8FAFF)
         myCircleProgress.addSubview(textLabel)
         
         myCircleProgress.progressChanged {
             (progress: Double, circularProgress: KYCircularProgress) in
             print("progress: \(progress)")
-            textLabel.text = "\(Int(progress * 100.0))%"
+            textLabel.text = "\(Int(progress * 100.0))"
         }
         view.addSubview(myCircleProgress)
 
@@ -132,31 +139,6 @@ class dashboardViewController: UIViewController {
 
     
     
-        // MARK: - Button
-//    func btn_goBack() {
-//        self.navigationController?.popViewController(animated: true)
-//    }
-    @IBAction func btn_StartStop(_ sender: Any) {
-        if isStart{
-            btn_pict_start.setImage(UIImage(named:"START"), for: .normal)
-            stopTimer.invalidate()
-            time_count = 0
-            Lbl_timer.text = "00 : 00 : 00"
-            
-            isStart = false
-        }else{
-            btn_pict_start.setImage(UIImage(named:"STOP"), for: .normal)
-            stopTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(dashboardViewController.updateTime), userInfo: nil, repeats: true)
-            isStart = true
-
-        }
-    }
-    
-    //MARK: - Timer stop count
-    func updateTime(){
-        time_count+=1
-        Lbl_timer.text = "\(time_count/3600) : \(time_count/60%60) : \(time_count%60)"
-    }
 }
 
 //

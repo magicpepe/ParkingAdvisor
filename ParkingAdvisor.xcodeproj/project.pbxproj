@@ -30,6 +30,7 @@
 		B118D71C1EF2B3E300DB64B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708D50411E9B502E00DB4ED9 /* ViewController.swift */; };
 		B1E934171F04AD6600F45213 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E934161F04AD6600F45213 /* ReportViewController.swift */; };
 		B1E934211F04CCD900F45213 /* MonitorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E934201F04CCD900F45213 /* MonitorViewController.swift */; };
+		B1E934231F0A2A8F00F45213 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E934221F0A2A8E00F45213 /* SettingViewController.swift */; };
 		C63AF44FAB73C5F295208BF5 /* Pods_ParkingAdvisor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE202D790BFCB9DC884D5090 /* Pods_ParkingAdvisor.framework */; };
 /* End PBXBuildFile section */
 
@@ -130,6 +131,7 @@
 		B118D7081EF2770500DB64B7 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = ../Pods/SwiftyJSON/Source/SwiftyJSON.swift; sourceTree = "<group>"; };
 		B1E934161F04AD6600F45213 /* ReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		B1E934201F04CCD900F45213 /* MonitorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonitorViewController.swift; sourceTree = "<group>"; };
+		B1E934221F0A2A8E00F45213 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		BE202D790BFCB9DC884D5090 /* Pods_ParkingAdvisor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParkingAdvisor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -207,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				B118D7081EF2770500DB64B7 /* SwiftyJSON.swift */,
+				B1E934221F0A2A8E00F45213 /* SettingViewController.swift */,
 				B1E934161F04AD6600F45213 /* ReportViewController.swift */,
 				B100B7711EC41545008175AA /* TestViewController.swift */,
 				701E4D3E1EA485D800CAC177 /* HistoryViewController.swift */,
@@ -512,6 +515,7 @@
 				B1E934211F04CCD900F45213 /* MonitorViewController.swift in Sources */,
 				708D50421E9B502E00DB4ED9 /* ViewController.swift in Sources */,
 				701E4D411EA4AA5800CAC177 /* DashboardViewController2.swift in Sources */,
+				B1E934231F0A2A8F00F45213 /* SettingViewController.swift in Sources */,
 				B118D7091EF2770500DB64B7 /* SwiftyJSON.swift in Sources */,
 				708D50401E9B502E00DB4ED9 /* AppDelegate.swift in Sources */,
 				283651C31EA1332F00A014E1 /* KYCircularProgress.swift in Sources */,
