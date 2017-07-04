@@ -35,4 +35,5 @@ class PASingleton {
     func getLocation() -> CLLocationCoordinate2D{
         return self.location
     }
+    
 }

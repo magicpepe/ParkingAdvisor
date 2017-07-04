@@ -22,7 +22,6 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
     var mapView:GMSMapView!
     
     
-    
     override func loadView() {
         
         super.loadView()

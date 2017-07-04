@@ -302,6 +302,10 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="定點掃描" image="tap_icon_scan_g" id="M2I-RL-i59"/>
                     <navigationItem key="navigationItem" id="EuL-u2-btg"/>
+                    <connections>
+                        <outlet property="lbl_address" destination="9TE-pz-73R" id="vsT-Iy-OW0"/>
+                        <outlet property="lbl_location" destination="aZy-n3-y0U" id="yqV-iM-1Za"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mba-VG-IV5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -419,6 +423,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="9wa-9F-qyW" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Caa-Ky-uva">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>

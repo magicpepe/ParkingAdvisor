@@ -14,6 +14,10 @@ class dashboardViewController: UIViewController {
     private var progress: UInt8 = 0
     private var animationTimer = Timer()
     
+    
+    @IBOutlet weak var lbl_location: UILabel!
+    @IBOutlet weak var lbl_address: UILabel!
+    
     // 為了讓Timer到達指定等級停止 , 需要是小數
     private var dangerousLevel = 0.93
     
