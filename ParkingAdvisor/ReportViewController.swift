@@ -18,20 +18,23 @@ class ReportViewController: UIViewController ,CLLocationManagerDelegate, GMSMapV
     @IBOutlet weak var uiview_mapView: UIView!
     
     // report button
-    var btn_towing : UIButton!
-    var btn_billing : UIButton!
+    @IBOutlet weak var btn_towing : UIButton!
+    @IBOutlet weak var btn_billing : UIButton!
     
     // label
-    
     @IBOutlet weak var lbl_location: UILabel!
     @IBOutlet weak var lbl_address: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        initMap()
         // Do any additional setup after loading the view.
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        initMap()
+        initLabel()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -55,7 +58,7 @@ class ReportViewController: UIViewController ,CLLocationManagerDelegate, GMSMapV
         uiview_mapView.layer.shadowOffset = CGSize.zero
         uiview_mapView.layer.shadowRadius = 10
         
-        let locValue:CLLocationCoordinate2D = PASingleton.sharedInstance().getLocation()
+//        let locValue:CLLocationCoordinate2D = PASingleton.sharedInstance().getLocation()
 //        print("initMaps Locations = \(locValue.latitude) \(locValue.longitude)")
 //
         let camera = GMSCameraPosition.camera(withLatitude: (locationManager.location?.coordinate.latitude)!,
@@ -82,5 +85,24 @@ class ReportViewController: UIViewController ,CLLocationManagerDelegate, GMSMapV
         //        view.bringSubview(toFront: btn_next)
         isMapInit = true
     }
+    
+    // MARK - Label
+    
+    func initLabel(){
+        lbl_location.text = "\(locationManager.location!.coordinate.latitude) ,\(locationManager.location!.coordinate.longitude)"
+        
+        lbl_address.alpha = 0
+    }
+    
+    // MARK - Button
+    @IBAction func btn_press_towing(_ sender: Any){
+        NSLog("btn_press_towing")
+    }
+    
+    @IBAction func btn_press_billing(_ sender: Any){
+        NSLog("btn_press_billing")
+        
+    }
+    
     
 }

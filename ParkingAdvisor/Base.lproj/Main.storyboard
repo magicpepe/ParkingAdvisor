@@ -348,11 +348,29 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQ0-YX-2G7">
+                                <rect key="frame" x="0.0" y="418" width="200" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="report_rectangle"/>
+                                <connections>
+                                    <action selector="btn_press_towing:" destination="cDp-mA-lHG" eventType="touchUpInside" id="pGf-gW-OQr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="whf-rP-Cv0">
+                                <rect key="frame" x="175" y="418" width="200" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="report_rectangle"/>
+                                <connections>
+                                    <action selector="btn_press_billing:" destination="cDp-mA-lHG" eventType="touchUpInside" id="O3H-d3-pB2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="危險回報" image="tap_icon_report_g" id="Xg2-10-9GX"/>
                     <connections>
+                        <outlet property="btn_billing" destination="whf-rP-Cv0" id="7cc-7I-xy8"/>
+                        <outlet property="btn_towing" destination="KQ0-YX-2G7" id="c9V-jQ-pRP"/>
                         <outlet property="lbl_address" destination="CgG-SR-M6E" id="xeY-wW-aP2"/>
                         <outlet property="lbl_location" destination="Dhi-hF-hGL" id="oLY-QS-S3Y"/>
                         <outlet property="uiview_mapView" destination="mbf-Uw-0OS" id="YFo-nk-g9o"/>
@@ -474,6 +492,7 @@
     </scenes>
     <resources>
         <image name="START" width="109" height="109"/>
+        <image name="report_rectangle" width="170" height="173"/>
         <image name="tap_icon_map_g" width="32" height="28"/>
         <image name="tap_icon_moniter_g" width="23" height="23"/>
         <image name="tap_icon_report_g" width="39" height="30"/>
