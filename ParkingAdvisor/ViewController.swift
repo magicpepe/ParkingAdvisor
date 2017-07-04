@@ -57,8 +57,6 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
             // 3. 用戶已經同意
         else if CLLocationManager.authorizationStatus() == .authorizedAlways {
             locationManager.startUpdatingLocation()
-
-            
         }
         
         addSlideMenuButton()

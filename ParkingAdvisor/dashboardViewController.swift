@@ -38,6 +38,7 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate{
 //        label attribute
         lbl_location.text = "\(locationManager.location!.coordinate.latitude) ,\(locationManager.location!.coordinate.longitude)"
 //        lbl_location.textColor = UIColor(rgba: 0xFFFFFFFF)
+        lbl_address.alpha = 0
         
     }
     
