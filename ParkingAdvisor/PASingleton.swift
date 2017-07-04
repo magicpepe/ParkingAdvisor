@@ -23,17 +23,18 @@ class PASingleton {
     private init(){
     }
     
-    private var location : CLLocationCoordinate2D = CLLocationCoordinate2D.init()
+    private var PAlocation : CLLocationCoordinate2D = CLLocationCoordinate2D.init()
     
     func returnTrue() -> String {
-        return "TRUE <3"
+        return "Love <3"
     }
     
     func setLocation(location: CLLocationCoordinate2D){
-        self.location = location
+        self.PAlocation = location
     }
+    
     func getLocation() -> CLLocationCoordinate2D{
-        return self.location
+        return self.PAlocation
     }
     
 }

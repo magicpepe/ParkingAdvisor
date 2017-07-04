@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import GoogleMaps
 
-class dashboardViewController: UIViewController {
+class dashboardViewController: UIViewController ,CLLocationManagerDelegate{
     
     private var myCircleProgress: KYCircularProgress!
     private var progress: UInt8 = 0
@@ -17,6 +18,9 @@ class dashboardViewController: UIViewController {
     
     @IBOutlet weak var lbl_location: UILabel!
     @IBOutlet weak var lbl_address: UILabel!
+    
+    // Manager
+    let locationManager = CLLocationManager()
     
     // 為了讓Timer到達指定等級停止 , 需要是小數
     private var dangerousLevel = 0.93
@@ -30,7 +34,8 @@ class dashboardViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         progress = 0
         animationTimer = Timer.scheduledTimer(timeInterval: 0.015, target: self, selector: #selector(dashboardViewController.updateProgress), userInfo: nil, repeats: true)
-
+        
+        // singleton
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -69,9 +74,8 @@ class dashboardViewController: UIViewController {
         
         myCircleProgress.progressChanged {
             (progress: Double, circularProgress: KYCircularProgress) in
-            print("progress: \(progress)")
+//            print("progress: \(progress)")
             textLabel.text = "\(Int(progress * 100.0))"
-//            textLabel.textColor = myCircleProgress.colors
         }
         view.addSubview(myCircleProgress)
 
@@ -83,10 +87,21 @@ class dashboardViewController: UIViewController {
         if Double(progress) / Double(UInt8.max) < dangerousLevel  {
             progress = progress &+ 1
             let normalizedProgress = Double(progress) / Double(UInt8.max)
-//            halfCircularProgress.progress = normalizedProgress
             myCircleProgress.progress = normalizedProgress
 
         }
+    }
+    
+    
+    // MARK: - LocationManager
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
+        
+        // singleton
+        PASingleton.sharedInstance().setLocation(location: locValue)
+        
     }
     
 
