@@ -27,7 +27,7 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        locationManager.delegate = self
         configureMyCircleProgress()
     }
     
@@ -35,7 +35,10 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate{
         progress = 0
         animationTimer = Timer.scheduledTimer(timeInterval: 0.015, target: self, selector: #selector(dashboardViewController.updateProgress), userInfo: nil, repeats: true)
         
-        // singleton
+//        label attribute
+        lbl_location.text = "\(locationManager.location!.coordinate.latitude) ,\(locationManager.location!.coordinate.longitude)"
+//        lbl_location.textColor = UIColor(rgba: 0xFFFFFFFF)
+        
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -92,20 +95,16 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate{
         }
     }
     
-    
     // MARK: - LocationManager
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
-        print("locations = \(locValue.latitude) \(locValue.longitude)")
-        
-        // singleton
-        PASingleton.sharedInstance().setLocation(location: locValue)
-        
-    }
-    
-
-
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
+//        print("locations = \(locValue.latitude) \(locValue.longitude)")
+//
+//        // singleton
+//        PASingleton.sharedInstance().setLocation(location: locValue)
+//
+//    }
     
     
 }
