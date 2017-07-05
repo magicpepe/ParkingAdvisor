@@ -8,8 +8,14 @@
 
 import UIKit
 
-class CommentViewController: UIViewController {
+protocol closeCommentVCProtocol {
+    func closeComment()
+}
 
+class CommentViewController: UIViewController {
+    
+    var delegate: closeCommentVCProtocol?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,10 +28,18 @@ class CommentViewController: UIViewController {
     }
     
     @IBAction func btn_sad(_ sender: Any) {
+        NSLog("btn_Comment_sad press")
+        if(self.delegate != nil){
+            delegate?.closeComment()
+        }
         
     }
     
     @IBAction func btn_smile(_ sender: Any) {
+        NSLog("btn_Comment_smile press")
+        if(self.delegate != nil){
+            delegate?.closeComment()
+        }
         
     }
     /*

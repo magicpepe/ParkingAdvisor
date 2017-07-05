@@ -73,7 +73,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZRH-DX-fKf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="434" y="1574"/>
+            <point key="canvasLocation" x="433" y="1467"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="sF1-Bb-zyo">
@@ -143,12 +143,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hhb-FE-6dL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1252" y="1574"/>
+            <point key="canvasLocation" x="1252" y="1467"/>
         </scene>
         <!--Comment View Controller-->
         <scene sceneID="tvd-o2-gRX">
             <objects>
-                <viewController id="MYU-o4-R05" customClass="CommentViewController" customModule="ParkingAdvisor" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CommentViewController" id="MYU-o4-R05" customClass="CommentViewController" customModule="ParkingAdvisor" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0bt-2K-pMS"/>
                         <viewControllerLayoutGuide type="bottom" id="Kkf-mo-bTA"/>
@@ -269,16 +269,18 @@
                                 <rect key="frame" x="0.0" y="200" width="375" height="418"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rvE-p6-TzP">
-                                        <rect key="frame" x="0.0" y="367" width="331" height="51"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rvE-p6-TzP">
+                                        <rect key="frame" x="8" y="363" width="359" height="47"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="START"/>
+                                        <state key="normal" image="monitor_start">
+                                            <attributedString key="attributedTitle"/>
+                                        </state>
                                         <connections>
                                             <action selector="btn_StopStart:" destination="feq-gZ-jWM" eventType="touchUpInside" id="1zb-CI-zJ3"/>
                                         </connections>
                                     </button>
                                     <view alpha="0.59999999999999998" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JvO-l2-L7L">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="368"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="352"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="24.180379, 120.650229" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pbE-EI-FjQ">
@@ -295,15 +297,8 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="路段分數" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IAv-cq-g7o">
-                                                <rect key="frame" x="21" y="66" width="225" height="58"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="分" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fQ-Es-1Ue">
-                                                <rect key="frame" x="320" y="66" width="53" height="58"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="路段分數                 分" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IAv-cq-g7o">
+                                                <rect key="frame" x="21" y="66" width="354" height="58"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -317,20 +312,65 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KmD-aR-lNT">
-                                                <rect key="frame" x="0.0" y="126" width="375" height="242"/>
+                                                <rect key="frame" x="0.0" y="126" width="375" height="226"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="monitor_frame" translatesAutoresizingMaskIntoConstraints="NO" id="zwd-8Z-6CG">
+                                                        <rect key="frame" x="10" y="13" width="354" height="97"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="monitor_frame" translatesAutoresizingMaskIntoConstraints="NO" id="Spy-Yh-vMl">
+                                                        <rect key="frame" x="10" y="121" width="354" height="97"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="事故趨勢分析" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qtc-XW-goa">
+                                                        <rect key="frame" x="32" y="139" width="109" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="當周累積    0    次" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mxO-jM-HMu">
+                                                        <rect key="frame" x="32" y="179" width="155" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="當月累積      5    次" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3p-2q-IWh">
+                                                        <rect key="frame" x="195" y="179" width="155" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="拖吊趨勢分析" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rc7-1h-0i0">
+                                                        <rect key="frame" x="32" y="31" width="109" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" red="0.3529411764705882" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="當周累積   10   次" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pyw-Km-vUO">
+                                                        <rect key="frame" x="32" y="71" width="155" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="當月累積   100   次" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtT-Xq-yPO">
+                                                        <rect key="frame" x="195" y="71" width="155" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="djX-cY-APi">
-                                        <rect key="frame" x="339" y="381" width="22" height="22"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <connections>
-                                            <action selector="btn_ShowDescribe:" destination="feq-gZ-jWM" eventType="touchUpInside" id="HgX-Nn-gD2"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -346,6 +386,10 @@
                     <navigationItem key="navigationItem" id="b0S-xC-nLa"/>
                     <connections>
                         <outlet property="btn_start" destination="rvE-p6-TzP" id="8e2-g7-cdF"/>
+                        <outlet property="tbl_score" destination="jta-C6-FNe" id="xnk-Wg-ezE"/>
+                        <outlet property="tbl_titlescore" destination="IAv-cq-g7o" id="Tuf-bR-EZ4"/>
+                        <outlet property="uiview_cell" destination="KmD-aR-lNT" id="zdS-CN-IUf"/>
+                        <outlet property="uiview_detail" destination="JvO-l2-L7L" id="CDK-hU-QaR"/>
                         <outlet property="uiview_mapView" destination="6YA-j1-hMz" id="X8V-fd-q3F"/>
                     </connections>
                 </viewController>
@@ -588,11 +632,11 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="8hC-Zc-hEE" kind="relationship" relationship="viewControllers" id="AoH-PX-qbx"/>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="8j8-k6-AJZ"/>
-                        <segue destination="feq-gZ-jWM" kind="relationship" relationship="viewControllers" id="eqF-yl-gKe"/>
-                        <segue destination="cDp-mA-lHG" kind="relationship" relationship="viewControllers" id="y7E-PR-1vk"/>
-                        <segue destination="H5X-yx-UeK" kind="relationship" relationship="viewControllers" id="fWk-gS-uxk"/>
+                        <segue destination="8hC-Zc-hEE" kind="relationship" relationship="viewControllers" id="cmg-rS-8Ha"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Kj0-mw-44R"/>
+                        <segue destination="feq-gZ-jWM" kind="relationship" relationship="viewControllers" id="K1B-f1-zCh"/>
+                        <segue destination="cDp-mA-lHG" kind="relationship" relationship="viewControllers" id="EId-ar-IEf"/>
+                        <segue destination="H5X-yx-UeK" kind="relationship" relationship="viewControllers" id="KFB-kv-ei2"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l5t-Dg-fAH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -602,6 +646,8 @@
     </scenes>
     <resources>
         <image name="START" width="109" height="109"/>
+        <image name="monitor_frame" width="397" height="99"/>
+        <image name="monitor_start" width="393" height="43"/>
         <image name="report_billing" width="172" height="173"/>
         <image name="report_sad" width="165" height="165"/>
         <image name="report_smile" width="165" height="165"/>
