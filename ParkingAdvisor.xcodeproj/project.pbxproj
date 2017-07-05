@@ -29,6 +29,7 @@
 		B118D7091EF2770500DB64B7 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B118D7081EF2770500DB64B7 /* SwiftyJSON.swift */; };
 		B118D7131EF2B3E200DB64B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708D50411E9B502E00DB4ED9 /* ViewController.swift */; };
 		B118D71C1EF2B3E300DB64B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708D50411E9B502E00DB4ED9 /* ViewController.swift */; };
+		B186B3951F0CC49900EB4998 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B186B3941F0CC49900EB4998 /* CommentViewController.swift */; };
 		B1E934171F04AD6600F45213 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E934161F04AD6600F45213 /* ReportViewController.swift */; };
 		B1E934211F04CCD900F45213 /* MonitorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E934201F04CCD900F45213 /* MonitorViewController.swift */; };
 		B1E934231F0A2A8F00F45213 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E934221F0A2A8E00F45213 /* SettingViewController.swift */; };
@@ -131,6 +132,7 @@
 		B100B7711EC41545008175AA /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		B118D6EE1EF2744200DB64B7 /* SwiftyJSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyJSON.xcodeproj; path = ../SwiftyJSON/SwiftyJSON.xcodeproj; sourceTree = "<group>"; };
 		B118D7081EF2770500DB64B7 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = ../Pods/SwiftyJSON/Source/SwiftyJSON.swift; sourceTree = "<group>"; };
+		B186B3941F0CC49900EB4998 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		B1E934161F04AD6600F45213 /* ReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		B1E934201F04CCD900F45213 /* MonitorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonitorViewController.swift; sourceTree = "<group>"; };
 		B1E934221F0A2A8E00F45213 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 		708D503E1E9B502E00DB4ED9 /* ParkingAdvisor */ = {
 			isa = PBXGroup;
 			children = (
+				B186B3941F0CC49900EB4998 /* CommentViewController.swift */,
 				B118D7081EF2770500DB64B7 /* SwiftyJSON.swift */,
 				B1E934221F0A2A8E00F45213 /* SettingViewController.swift */,
 				B1E934161F04AD6600F45213 /* ReportViewController.swift */,
@@ -521,6 +524,7 @@
 				701E4D411EA4AA5800CAC177 /* DashboardViewController2.swift in Sources */,
 				B1E934231F0A2A8F00F45213 /* SettingViewController.swift in Sources */,
 				B118D7091EF2770500DB64B7 /* SwiftyJSON.swift in Sources */,
+				B186B3951F0CC49900EB4998 /* CommentViewController.swift in Sources */,
 				708D50401E9B502E00DB4ED9 /* AppDelegate.swift in Sources */,
 				283651C31EA1332F00A014E1 /* KYCircularProgress.swift in Sources */,
 				70CE341F1E9CA63200595C55 /* dashboardViewController.swift in Sources */,

@@ -104,10 +104,9 @@ class MonitorViewController: UIViewController,CLLocationManagerDelegate,GMSMapVi
             btn_start.setTitle("START",for: .normal)
             showComment()
             isStart = false
-        }else{
+        } else{
 //            btn_start.setImage(UIImage(named:"STOP"), for: .normal)
             btn_start.setTitle("STOP", for: .normal)
-            uiview_mapView?.removeFromSuperview()
             isStart = true
             
         }
@@ -130,8 +129,8 @@ class MonitorViewController: UIViewController,CLLocationManagerDelegate,GMSMapVi
         commentView.removeFromSuperview()
         btn_smile = nil
         btn_sad = nil
-        self.view.addSubview(uiview_mapView)
-
+//        self.view.addSubview(uiview_mapView)
+        
     }
     
     func btn_Comment_smile(sender: UIButton!){
@@ -139,8 +138,8 @@ class MonitorViewController: UIViewController,CLLocationManagerDelegate,GMSMapVi
         commentView.removeFromSuperview()
         btn_smile = nil
         btn_sad = nil
-        self.view.addSubview(uiview_mapView)
-
+//        self.view.addSubview(uiview_mapView)
+        
     }
     
     // MARK: - Comment
