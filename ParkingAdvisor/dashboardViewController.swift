@@ -9,18 +9,23 @@
 import UIKit
 import GoogleMaps
 
-class dashboardViewController: UIViewController ,CLLocationManagerDelegate{
+class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSMapViewDelegate{
     
     private var myCircleProgress: KYCircularProgress!
     private var progress: UInt8 = 0
     private var animationTimer = Timer()
     
-    
+    // label
     @IBOutlet weak var lbl_location: UILabel!
     @IBOutlet weak var lbl_address: UILabel!
+    @IBOutlet weak var lbl_prccessing : UILabel!
+    @IBOutlet weak var lbl_safePoint: UILabel!
     
-    // Manager
+    // map view
+    var isMapInit : Bool = false
+    var mapView : GMSMapView!
     let locationManager = CLLocationManager()
+    @IBOutlet weak var uiview_mapView: UIView!
     
     // 為了讓Timer到達指定等級停止 , 需要是小數
     private var dangerousLevel = 0.93
@@ -28,24 +33,26 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
-        configureMyCircleProgress()
+        
+//        configureMyCircleProgress()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         progress = 0
-        animationTimer = Timer.scheduledTimer(timeInterval: 0.015, target: self, selector: #selector(dashboardViewController.updateProgress), userInfo: nil, repeats: true)
-        
-//        label attribute
-        lbl_location.text = "\(locationManager.location!.coordinate.latitude) ,\(locationManager.location!.coordinate.longitude)"
-//        lbl_location.textColor = UIColor(rgba: 0xFFFFFFFF)
+//        animationTimer = Timer.scheduledTimer(timeInterval: 0.015, target: self, selector: #selector(dashboardViewController.updateProgress), userInfo: nil, repeats: true)
+        lbl_safePoint.alpha = 0
+        lbl_location.alpha = 0
         lbl_address.alpha = 0
+        lbl_prccessing.alpha = 0
+        
+        initMap()
+        
         
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(true)
         animationTimer.invalidate()
-        
     }
     
     private func configureMyCircleProgress(){
@@ -94,6 +101,88 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate{
             myCircleProgress.progress = normalizedProgress
 
         }
+    }
+    
+    // MARK: - MAP
+    
+    func initMap() {
+        lbl_prccessing.text = "定位中"
+        lbl_prccessing.alpha = 1
+        // uiview init
+        let uiview_radius : CGFloat = view.frame.width / 2 - 50
+        let uiview_center = CGPoint(x: Int(view.frame.width / 2), y: Int(uiview_radius + 50))
+        uiview_mapView.frame = CGRect(x:0, y:0, width: uiview_radius * 2, height: uiview_radius * 2)
+        uiview_mapView.center = uiview_center
+        uiview_mapView.layer.cornerRadius = uiview_radius
+        
+        // uiview shadow
+        uiview_mapView.layer.shadowColor = UIColor.black.cgColor
+        uiview_mapView.layer.shadowOpacity = 0.8
+        uiview_mapView.layer.shadowOffset = CGSize.zero
+        uiview_mapView.layer.shadowRadius = 10
+        
+        let camera = GMSCameraPosition.camera(withLatitude: (locationManager.location?.coordinate.latitude)!,
+                                              longitude: (locationManager.location?.coordinate.longitude)!,
+                                              zoom: 10)
+        
+        self.mapView = GMSMapView.map(withFrame: uiview_mapView.frame, camera: camera)
+        mapView.delegate = self
+        
+        mapView.layer.cornerRadius = uiview_radius
+        uiview_mapView = mapView
+        
+        self.view.addSubview(uiview_mapView)
+        isMapInit = true
+        
+    }
+    
+    func updateCameraByGPS() {
+        
+        lbl_prccessing.text = "處理中"
+        let camera = GMSCameraPosition.camera(withLatitude: (locationManager.location?.coordinate.latitude)!,
+                                              longitude: (locationManager.location?.coordinate.longitude)!,
+                                              zoom: 10)
+        let marker = GMSMarker()
+        marker.position = camera.target
+        marker.map = mapView
+        mapView.animate(toZoom: 16.0)
+        
+        lbl_location.text = "\(locationManager.location!.coordinate.latitude) ,\(locationManager.location!.coordinate.longitude)"
+        
+        // blur effect
+        let blurEffect : UIBlurEffect
+        if #available(iOS 10.0, *) {
+            blurEffect = UIBlurEffect(style: UIBlurEffectStyle.prominent)
+        } else {
+            blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+        }
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.alpha = 0
+        blurEffectView.frame = uiview_mapView.bounds
+        blurEffectView.center = uiview_mapView.center
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        blurEffectView.layer.cornerRadius = view.frame.width / 2 - 50
+        blurEffectView.clipsToBounds = true
+        view.addSubview(blurEffectView)
+        
+        UIView.animate(withDuration: 1.0, delay: 1.0, options: .curveEaseIn, animations: {
+            blurEffectView.alpha = 0.5
+        },completion: {_ in
+            self.lbl_prccessing.text = "輕觸開始分析"
+            self.lbl_location.alpha = 1
+        })
+        
+        //        label attribute
+        //        lbl_location.textColor = UIColor(rgba: 0xFFFFFFFF)
+        lbl_address.alpha = 0
+        
+    }
+    
+    
+    // MARK: - Button
+    
+    @IBAction func btn_startAnalyse(_ sender: Any) {
+        updateCameraByGPS()
     }
     
     // MARK: - LocationManager
