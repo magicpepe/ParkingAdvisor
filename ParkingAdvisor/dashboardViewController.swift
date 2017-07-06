@@ -134,6 +134,13 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
         self.view.addSubview(uiview_mapView)
         isMapInit = true
         
+        UIView.animate(withDuration: 0.5, delay: 1.0, options: .curveEaseOut, animations:{
+            self.lbl_prccessing.alpha = 0
+        } , completion: {_ in
+            self.lbl_prccessing.alpha = 1
+            self.updateCameraByGPS()
+            
+        })
     }
     
     func updateCameraByGPS() {
@@ -182,7 +189,6 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
     // MARK: - Button
     
     @IBAction func btn_startAnalyse(_ sender: Any) {
-        updateCameraByGPS()
     }
     
     // MARK: - LocationManager
