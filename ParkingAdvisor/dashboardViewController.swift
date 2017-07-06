@@ -12,10 +12,13 @@ import Pulsator
 
 class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSMapViewDelegate{
     
+    
+    // scan view
     private var myCircleProgress: KYCircularProgress!
     private var progress: UInt8 = 0
     private var animationTimer = Timer()
     var lbl_score : UILabel = UILabel()
+    @IBOutlet weak var btn_scan: UIButton!
     
     // parameter
     let offset_map : CGFloat = 150.0
@@ -65,6 +68,10 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
         lbl_location.alpha = 0
         lbl_address.alpha = 0
         lbl_prccessing.alpha = 0
+        
+        
+        // scan
+        btn_scan.isHidden = true
         
         // monitor
         btn_monitor.alpha = 0
@@ -253,6 +260,7 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
             self.lbl_prccessing.text = "輕觸開始分析"
             self.lbl_location.alpha = 1
             self.pulseStart()
+            self.btn_scan.isHidden = false
         })
         
         //        label attribute

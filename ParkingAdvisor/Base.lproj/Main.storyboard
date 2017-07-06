@@ -469,14 +469,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l7e-Yn-fRD">
-                                <rect key="frame" x="164" y="548" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="btn_startAnalyse:" destination="8hC-Zc-hEE" eventType="touchUpInside" id="LOa-Wo-IoU"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="line_bar" translatesAutoresizingMaskIntoConstraints="NO" id="kOi-Eh-vx0">
                                 <rect key="frame" x="0.0" y="545" width="375" height="9"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -484,9 +476,14 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iK7-Gd-Vvu">
                                 <rect key="frame" x="168" y="528" width="38" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Monitor_g">
-                                    <attributedString key="attributedTitle"/>
-                                </state>
+                                <state key="normal" image="Monitor_g"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l7e-Yn-fRD">
+                                <rect key="frame" x="100" y="272" width="174" height="175"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="btn_startAnalyse:" destination="8hC-Zc-hEE" eventType="touchUpInside" id="LOa-Wo-IoU"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -495,6 +492,7 @@
                     <navigationItem key="navigationItem" id="EuL-u2-btg"/>
                     <connections>
                         <outlet property="btn_monitor" destination="iK7-Gd-Vvu" id="uAQ-HU-Q4b"/>
+                        <outlet property="btn_scan" destination="l7e-Yn-fRD" id="50z-q5-TTd"/>
                         <outlet property="img_linebar" destination="kOi-Eh-vx0" id="n7O-2T-vNK"/>
                         <outlet property="lbl_address" destination="9TE-pz-73R" id="vsT-Iy-OW0"/>
                         <outlet property="lbl_location" destination="aZy-n3-y0U" id="yqV-iM-1Za"/>
