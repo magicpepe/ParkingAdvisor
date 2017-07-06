@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMaps
+import Pulsator
 
 class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSMapViewDelegate{
     
@@ -24,8 +25,10 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
     // map view
     var isMapInit : Bool = false
     var mapView : GMSMapView!
+    var blurEffectView : UIVisualEffectView!
     let locationManager = CLLocationManager()
     @IBOutlet weak var uiview_mapView: UIView!
+    
     
     // 為了讓Timer到達指定等級停止 , 需要是小數
     private var dangerousLevel = 0.93
@@ -33,6 +36,14 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
+        
+        // set background
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        UIImage(named: "background_2")?.draw(in: self.view.bounds)
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        self.view.backgroundColor = UIColor(patternImage: image)
+        
         
 //        configureMyCircleProgress()
     }
@@ -116,10 +127,11 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
         uiview_mapView.layer.cornerRadius = uiview_radius
         
         // uiview shadow
-        uiview_mapView.layer.shadowColor = UIColor.black.cgColor
+        uiview_mapView.layer.shadowColor = UIColor.white.cgColor
         uiview_mapView.layer.shadowOpacity = 0.8
         uiview_mapView.layer.shadowOffset = CGSize.zero
-        uiview_mapView.layer.shadowRadius = 10
+        uiview_mapView.layer.shadowRadius = 5
+        
         
         let camera = GMSCameraPosition.camera(withLatitude: (locationManager.location?.coordinate.latitude)!,
                                               longitude: (locationManager.location?.coordinate.longitude)!,
@@ -152,12 +164,15 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
         let marker = GMSMarker()
         marker.position = camera.target
         marker.map = mapView
+        CATransaction.begin()
+        CATransaction.setValue(1, forKey: kCATransactionAnimationDuration)
         mapView.animate(toZoom: 16.0)
+        CATransaction.commit()
         
         lbl_location.text = "\(locationManager.location!.coordinate.latitude) ,\(locationManager.location!.coordinate.longitude)"
         
         // blur effect
-        let blurEffect : UIBlurEffect
+        let blurEffect : UIBlurEffect!
         if #available(iOS 10.0, *) {
             blurEffect = UIBlurEffect(style: UIBlurEffectStyle.prominent)
         } else {
@@ -173,10 +188,11 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
         view.addSubview(blurEffectView)
         
         UIView.animate(withDuration: 1.0, delay: 1.0, options: .curveEaseIn, animations: {
-            blurEffectView.alpha = 0.5
+            blurEffectView.alpha = 0.7
         },completion: {_ in
             self.lbl_prccessing.text = "輕觸開始分析"
             self.lbl_location.alpha = 1
+            self.pulseStart()
         })
         
         //        label attribute
@@ -185,10 +201,29 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
         
     }
     
+    // MARK: - Pulse
+    func pulseStart(){
+        let pulsator = Pulsator()
+        pulsator.radius = 190.0
+        pulsator.numPulse = 5
+        pulsator.animationDuration = 10
+        pulsator.pulseInterval = 1
+        pulsator.backgroundColor = UIColor(red: 0/255, green: 169/255, blue: 180/255, alpha: 1).cgColor
+        pulsator.position = CGPoint(x: Int(view.frame.width / 2), y: Int(view.frame.width / 2 ) )
+        self.view.layer.insertSublayer(pulsator, below: uiview_mapView.layer)
+        pulsator.start()
+        
+    }
+    
     
     // MARK: - Button
     
     @IBAction func btn_startAnalyse(_ sender: Any) {
+        
+        progress = 0
+        animationTimer = Timer.scheduledTimer(timeInterval: 0.015, target: self, selector: #selector(dashboardViewController.updateProgress), userInfo: nil, repeats: true)
+        configureMyCircleProgress()
+        
     }
     
     // MARK: - LocationManager

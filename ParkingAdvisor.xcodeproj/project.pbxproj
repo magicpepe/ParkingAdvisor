@@ -26,6 +26,7 @@
 		70CE34231EA0BD0700595C55 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CE34221EA0BD0700595C55 /* MenuViewController.swift */; };
 		70CE34251EA0C4BB00595C55 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CE34241EA0C4BB00595C55 /* BaseViewController.swift */; };
 		B100B7721EC41545008175AA /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100B7711EC41545008175AA /* TestViewController.swift */; };
+		B10D119F1F0E1CCB00798AE6 /* Pulsator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10D11961F0E1CCA00798AE6 /* Pulsator.swift */; };
 		B118D7091EF2770500DB64B7 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B118D7081EF2770500DB64B7 /* SwiftyJSON.swift */; };
 		B118D7131EF2B3E200DB64B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708D50411E9B502E00DB4ED9 /* ViewController.swift */; };
 		B118D71C1EF2B3E300DB64B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708D50411E9B502E00DB4ED9 /* ViewController.swift */; };
@@ -130,6 +131,7 @@
 		70CE34221EA0BD0700595C55 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		70CE34241EA0C4BB00595C55 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseViewController.swift; path = ../BaseViewController.swift; sourceTree = "<group>"; };
 		B100B7711EC41545008175AA /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		B10D11961F0E1CCA00798AE6 /* Pulsator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pulsator.swift; sourceTree = "<group>"; };
 		B118D6EE1EF2744200DB64B7 /* SwiftyJSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyJSON.xcodeproj; path = ../SwiftyJSON/SwiftyJSON.xcodeproj; sourceTree = "<group>"; };
 		B118D7081EF2770500DB64B7 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = ../Pods/SwiftyJSON/Source/SwiftyJSON.swift; sourceTree = "<group>"; };
 		B186B3941F0CC49900EB4998 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 			children = (
 				B186B3941F0CC49900EB4998 /* CommentViewController.swift */,
 				B118D7081EF2770500DB64B7 /* SwiftyJSON.swift */,
+				B10D11961F0E1CCA00798AE6 /* Pulsator.swift */,
 				B1E934221F0A2A8E00F45213 /* SettingViewController.swift */,
 				B1E934161F04AD6600F45213 /* ReportViewController.swift */,
 				B100B7711EC41545008175AA /* TestViewController.swift */,
@@ -528,6 +531,7 @@
 				708D50401E9B502E00DB4ED9 /* AppDelegate.swift in Sources */,
 				283651C31EA1332F00A014E1 /* KYCircularProgress.swift in Sources */,
 				70CE341F1E9CA63200595C55 /* dashboardViewController.swift in Sources */,
+				B10D119F1F0E1CCB00798AE6 /* Pulsator.swift in Sources */,
 				B1E934171F04AD6600F45213 /* ReportViewController.swift in Sources */,
 				701E4D3F1EA485D800CAC177 /* HistoryViewController.swift in Sources */,
 				B100B7721EC41545008175AA /* TestViewController.swift in Sources */,
