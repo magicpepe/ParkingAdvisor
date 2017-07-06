@@ -15,9 +15,10 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
     private var myCircleProgress: KYCircularProgress!
     private var progress: UInt8 = 0
     private var animationTimer = Timer()
+    var lbl_score : UILabel = UILabel()
     
     // parameter
-    let offset_map : CGFloat = 120.0
+    let offset_map : CGFloat = 150.0
     
     // label
     @IBOutlet weak var lbl_location: UILabel!
@@ -55,7 +56,8 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
     override func viewWillAppear(_ animated: Bool) {
         progress = 0
 //        animationTimer = Timer.scheduledTimer(timeInterval: 0.015, target: self, selector: #selector(dashboardViewController.updateProgress), userInfo: nil, repeats: true)
-        lbl_safePoint.alpha = 0
+//        lbl_safePoint.alpha = 0
+        lbl_safePoint.frame.origin.x = self.view.frame.width
         lbl_location.alpha = 0
         lbl_address.alpha = 0
         lbl_prccessing.alpha = 0
@@ -98,19 +100,19 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
         background_circle.layer.cornerRadius = radius
         myCircleProgress.addSubview(background_circle)
         
-        let labelWidth = CGFloat(180.0)
+        let labelWidth = CGFloat(200.0)
 //        let textLabel = UILabel(frame: CGRect(x: (view.frame.width - labelWidth) / 2, y: (view.frame.height - 180) / 2 , width: labelWidth, height: 180.0))
-        let textLabel = UILabel(frame: CGRect(x: (view.frame.width - labelWidth) / 2, y: uiview_radius - 35 + self.offset_map , width: labelWidth, height: 180.0))
+        lbl_score = UILabel(frame: CGRect(x: (view.frame.width - labelWidth) / 2, y: uiview_radius - 35 + self.offset_map , width: labelWidth, height: 180.0))
         
-        textLabel.font = UIFont(name: "HelveticaNeue", size: 135)
-        textLabel.textAlignment = .center
-        textLabel.textColor = UIColor(rgba: 0x5AC8FAFF)
-        view.addSubview(textLabel)
+        lbl_score.font = UIFont(name: "HelveticaNeue", size: 135)
+        lbl_score.textAlignment = .center
+        lbl_score.textColor = UIColor(rgba: 0x5AC8FAFF)
+        view.addSubview(lbl_score)
         
         myCircleProgress.progressChanged {
             (progress: Double, circularProgress: KYCircularProgress) in
 //            print("progress: \(progress)")
-            textLabel.text = "\(Int(progress * 100.0))"
+            self.lbl_score.text = "\(Int(progress * 100.0))"
         }
         view.insertSubview(myCircleProgress, belowSubview: self.uiview_mapView)
 
@@ -124,6 +126,35 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
             let normalizedProgress = Double(progress) / Double(UInt8.max)
             myCircleProgress.progress = normalizedProgress
 
+        }else{
+            print("ScanView updateProgress end")
+            animationTimer.invalidate()
+            
+            // after score animate finished
+            // text score view appear
+            UIView.animate(withDuration: 2 ,delay: 2, options: .curveLinear, animations:{
+                self.lbl_score.alpha = 0
+            } ,completion: {_ in
+                self.lbl_score.font = UIFont(name: "HelveticaNeue", size: 80)
+                self.lbl_score.text = "極安全"
+                self.lbl_score.frame.origin.y += 45
+                self.lbl_score.frame.origin.x -= 20
+                self.lbl_score.textColor = UIColor(rgba: 0x88B04BFF)
+                self.lbl_score.sizeToFit()
+                UIView.animate(withDuration: 1.5 ,delay: 2, options: .curveEaseOut, animations:{
+                    self.lbl_score.alpha = 1
+                    
+                } ,completion: {_ in
+                    self.lbl_location.frame.origin.x = self.view.frame.width
+                    self.lbl_location.frame.origin.y = 120
+                    UIView.animate(withDuration: 0.5, animations:{
+                        self.lbl_location.frame.origin.x = 43
+                        self.lbl_safePoint.frame.origin.x = 31
+                        })
+                })
+                
+            })
+            
         }
     }
     
@@ -187,9 +218,9 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
         // blur effect
         let blurEffect : UIBlurEffect!
         if #available(iOS 10.0, *) {
-            blurEffect = UIBlurEffect(style: UIBlurEffectStyle.prominent)
+            blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
         } else {
-            blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+            blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
         }
         blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.alpha = 0
@@ -244,7 +275,7 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
             
         } ,completion: {_ in
             self.configureMyCircleProgress()
-            self.animationTimer = Timer.scheduledTimer(timeInterval: 0.015, target: self, selector: #selector(dashboardViewController.updateProgress), userInfo: nil, repeats: true)
+            self.animationTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(dashboardViewController.updateProgress), userInfo: nil, repeats: true)
             
         })
         

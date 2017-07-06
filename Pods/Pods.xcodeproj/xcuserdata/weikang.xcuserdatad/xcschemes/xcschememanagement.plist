@@ -8,44 +8,24 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
 		</dict>
 		<key>Pods-ParkingAdvisor.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
+		</dict>
+		<key>Pulsator.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>SwiftyJSON.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>3</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>38F391A3E497B054656FEFDACF6CB51B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>5C1F0BC8AD9DB9D282F6612636923786</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>65C25B863C2A64CE7D7B5C00F3450649</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E6CE37D71AB9D77ACD3B55B9308F8216</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-	</dict>
+	<dict/>
 </dict>
 </plist>
