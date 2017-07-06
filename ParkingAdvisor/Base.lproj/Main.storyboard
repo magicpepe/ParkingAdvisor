@@ -477,16 +477,25 @@
                                     <action selector="btn_startAnalyse:" destination="8hC-Zc-hEE" eventType="touchUpInside" id="LOa-Wo-IoU"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kOi-Eh-vx0">
-                                <rect key="frame" x="-15" y="499" width="240" height="128"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="line_bar" translatesAutoresizingMaskIntoConstraints="NO" id="kOi-Eh-vx0">
+                                <rect key="frame" x="0.0" y="545" width="375" height="9"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iK7-Gd-Vvu">
+                                <rect key="frame" x="168" y="528" width="38" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Monitor_g">
+                                    <attributedString key="attributedTitle"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="定點掃描" image="tap_icon_scan_g" id="M2I-RL-i59"/>
                     <navigationItem key="navigationItem" id="EuL-u2-btg"/>
                     <connections>
+                        <outlet property="btn_monitor" destination="iK7-Gd-Vvu" id="uAQ-HU-Q4b"/>
+                        <outlet property="img_linebar" destination="kOi-Eh-vx0" id="n7O-2T-vNK"/>
                         <outlet property="lbl_address" destination="9TE-pz-73R" id="vsT-Iy-OW0"/>
                         <outlet property="lbl_location" destination="aZy-n3-y0U" id="yqV-iM-1Za"/>
                         <outlet property="lbl_prccessing" destination="gfE-hr-4pg" id="eg8-5b-yCc"/>
@@ -672,7 +681,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Monitor_g" width="23" height="23"/>
         <image name="START" width="109" height="109"/>
+        <image name="line_bar" width="415" height="6"/>
         <image name="monitor_frame" width="397" height="99"/>
         <image name="monitor_start" width="393" height="43"/>
         <image name="report_billing" width="172" height="173"/>

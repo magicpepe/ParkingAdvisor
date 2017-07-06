@@ -34,6 +34,10 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
     @IBOutlet weak var uiview_mapView: UIView!
     let pulsator = Pulsator()
     
+    // monitor
+    @IBOutlet weak var img_linebar: UIImageView!
+    @IBOutlet weak var btn_monitor: UIButton!
+    
     
     // 為了讓Timer到達指定等級停止 , 需要是小數
     private var dangerousLevel = 0.93
@@ -61,6 +65,10 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
         lbl_location.alpha = 0
         lbl_address.alpha = 0
         lbl_prccessing.alpha = 0
+        
+        // monitor
+        btn_monitor.alpha = 0
+        img_linebar.frame.origin.x = self.view.frame.width
         
         initMap()
         
@@ -132,7 +140,7 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
             
             // after score animate finished
             // text score view appear
-            UIView.animate(withDuration: 2 ,delay: 2, options: .curveLinear, animations:{
+            UIView.animate(withDuration: 1.5 ,delay: 1, options: .curveLinear, animations:{
                 self.lbl_score.alpha = 0
             } ,completion: {_ in
                 self.lbl_score.font = UIFont(name: "HelveticaNeue", size: 80)
@@ -141,7 +149,7 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
                 self.lbl_score.frame.origin.x -= 20
                 self.lbl_score.textColor = UIColor(rgba: 0x88B04BFF)
                 self.lbl_score.sizeToFit()
-                UIView.animate(withDuration: 1.5 ,delay: 2, options: .curveEaseOut, animations:{
+                UIView.animate(withDuration: 1.5 ,delay: 1.5, options: .curveEaseOut, animations:{
                     self.lbl_score.alpha = 1
                     
                 } ,completion: {_ in
@@ -150,7 +158,15 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
                     UIView.animate(withDuration: 0.5, animations:{
                         self.lbl_location.frame.origin.x = 43
                         self.lbl_safePoint.frame.origin.x = 31
+                    },completion: {_ in
+                        UIView.animate(withDuration: 0.5, animations: {
+                            self.img_linebar.frame.origin.x = 0
+                        },completion: {_ in
+                            UIView.animate(withDuration: 0.5, animations: {
+                                self.btn_monitor.alpha = 1
+                            })
                         })
+                    })
                 })
                 
             })
