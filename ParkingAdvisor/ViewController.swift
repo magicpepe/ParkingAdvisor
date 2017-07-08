@@ -236,5 +236,11 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
     func updateVC(){
         return
     }
+    
+    // MARK: - Button
+    
+    @IBAction func btn_detail(_ sender: Any) {
+        showVC()
+    }
 }
 

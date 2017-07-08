@@ -398,6 +398,18 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zwG-pd-3KM">
+                                <rect key="frame" x="172" y="579" width="30" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="map_arrowUp">
+                                    <attributedString key="attributedTitle"/>
+                                </state>
+                                <connections>
+                                    <action selector="btn_detail:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XAp-Eq-Gvo"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="周遭評估" image="tap_icon_map_g" id="nJK-aD-pOh"/>
@@ -685,6 +697,7 @@
         <image name="Monitor_g" width="23" height="23"/>
         <image name="START" width="109" height="109"/>
         <image name="line_bar" width="415" height="6"/>
+        <image name="map_arrowUp" width="36" height="10"/>
         <image name="map_close" width="33" height="33"/>
         <image name="monitor_frame" width="397" height="99"/>
         <image name="monitor_start" width="393" height="43"/>
