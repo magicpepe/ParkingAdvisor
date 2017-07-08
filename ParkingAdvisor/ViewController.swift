@@ -227,7 +227,7 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
         self.addChildViewController(DetailVC)
 //        DetailVC.view.layoutIfNeeded()
 
-        DetailVC.view.frame = CGRect(x: 0, y: 400, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height/2)
+        DetailVC.view.frame = CGRect(x: 10, y: 480, width: UIScreen.main.bounds.size.width - 20, height: UIScreen.main.bounds.size.height - 540)
         
         detailVCisOn = true
 
