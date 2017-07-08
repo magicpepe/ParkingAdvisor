@@ -18,7 +18,14 @@ class CommentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // set background
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        UIImage(named: "background_2")?.draw(in: self.view.bounds)
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        self.view.backgroundColor = UIColor(patternImage: image)
+        
         // Do any additional setup after loading the view.
     }
 

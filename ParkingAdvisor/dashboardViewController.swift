@@ -10,7 +10,7 @@ import UIKit
 import GoogleMaps
 import Pulsator
 
-class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSMapViewDelegate{
+class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSMapViewDelegate, closeCommentVCProtocol{
     
     
     // scan view
@@ -22,6 +22,7 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
     
     // parameter
     let offset_map : CGFloat = 150.0
+    let color_lightblue_lbl = UIColor(rgba : 0x388BB8FF)
     
     // label
     @IBOutlet weak var lbl_location: UILabel!
@@ -39,7 +40,10 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
     
     // monitor
     @IBOutlet weak var img_linebar: UIImageView!
-    @IBOutlet weak var btn_monitor: UIButton!
+    @IBOutlet weak var img_moniotr: UIImageView!
+    @IBOutlet weak var lbl_startMonitor : UILabel!
+    private var monitorTimer = Timer()
+    private var monitorCounter : Int = 0
     
     
     // 為了讓Timer到達指定等級停止 , 需要是小數
@@ -74,9 +78,9 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
         btn_scan.isHidden = true
         
         // monitor
-        btn_monitor.alpha = 0
+        img_moniotr.alpha = 0
         img_linebar.frame.origin.x = self.view.frame.width
-        
+        lbl_startMonitor.alpha = 0
         initMap()
         
         
@@ -85,6 +89,7 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(true)
         animationTimer.invalidate()
+        monitorTimer.invalidate()
     }
     
     private func configureMyCircleProgress(){
@@ -170,7 +175,10 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
                             self.img_linebar.frame.origin.x = 0
                         },completion: {_ in
                             UIView.animate(withDuration: 0.5, animations: {
-                                self.btn_monitor.alpha = 1
+                                self.img_moniotr.alpha = 1
+                                self.lbl_startMonitor.alpha = 1
+                            },completion: {_ in
+                                self.monitorTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(dashboardViewController.upgradeMonitorTimer), userInfo: nil, repeats: true)
                             })
                         })
                     })
@@ -288,7 +296,7 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
     
     @IBAction func btn_startAnalyse(_ sender: Any) {
         let uiview_radius : CGFloat = view.frame.width / 2 - 50
-        
+        self.lbl_prccessing.alpha = 0
         pulsator.stop()
 //        uiview_mapView.layer.shadowColor = UIColor.clear.cgColor
 //        uiview_mapView.backgroundColor = UIColor.white
@@ -304,6 +312,62 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
         })
         
     }
+    
+    @IBAction func btn_startMonitor(_ sender: Any) {
+        NSLog("btn_startMonitor pressed")
+        monitorTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(dashboardViewController.upgradeMonitorTimer), userInfo: nil, repeats: true)
+        
+    }
+    
+    // MARK: Monitor
+    func upgradeMonitorTimer(){
+        lbl_startMonitor.text = "停止監控"
+        
+        monitorCounter = monitorCounter + 1
+        self.lbl_score.text = String(format: "%.2d:%.2d", monitorCounter / 60, monitorCounter % 60)
+        
+        if (monitorCounter > 10){
+            monitorTimer.invalidate()
+            showComment()
+        }
+    }
+    
+    // MARK: - Comment
+    
+    func showComment(){
+        
+        let commentVC : CommentViewController = storyboard!.instantiateViewController(withIdentifier: "CommentViewController") as! CommentViewController
+        
+        commentVC.delegate = self
+        commentVC.view.alpha = 0
+        self.view.addSubview(commentVC.view)
+        self.addChildViewController(commentVC)
+        UIView.animate(withDuration: 0.5 ,animations : {
+            commentVC.view.alpha = 1
+        })
+    }
+    
+    func closeComment() {
+        
+        NSLog("closeComment")
+        
+        let viewBack : UIView = view.subviews.last!
+        UIView.animate(withDuration: 0.3, animations: { () -> Void in
+            //        self.willMove(toParentViewController: nil)
+            var frameMenu : CGRect = viewBack.frame
+            frameMenu.origin.y = 2 * UIScreen.main.bounds.size.height
+            viewBack.frame = frameMenu
+            
+            viewBack.layoutIfNeeded()
+            viewBack.backgroundColor = UIColor.clear
+            //        self.removeFromParentViewController()
+        }, completion: { (finished) -> Void in
+            viewBack.removeFromSuperview()
+        })
+        
+    }
+    
+    
     
     // MARK: - LocationManager
     
