@@ -20,6 +20,7 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
     let locationManager = CLLocationManager()
     var isMapInit : Bool = false
     var mapView:GMSMapView!
+    @IBOutlet weak var btn_arrow: UIButton!
     
     
     override func loadView() {
@@ -97,7 +98,8 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
 
 //        view.addSubview(mapView)
         view = mapView
-//        view.bringSubview(toFront: btn_next)
+//        view.bringSubview(toFront: btn_arrow)
+        view.addSubview(btn_arrow)
         isMapInit = true
     }
     
