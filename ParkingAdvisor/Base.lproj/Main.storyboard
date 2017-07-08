@@ -537,40 +537,87 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mbf-Uw-0OS">
-                                <rect key="frame" x="67" y="28" width="240" height="128"/>
+                                <rect key="frame" x="67" y="222" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CgG-SR-M6E">
-                                <rect key="frame" x="151" y="388" width="72" height="21"/>
+                                <rect key="frame" x="151" y="153" width="72" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dhi-hF-hGL">
-                                <rect key="frame" x="62" y="359" width="250" height="21"/>
+                                <rect key="frame" x="62" y="124" width="250" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQ0-YX-2G7">
-                                <rect key="frame" x="12" y="430" width="170" height="170"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="line_bar" translatesAutoresizingMaskIntoConstraints="NO" id="j8Q-zr-qbS">
+                                <rect key="frame" x="0.0" y="545" width="375" height="9"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="report_towing"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQ0-YX-2G7">
+                                <rect key="frame" x="12" y="465" width="170" height="170"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="btn_circle"/>
                                 <connections>
                                     <action selector="btn_press_towing:" destination="cDp-mA-lHG" eventType="touchUpInside" id="pGf-gW-OQr"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="whf-rP-Cv0">
-                                <rect key="frame" x="192" y="430" width="170" height="170"/>
+                                <rect key="frame" x="192" y="465" width="170" height="170"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="report_billing"/>
+                                <state key="normal" image="btn_circle"/>
                                 <connections>
                                     <action selector="btn_press_billing:" destination="cDp-mA-lHG" eventType="touchUpInside" id="O3H-d3-pB2"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="maD-dF-nHt">
+                                <rect key="frame" x="31" y="60" width="313" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="危險回報">
+                                        <attributes>
+                                            <color key="NSColor" red="0.2196078431372549" green="0.54509803921568623" blue="0.72156862745098038" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="30" name="PingFangTC-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ro8-jE-Xzs">
+                                <rect key="frame" x="31" y="576" width="132" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="警察開單中">
+                                        <attributes>
+                                            <color key="NSColor" red="0.2196078431372549" green="0.54509803921568623" blue="0.72156862745098038" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="17" name=".PingFangTC-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iod-nS-QNN">
+                                <rect key="frame" x="211" y="576" width="132" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="車輛拖吊中">
+                                        <attributes>
+                                            <color key="NSColor" red="0.2196078431372549" green="0.54509803921568623" blue="0.72156862745098038" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="17" name=".PingFangTC-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -699,15 +746,14 @@
     <resources>
         <image name="Monitor_g" width="23" height="23"/>
         <image name="START" width="109" height="109"/>
+        <image name="btn_circle" width="25" height="25"/>
         <image name="line_bar" width="415" height="6"/>
         <image name="map_arrowUp" width="36" height="10"/>
         <image name="map_close" width="33" height="33"/>
         <image name="monitor_frame" width="397" height="99"/>
         <image name="monitor_start" width="393" height="43"/>
-        <image name="report_billing" width="172" height="173"/>
         <image name="report_sad" width="165" height="165"/>
         <image name="report_smile" width="165" height="165"/>
-        <image name="report_towing" width="170" height="173"/>
         <image name="tap_icon_map_g" width="32" height="28"/>
         <image name="tap_icon_moniter_g" width="23" height="23"/>
         <image name="tap_icon_report_g" width="39" height="30"/>

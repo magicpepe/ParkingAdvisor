@@ -28,6 +28,14 @@ class ReportViewController: UIViewController ,CLLocationManagerDelegate, GMSMapV
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        // set background
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        UIImage(named: "background_2")?.draw(in: self.view.bounds)
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        self.view.backgroundColor = UIColor(patternImage: image)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,16 +55,16 @@ class ReportViewController: UIViewController ,CLLocationManagerDelegate, GMSMapV
         
         // uiview init
         let uiview_radius : CGFloat = view.frame.width / 2 - 50
-        let uiview_center = CGPoint(x: Int(view.frame.width / 2), y: Int(uiview_radius + 50))
+        let uiview_center = CGPoint(x: Int(view.frame.width / 2), y: Int(uiview_radius + 200))
         uiview_mapView.frame = CGRect(x:0, y:0, width: uiview_radius * 2, height: uiview_radius * 2)
         uiview_mapView.center = uiview_center
         uiview_mapView.layer.cornerRadius = uiview_radius
         
         // uiview shadow
-        uiview_mapView.layer.shadowColor = UIColor.black.cgColor
-        uiview_mapView.layer.shadowOpacity = 0.8
-        uiview_mapView.layer.shadowOffset = CGSize.zero
-        uiview_mapView.layer.shadowRadius = 10
+//        uiview_mapView.layer.shadowColor = UIColor.black.cgColor
+//        uiview_mapView.layer.shadowOpacity = 0.8
+//        uiview_mapView.layer.shadowOffset = CGSize.zero
+//        uiview_mapView.layer.shadowRadius = 10
         
 //        let locValue:CLLocationCoordinate2D = PASingleton.sharedInstance().getLocation()
 //        print("initMaps Locations = \(locValue.latitude) \(locValue.longitude)")
