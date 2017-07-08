@@ -22,7 +22,6 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
     var mapView:GMSMapView!
     
     
-    
     override func loadView() {
         
         super.loadView()
@@ -35,7 +34,6 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "暫停一下"
         
         locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
@@ -59,10 +57,7 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
             // 3. 用戶已經同意
         else if CLLocationManager.authorizationStatus() == .authorizedAlways {
             locationManager.startUpdatingLocation()
-
-            
         }
-        // Do any additional setup after loading the view, typically from a nib.
         
         addSlideMenuButton()
         
@@ -75,12 +70,6 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    // MARK: - Button
-
-    @IBAction func btn_goNext(_ sender: UIButton) {
-        performSegue(withIdentifier:"goDashBoard" , sender:nil)
     }
     
     // MARK: - MAP Init
@@ -117,6 +106,10 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let locValue:CLLocationCoordinate2D = manager.location!.coordinate
         print("locations = \(locValue.latitude) \(locValue.longitude)")
+        
+        // singleton
+        PASingleton.sharedInstance().setLocation(location: locValue)
+        
         if !isMapInit{
             initMap(location: locValue)
             getPointFromAPI(location: locationManager.location!.coordinate)
