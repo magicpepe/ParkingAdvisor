@@ -10,6 +10,29 @@ import UIKit
 import GoogleMaps
 import SwiftyJSON
 
+let kMapStyle = "[" +
+    "  {" +
+    "    \"featureType\": \"poi.business\"," +
+    "    \"elementType\": \"all\"," +
+    "    \"stylers\": [" +
+    "      {" +
+    "        \"visibility\": \"off\"" +
+    "      }" +
+    "    ]" +
+    "  }," +
+    "  {" +
+    "    \"featureType\": \"transit\"," +
+    "    \"elementType\": \"labels.icon\"," +
+    "    \"stylers\": [" +
+    "      {" +
+    "        \"visibility\": \"off\"" +
+    "      }" +
+    "    ]" +
+    "  }" +
+"]"
+
+
+
 class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetailVCProtocol, GMSMapViewDelegate{
     
 //    @IBOutlet weak var btn_next: UIButton!
@@ -20,7 +43,7 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
     let locationManager = CLLocationManager()
     var isMapInit : Bool = false
     var mapView:GMSMapView!
-    
+    @IBOutlet weak var btn_arrow: UIButton!
     
     
     override func loadView() {
@@ -35,7 +58,6 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "暫停一下"
         
         locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
@@ -59,10 +81,7 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
             // 3. 用戶已經同意
         else if CLLocationManager.authorizationStatus() == .authorizedAlways {
             locationManager.startUpdatingLocation()
-
-            
         }
-        // Do any additional setup after loading the view, typically from a nib.
         
         addSlideMenuButton()
         
@@ -77,21 +96,20 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - Button
-
-    @IBAction func btn_goNext(_ sender: UIButton) {
-        performSegue(withIdentifier:"goDashBoard" , sender:nil)
-    }
-    
     // MARK: - MAP Init
 
     func initMap(location:CLLocationCoordinate2D) {
         
+        
+        //
         let locValue:CLLocationCoordinate2D = location
         print("initMaps Locations = \(locValue.latitude) \(locValue.longitude)")
         
-        let camera = GMSCameraPosition.camera(withLatitude: (locationManager.location?.coordinate.latitude)!,
-                                              longitude: (locationManager.location?.coordinate.longitude)!,
+//        let camera = GMSCameraPosition.camera(withLatitude: (locationManager.location?.coordinate.latitude)!,
+//                                              longitude: (locationManager.location?.coordinate.longitude)!,
+//                                              zoom: 17)
+        let camera = GMSCameraPosition.camera(withLatitude: (locValue.latitude),
+                                              longitude: (locValue.longitude),
                                               zoom: 17)
         
         
@@ -103,20 +121,50 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
         marker.position = camera.target
         marker.snippet = "Hello World"
         //        marker.appearAnimation = GMSMarkerAnimationPop
+        
+//        do {
+//            // Set the map style by passing a valid JSON string.
+//            mapView.mapStyle = try GMSMapStyle(jsonString: kMapStyle)
+//        } catch {
+//            NSLog("One or more of the map styles failed to load. \(error)")
+//        }
+        
+        do {
+            // Set the map style by passing the URL of the local file.
+            if let styleURL = Bundle.main.url(forResource: "bstyle", withExtension: "json") {
+                mapView.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
+            } else {
+                NSLog("Unable to find style.json")
+            }
+        } catch {
+            NSLog("One or more of the map styles failed to load. \(error)")
+        }
+        
         marker.map = mapView
         
 
 //        view.addSubview(mapView)
         view = mapView
-//        view.bringSubview(toFront: btn_next)
+//        view.bringSubview(toFront: btn_arrow)
+        view.addSubview(btn_arrow)
         isMapInit = true
     }
     
     // MARK: - LocationManager
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
+        var locValue:CLLocationCoordinate2D = manager.location!.coordinate
         print("locations = \(locValue.latitude) \(locValue.longitude)")
+        
+        
+        /// ------ testing -------
+        locValue.latitude = 24.178805
+        locValue.longitude = 120.644828
+        /// ------ testing -------
+        
+        // singleton
+        PASingleton.sharedInstance().setLocation(location: locValue)
+        
         if !isMapInit{
             initMap(location: locValue)
             getPointFromAPI(location: locationManager.location!.coordinate)
@@ -134,22 +182,23 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
             "\"green\": {" +
                 "\"number\": 3," +
                 "\"location\": [" +
-                "\"120.644490\",\"24.178780\"," +
-                "\"120.645097\",\"24.178535\"," +
-                "\"120.645456\",\"24.178824\"" +
+                "\"120.644034\",\"24.178699\"," +
+                "\"120.643789\",\"24.178535\"," +
+                "\"120.644476\",\"24.179364\"" +
                 "]" +
             "}," +
             "\"yellow\": {" +
                 "\"number\": 1," +
                 "\"location\": [" +
-                "\"120.645102\",\"24.179225\"" +
+                "\"120.645414\",\"24.178828\"," +
+                "\"120.644656\",\"24.178802\"" +
                 "]" +
             "}," +
             "\"red\": {" +
                 "\"number\": 2," +
                 "\"location\": [" +
-                "\"120.645102\",\"24.179225\"," +
-                "\"120.644920\",\"24.178804\"" +
+                "\"120.645096\",\"24.178971\"," +
+                "\"120.645096\",\"24.178479\"" +
                 "]" +
             "}" +
         "}" +
@@ -234,7 +283,7 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
         self.addChildViewController(DetailVC)
 //        DetailVC.view.layoutIfNeeded()
 
-        DetailVC.view.frame = CGRect(x: 0, y: 400, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height/2)
+        DetailVC.view.frame = CGRect(x: 10, y: 480, width: UIScreen.main.bounds.size.width - 20, height: UIScreen.main.bounds.size.height - 540)
         
         detailVCisOn = true
 
@@ -242,6 +291,12 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
     
     func updateVC(){
         return
+    }
+    
+    // MARK: - Button
+    
+    @IBAction func btn_detail(_ sender: Any) {
+        showVC()
     }
 }
 

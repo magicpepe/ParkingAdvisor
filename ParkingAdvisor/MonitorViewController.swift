@@ -9,7 +9,7 @@
 import UIKit
 import GoogleMaps
 
-class MonitorViewController: UIViewController,CLLocationManagerDelegate,GMSMapViewDelegate {
+class MonitorViewController: UIViewController,CLLocationManagerDelegate,GMSMapViewDelegate, closeCommentVCProtocol {
 
 //    預設未監控狀態
     private var isStart : Bool = false
@@ -21,9 +21,15 @@ class MonitorViewController: UIViewController,CLLocationManagerDelegate,GMSMapVi
     var btn_sad : UIButton!
     var commentView : UIView!
     
+    // detailView
+    @IBOutlet weak var uiview_detail: UIView!
+    @IBOutlet weak var uiview_cell: UIView!
+    @IBOutlet weak var tbl_titlescore: UILabel!
+    @IBOutlet weak var tbl_score: UILabel!
+    
     let locationManager = CLLocationManager()
     var mapView:GMSMapView!
-
+    
     
     @IBOutlet weak var btn_start : UIButton!
     @IBOutlet weak var uiview_mapView: UIView!
@@ -100,14 +106,20 @@ class MonitorViewController: UIViewController,CLLocationManagerDelegate,GMSMapVi
     @IBAction func btn_StopStart(_ sender: Any){
         //
         if isStart{
-//            btn_start.setImage(UIImage(named:"START"), for: .normal)
-            btn_start.setTitle("START",for: .normal)
+            btn_start.setImage(UIImage(named:"monitor_start"), for: .normal)
+//            btn_start.setTitle("START",for: .normal)
+            uiview_cell.alpha = 1
+            tbl_score.alpha = 1
+            tbl_titlescore.alpha = 1
             showComment()
             isStart = false
-        }else{
-//            btn_start.setImage(UIImage(named:"STOP"), for: .normal)
-            btn_start.setTitle("STOP", for: .normal)
-            uiview_mapView?.removeFromSuperview()
+        } else{
+            btn_start.setImage(UIImage(named:"monitor_stop"), for: .normal)
+//            btn_start.setTitle("STOP", for: .normal)
+            uiview_cell.alpha = 0
+            tbl_score.alpha = 0
+            tbl_titlescore.alpha = 0
+            
             isStart = true
             
         }
@@ -130,8 +142,8 @@ class MonitorViewController: UIViewController,CLLocationManagerDelegate,GMSMapVi
         commentView.removeFromSuperview()
         btn_smile = nil
         btn_sad = nil
-        self.view.addSubview(uiview_mapView)
-
+//        self.view.addSubview(uiview_mapView)
+        
     }
     
     func btn_Comment_smile(sender: UIButton!){
@@ -139,31 +151,42 @@ class MonitorViewController: UIViewController,CLLocationManagerDelegate,GMSMapVi
         commentView.removeFromSuperview()
         btn_smile = nil
         btn_sad = nil
-        self.view.addSubview(uiview_mapView)
-
+//        self.view.addSubview(uiview_mapView)
+        
     }
     
     // MARK: - Comment
     
     func showComment(){
-        btn_smile = UIButton.init(frame: CGRect(x: 0, y: (uiview_mapView.bounds.width - UIScreen.main.bounds.size.width/2)/2 + uiview_mapView.frame.origin.y, width: UIScreen.main.bounds.size.width/2, height: UIScreen.main.bounds.size.width/2))
-        btn_smile.setImage(UIImage(named: "smile"), for: .normal)
-        btn_smile.addTarget(self, action: #selector(btn_Comment_smile(sender:)), for: .touchUpInside)
         
-        btn_sad = UIButton.init(frame: CGRect(x: UIScreen.main.bounds.size.width/2, y: (uiview_mapView.bounds.width - UIScreen.main.bounds.size.width/2)/2 + uiview_mapView.frame.origin.y, width: UIScreen.main.bounds.size.width/2, height: UIScreen.main.bounds.size.width/2))
-        btn_sad.setImage(UIImage(named: "sad"), for: .normal)
-        btn_sad.addTarget(self, action: #selector(btn_Comment_sad(sender:)), for: .touchUpInside)
-
-        commentView = UIView.init(frame: self.view.bounds)
-        commentView.backgroundColor = UIColor.gray.withAlphaComponent(0.8)
-        commentView.addSubview(btn_smile)
-        commentView.addSubview(btn_sad)
+        let commentVC : CommentViewController = storyboard!.instantiateViewController(withIdentifier: "CommentViewController") as! CommentViewController
         
+        commentVC.delegate = self
+        self.view.addSubview(commentVC.view)
+        self.addChildViewController(commentVC)
         
-        self.view.addSubview(commentView)
     }
     
-
+    func closeComment() {
+        
+        NSLog("closeComment")
+        
+        let viewBack : UIView = view.subviews.last!
+        UIView.animate(withDuration: 0.3, animations: { () -> Void in
+            //        self.willMove(toParentViewController: nil)
+            var frameMenu : CGRect = viewBack.frame
+            frameMenu.origin.y = 2 * UIScreen.main.bounds.size.height
+            viewBack.frame = frameMenu
+            
+            viewBack.layoutIfNeeded()
+            viewBack.backgroundColor = UIColor.clear
+            //        self.removeFromParentViewController()
+        }, completion: { (finished) -> Void in
+            viewBack.removeFromSuperview()
+        })      
+        
+    }
+    
     /*
     // MARK: - Navigation
 

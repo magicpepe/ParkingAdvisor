@@ -10,7 +10,7 @@ use_frameworks!
 
 pod 'KYCircularProgress'
 pod 'SwiftyJSON'
-
+pod 'Pulsator'
 
 end
 

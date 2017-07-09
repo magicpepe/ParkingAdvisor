@@ -25,6 +25,14 @@ class DetailViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // set background
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        UIImage(named: "map_msg_bg")?.draw(in: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width - 20, height: UIScreen.main.bounds.size.height - 540 ))
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        self.view.backgroundColor = UIColor(patternImage: image)
+        
         // Do any additional setup after loading the view.
     }
 
