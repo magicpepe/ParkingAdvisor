@@ -30,6 +30,7 @@
 		B118D7091EF2770500DB64B7 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B118D7081EF2770500DB64B7 /* SwiftyJSON.swift */; };
 		B118D7131EF2B3E200DB64B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708D50411E9B502E00DB4ED9 /* ViewController.swift */; };
 		B118D71C1EF2B3E300DB64B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708D50411E9B502E00DB4ED9 /* ViewController.swift */; };
+		B1399B761F123F6600F44736 /* bstyle.json in Resources */ = {isa = PBXBuildFile; fileRef = B1399B751F123F6600F44736 /* bstyle.json */; };
 		B186B3951F0CC49900EB4998 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B186B3941F0CC49900EB4998 /* CommentViewController.swift */; };
 		B1E934171F04AD6600F45213 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E934161F04AD6600F45213 /* ReportViewController.swift */; };
 		B1E934211F04CCD900F45213 /* MonitorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E934201F04CCD900F45213 /* MonitorViewController.swift */; };
@@ -134,6 +135,7 @@
 		B10D11961F0E1CCA00798AE6 /* Pulsator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pulsator.swift; sourceTree = "<group>"; };
 		B118D6EE1EF2744200DB64B7 /* SwiftyJSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyJSON.xcodeproj; path = ../SwiftyJSON/SwiftyJSON.xcodeproj; sourceTree = "<group>"; };
 		B118D7081EF2770500DB64B7 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = ../Pods/SwiftyJSON/Source/SwiftyJSON.swift; sourceTree = "<group>"; };
+		B1399B751F123F6600F44736 /* bstyle.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = bstyle.json; sourceTree = "<group>"; };
 		B186B3941F0CC49900EB4998 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		B1E934161F04AD6600F45213 /* ReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		B1E934201F04CCD900F45213 /* MonitorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonitorViewController.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				701E4D421EA4B68D00CAC177 /* Assets.xcassets */,
 				708D50481E9B502E00DB4ED9 /* LaunchScreen.storyboard */,
 				708D504B1E9B502E00DB4ED9 /* Info.plist */,
+				B1399B751F123F6600F44736 /* bstyle.json */,
 			);
 			path = ParkingAdvisor;
 			sourceTree = "<group>";
@@ -444,6 +447,7 @@
 			files = (
 				70CE34211EA0B6B000595C55 /* picts in Resources */,
 				708D504A1E9B502E00DB4ED9 /* LaunchScreen.storyboard in Resources */,
+				B1399B761F123F6600F44736 /* bstyle.json in Resources */,
 				708D506E1E9B529600DB4ED9 /* Podfile in Resources */,
 				708D50451E9B502E00DB4ED9 /* Main.storyboard in Resources */,
 				701E4D431EA4B68D00CAC177 /* Assets.xcassets in Resources */,

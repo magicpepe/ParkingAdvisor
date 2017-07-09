@@ -105,12 +105,46 @@ class ReportViewController: UIViewController ,CLLocationManagerDelegate, GMSMapV
     // MARK - Button
     @IBAction func btn_press_towing(_ sender: Any){
         NSLog("btn_press_towing")
+        reported()
     }
     
     @IBAction func btn_press_billing(_ sender: Any){
         NSLog("btn_press_billing")
-        
+        reported()
     }
     
-    
+    func reported(){
+        
+        // blur effect
+        let blurEffect : UIBlurEffect!
+        var blurEffectView : UIVisualEffectView!
+        
+        blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.alpha = 0
+        blurEffectView.frame = uiview_mapView.bounds
+        blurEffectView.center = uiview_mapView.center
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        blurEffectView.layer.cornerRadius = view.frame.width / 2 - 50
+        blurEffectView.clipsToBounds = true
+        view.addSubview(blurEffectView)
+        
+        // label report
+        var lbl_report = UILabel()
+        lbl_report.textColor = UIColor(rgba: 0x4A4A4AFF)
+        lbl_report.text = "感謝回報"
+        lbl_report.font = UIFont(name: "HelveticaNeue", size: 60)
+        lbl_report.frame = CGRect(x: 0 / 2, y: 310 , width: 200, height: 180.0)
+        lbl_report.sizeToFit()
+        lbl_report.textAlignment = .center
+        lbl_report.frame.origin.x = (view.frame.width - lbl_report.frame.width ) / 2
+        lbl_report.alpha = 0
+        view.addSubview(lbl_report)
+        
+        UIView.animate(withDuration: 1, delay: 0.3, options: .curveEaseIn, animations: {
+            blurEffectView.alpha = 0.7
+            lbl_report.alpha = 1
+        })
+            
+    }
 }

@@ -152,23 +152,26 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
             
             // after score animate finished
             // text score view appear
-            UIView.animate(withDuration: 1.5 ,delay: 1, options: .curveLinear, animations:{
+            UIView.animate(withDuration: 1.5 ,delay: 0.5, options: .curveLinear, animations:{
                 self.lbl_score.alpha = 0
             } ,completion: {_ in
                 self.lbl_score.font = UIFont(name: "HelveticaNeue", size: 80)
                 self.lbl_score.text = "極安全"
                 self.lbl_score.frame.origin.y += 45
                 self.lbl_score.frame.origin.x -= 20
-                self.lbl_score.textColor = UIColor(rgba: 0x88B04BFF)
+                self.lbl_score.textColor = UIColor(rgba: 0x4A4A4AFF)
                 self.lbl_score.sizeToFit()
-                UIView.animate(withDuration: 1.5 ,delay: 1.5, options: .curveEaseOut, animations:{
+                UIView.animate(withDuration: 1.5 ,delay: 0.5, options: .curveEaseOut, animations:{
                     self.lbl_score.alpha = 1
                     
                 } ,completion: {_ in
                     self.lbl_location.frame.origin.x = self.view.frame.width
                     self.lbl_location.frame.origin.y = 120
+                    self.lbl_address.frame.origin.x = self.view.frame.width
+                    self.lbl_address.frame.origin.y = 149
                     UIView.animate(withDuration: 0.5, animations:{
                         self.lbl_location.frame.origin.x = 43
+                        self.lbl_address.frame.origin.x = 43
                         self.lbl_safePoint.frame.origin.x = 31
                     },completion: {_ in
                         UIView.animate(withDuration: 0.5, animations: {
@@ -244,7 +247,9 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
         mapView.animate(toZoom: 16.0)
         CATransaction.commit()
         
-        lbl_location.text = "\(locationManager.location!.coordinate.latitude) ,\(locationManager.location!.coordinate.longitude)"
+//        lbl_location.text = "\(locationManager.location!.coordinate.latitude) ,\(locationManager.location!.coordinate.longitude)"
+        lbl_location.text = String(format: "%6f, %6f", locationManager.location!.coordinate.latitude, locationManager.location!.coordinate.longitude)
+        lbl_address.text = "逢甲路100號"
         
         // blur effect
         let blurEffect : UIBlurEffect!
@@ -267,13 +272,13 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
         },completion: {_ in
             self.lbl_prccessing.text = "輕觸開始分析"
             self.lbl_location.alpha = 1
+            self.lbl_address.alpha = 1
             self.pulseStart()
             self.btn_scan.isHidden = false
         })
         
         //        label attribute
         //        lbl_location.textColor = UIColor(rgba: 0xFFFFFFFF)
-        lbl_address.alpha = 0
         
     }
     
