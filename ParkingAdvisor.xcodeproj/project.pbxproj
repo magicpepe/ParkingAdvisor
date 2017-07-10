@@ -696,6 +696,7 @@
 			baseConfigurationReference = 6C24AC545B5933788FF2F701 /* Pods-ParkingAdvisor.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = XW3GGB6ENP;
 				INFOPLIST_FILE = ParkingAdvisor/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -711,6 +712,7 @@
 			baseConfigurationReference = 1BAE6EC73489FCC20AC9F816 /* Pods-ParkingAdvisor.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				DEVELOPMENT_TEAM = XW3GGB6ENP;
 				INFOPLIST_FILE = ParkingAdvisor/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
