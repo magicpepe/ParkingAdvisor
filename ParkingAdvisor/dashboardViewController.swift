@@ -37,6 +37,7 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
     let locationManager = CLLocationManager()
     @IBOutlet weak var uiview_mapView: UIView!
     let pulsator = Pulsator()
+    let background_circle : UIView = UIView()
     
     // monitor
     @IBOutlet weak var img_linebar: UIImageView!
@@ -90,6 +91,10 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
         super.viewDidDisappear(true)
         animationTimer.invalidate()
         monitorTimer.invalidate()
+        uiview_mapView?.removeFromSuperview()
+        myCircleProgress = nil
+        pulsator.stop()
+        background_circle.removeFromSuperview()
     }
     
     private func configureMyCircleProgress(){
@@ -114,7 +119,7 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
         myCircleProgress.colors = [UIColor(rgba: 0x28FF28AA), UIColor(rgba: 0x0080FFAA), UIColor(rgba: 0xFF77FFAA), UIColor(rgba: 0xFF5151AA)]
 //        myCircleProgress.colors = [UIColor(rgba: 0x5AC8FAFF)]
         
-        let background_circle = UIView.init(frame: CGRect( x:0, y:0, width: radius * 2, height: radius * 2 ))
+        background_circle.frame = CGRect( x:0, y:0, width: radius * 2, height: radius * 2 )
         background_circle.center = center
         background_circle.backgroundColor = UIColor(rgba: 0xF6F6F6FF)
         background_circle.layer.cornerRadius = radius
