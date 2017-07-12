@@ -31,6 +31,7 @@
 		B118D7131EF2B3E200DB64B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708D50411E9B502E00DB4ED9 /* ViewController.swift */; };
 		B118D71C1EF2B3E300DB64B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708D50411E9B502E00DB4ED9 /* ViewController.swift */; };
 		B1399B761F123F6600F44736 /* bstyle.json in Resources */ = {isa = PBXBuildFile; fileRef = B1399B751F123F6600F44736 /* bstyle.json */; };
+		B1399B811F1601D500F44736 /* StoryboardiPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1399B801F1601D500F44736 /* StoryboardiPad.storyboard */; };
 		B186B3951F0CC49900EB4998 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B186B3941F0CC49900EB4998 /* CommentViewController.swift */; };
 		B1E934171F04AD6600F45213 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E934161F04AD6600F45213 /* ReportViewController.swift */; };
 		B1E934211F04CCD900F45213 /* MonitorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E934201F04CCD900F45213 /* MonitorViewController.swift */; };
@@ -136,6 +137,7 @@
 		B118D6EE1EF2744200DB64B7 /* SwiftyJSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyJSON.xcodeproj; path = ../SwiftyJSON/SwiftyJSON.xcodeproj; sourceTree = "<group>"; };
 		B118D7081EF2770500DB64B7 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = ../Pods/SwiftyJSON/Source/SwiftyJSON.swift; sourceTree = "<group>"; };
 		B1399B751F123F6600F44736 /* bstyle.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = bstyle.json; sourceTree = "<group>"; };
+		B1399B801F1601D500F44736 /* StoryboardiPad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StoryboardiPad.storyboard; sourceTree = "<group>"; };
 		B186B3941F0CC49900EB4998 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		B1E934161F04AD6600F45213 /* ReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		B1E934201F04CCD900F45213 /* MonitorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonitorViewController.swift; sourceTree = "<group>"; };
@@ -233,9 +235,8 @@
 				70CE34221EA0BD0700595C55 /* MenuViewController.swift */,
 				B1E934201F04CCD900F45213 /* MonitorViewController.swift */,
 				280C1E851F0ABF4600CE2B1C /* PASingleton.swift */,
-				708D50431E9B502E00DB4ED9 /* Main.storyboard */,
+				B1399B8A1F1601E900F44736 /* View */,
 				701E4D421EA4B68D00CAC177 /* Assets.xcassets */,
-				708D50481E9B502E00DB4ED9 /* LaunchScreen.storyboard */,
 				708D504B1E9B502E00DB4ED9 /* Info.plist */,
 				B1399B751F123F6600F44736 /* bstyle.json */,
 			);
@@ -272,6 +273,16 @@
 				B118D7061EF2744200DB64B7 /* SwiftyJSON tvOS Tests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		B1399B8A1F1601E900F44736 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				708D50431E9B502E00DB4ED9 /* Main.storyboard */,
+				708D50481E9B502E00DB4ED9 /* LaunchScreen.storyboard */,
+				B1399B801F1601D500F44736 /* StoryboardiPad.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -451,6 +462,7 @@
 				708D506E1E9B529600DB4ED9 /* Podfile in Resources */,
 				708D50451E9B502E00DB4ED9 /* Main.storyboard in Resources */,
 				701E4D431EA4B68D00CAC177 /* Assets.xcassets in Resources */,
+				B1399B811F1601D500F44736 /* StoryboardiPad.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -583,6 +595,7 @@
 				708D50441E9B502E00DB4ED9 /* Base */,
 			);
 			name = Main.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		708D50481E9B502E00DB4ED9 /* LaunchScreen.storyboard */ = {
@@ -591,6 +604,7 @@
 				708D50491E9B502E00DB4ED9 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
