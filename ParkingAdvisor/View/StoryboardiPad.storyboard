@@ -94,7 +94,6 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="172" id="NQc-7R-PEa"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="close_detailVC:" destination="1ni-TZ-XPE" eventType="touchUpInside" id="QO3-f1-nZI"/>
                                 </connections>
@@ -171,6 +170,9 @@
                             <constraint firstAttribute="trailing" secondItem="OYL-9b-7cd" secondAttribute="trailing" constant="66" id="wIp-qc-Smh"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btn_close" destination="Zaj-jX-YqL" id="8ie-Jy-xRi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PVj-i4-CPR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -879,10 +881,10 @@
             </objects>
             <point key="canvasLocation" x="-822" y="-184"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="zA0-SK-zQa">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="UZL-Ac-iZJ" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="UZL-Ac-iZJ" customClass="TabBarViewController" customModule="ParkingAdvisor" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="qw0-Wa-Ufx">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

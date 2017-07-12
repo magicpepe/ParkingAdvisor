@@ -271,17 +271,16 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
     func showVC(){
         let DetailVC : DetailViewController = storyboard!.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
         DetailVC.delegate = self
-        
         self.view.addSubview(DetailVC.view)
         self.addChildViewController(DetailVC)
 //        DetailVC.view.layoutIfNeeded()
         
         // iphone
-        DetailVC.view.frame = CGRect(x: 10, y: 480, width: UIScreen.main.bounds.size.width - 20, height: UIScreen.main.bounds.size.height - 540)
+//        DetailVC.view.frame = CGRect(x: 10, y: 480, width: UIScreen.main.bounds.size.width - 20, height: UIScreen.main.bounds.size.height - 540)
         
         // ipad
-        DetailVC.view.frame = CGRect(x: 10, y: 480, width: UIScreen.main.bounds.size.width - 20, height: UIScreen.main.bounds.size.height - 540)
-        
+        DetailVC.view.frame = DetailVC.btn_close.frame
+        DetailVC.view.frame.origin.y = self.view.bounds.height - DetailVC.btn_close.frame.height - (tabBarController?.tabBar.frame.size.height)!
         
         detailVCisOn = true
 
