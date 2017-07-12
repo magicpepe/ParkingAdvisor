@@ -40,8 +40,11 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
     var detailVCisOn : Bool = false
     var DetailVC : DetailViewController! = nil
     
-    let locationManager = CLLocationManager()
+    
+    // map view
+    @IBOutlet weak var uiview_mapView: UIView!
     var isMapInit : Bool = false
+    let locationManager = CLLocationManager()
     var mapView:GMSMapView!
     @IBOutlet weak var btn_arrow: UIButton!
     
@@ -105,29 +108,19 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
         let locValue:CLLocationCoordinate2D = location
         print("initMaps Locations = \(locValue.latitude) \(locValue.longitude)")
         
-//        let camera = GMSCameraPosition.camera(withLatitude: (locationManager.location?.coordinate.latitude)!,
-//                                              longitude: (locationManager.location?.coordinate.longitude)!,
-//                                              zoom: 17)
         let camera = GMSCameraPosition.camera(withLatitude: (locValue.latitude),
                                               longitude: (locValue.longitude),
                                               zoom: 17)
         
         
-        self.mapView = GMSMapView.map(withFrame: CGRect(x:0 ,y:0 , width:view.frame.width,height : view.frame.height), camera: camera)
+        self.mapView = GMSMapView.map(withFrame: CGRect(x:0 ,y:0 , width:uiview_mapView.frame.width ,height : uiview_mapView.frame.height), camera: camera)
         mapView.delegate = self
         mapView.settings.myLocationButton = true
         let marker = GMSMarker()
         
         marker.position = camera.target
-        marker.snippet = "Hello World"
+//        marker.snippet = "Hello World"
         //        marker.appearAnimation = GMSMarkerAnimationPop
-        
-//        do {
-//            // Set the map style by passing a valid JSON string.
-//            mapView.mapStyle = try GMSMapStyle(jsonString: kMapStyle)
-//        } catch {
-//            NSLog("One or more of the map styles failed to load. \(error)")
-//        }
         
         do {
             // Set the map style by passing the URL of the local file.
@@ -144,9 +137,9 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
         
 
 //        view.addSubview(mapView)
-        view = mapView
+//        view = mapView
+        uiview_mapView.addSubview(mapView)
 //        view.bringSubview(toFront: btn_arrow)
-        view.addSubview(btn_arrow)
         isMapInit = true
     }
     
@@ -282,8 +275,13 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
         self.view.addSubview(DetailVC.view)
         self.addChildViewController(DetailVC)
 //        DetailVC.view.layoutIfNeeded()
-
+        
+        // iphone
         DetailVC.view.frame = CGRect(x: 10, y: 480, width: UIScreen.main.bounds.size.width - 20, height: UIScreen.main.bounds.size.height - 540)
+        
+        // ipad
+        DetailVC.view.frame = CGRect(x: 10, y: 480, width: UIScreen.main.bounds.size.width - 20, height: UIScreen.main.bounds.size.height - 540)
+        
         
         detailVCisOn = true
 

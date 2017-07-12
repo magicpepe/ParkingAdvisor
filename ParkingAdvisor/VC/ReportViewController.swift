@@ -27,6 +27,9 @@ class ReportViewController: UIViewController ,CLLocationManagerDelegate, GMSMapV
     @IBOutlet weak var lbl_address: UILabel!
     @IBOutlet weak var lbl_thanks: UILabel!
     
+    // 參數
+    var isReported : Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -43,6 +46,7 @@ class ReportViewController: UIViewController ,CLLocationManagerDelegate, GMSMapV
     override func viewWillAppear(_ animated: Bool) {
         initMap()
         initLabel()
+        isReported = false
     }
     
     override func didReceiveMemoryWarning() {
@@ -50,7 +54,11 @@ class ReportViewController: UIViewController ,CLLocationManagerDelegate, GMSMapV
         // Dispose of any resources that can be recreated.
     }
     
-
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        mapView = nil
+        blurEffectView = nil
+    }
     // MARK: - MAP
     
     func initMap() {
@@ -95,19 +103,24 @@ class ReportViewController: UIViewController ,CLLocationManagerDelegate, GMSMapV
     func initLabel(){
         lbl_location.text = "\(locationManager.location!.coordinate.latitude) ,\(locationManager.location!.coordinate.longitude)"
         lbl_address.text = "福星路100號"
-        lbl_address.alpha = 1
         lbl_thanks.alpha = 0
     }
     
     // MARK - Button
     @IBAction func btn_press_towing(_ sender: Any){
         NSLog("btn_press_towing")
-        reported()
+        if (isReported == false){
+            reported()
+            isReported = true
+        }
     }
     
     @IBAction func btn_press_billing(_ sender: Any){
         NSLog("btn_press_billing")
-        reported()
+        if (isReported == false){
+            reported()
+            isReported = true
+        }
     }
     
     func reported(){
@@ -129,6 +142,5 @@ class ReportViewController: UIViewController ,CLLocationManagerDelegate, GMSMapV
             self.blurEffectView.alpha = 0.7
             self.lbl_thanks.alpha = 1
         })
-            
     }
 }
