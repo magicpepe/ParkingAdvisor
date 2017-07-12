@@ -20,10 +20,12 @@ class ReportViewController: UIViewController ,CLLocationManagerDelegate, GMSMapV
     // report button
     @IBOutlet weak var btn_towing : UIButton!
     @IBOutlet weak var btn_billing : UIButton!
+    var blurEffectView : UIVisualEffectView!
     
     // label
     @IBOutlet weak var lbl_location: UILabel!
     @IBOutlet weak var lbl_address: UILabel!
+    @IBOutlet weak var lbl_thanks: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,12 +55,8 @@ class ReportViewController: UIViewController ,CLLocationManagerDelegate, GMSMapV
     
     func initMap() {
         
-        // uiview init
-        let uiview_radius : CGFloat = view.frame.width / 2 - 50
-        let uiview_center = CGPoint(x: Int(view.frame.width / 2), y: Int(uiview_radius + 200))
-        uiview_mapView.frame = CGRect(x:0, y:0, width: uiview_radius * 2, height: uiview_radius * 2)
-        uiview_mapView.center = uiview_center
-        uiview_mapView.layer.cornerRadius = uiview_radius
+        
+        uiview_mapView.layer.cornerRadius = uiview_mapView.frame.width / 2
         
         // uiview shadow
 //        uiview_mapView.layer.shadowColor = UIColor.black.cgColor
@@ -73,7 +71,9 @@ class ReportViewController: UIViewController ,CLLocationManagerDelegate, GMSMapV
                                               longitude: (locationManager.location?.coordinate.longitude)!,
                                               zoom: 16)
         
-        self.mapView = GMSMapView.map(withFrame: uiview_mapView.frame, camera: camera)
+        let m_frame = CGRect.init(origin: CGPoint.zero, size: uiview_mapView.frame.size)
+        self.mapView = GMSMapView.map(withFrame: m_frame, camera: camera)
+        
         mapView.delegate = self
         //        mapView.settings.myLocationButton = true
         let marker = GMSMarker()
@@ -83,14 +83,10 @@ class ReportViewController: UIViewController ,CLLocationManagerDelegate, GMSMapV
         //        marker.appearAnimation = GMSMarkerAnimationPop
         marker.map = mapView
         
+        mapView.layer.cornerRadius = uiview_mapView.frame.width / 2
+//        uiview_mapView = mapView
         
-        //        view.addSubview(mapView)
-        mapView.layer.cornerRadius = uiview_radius
-        uiview_mapView = mapView
-        
-        self.view.addSubview(uiview_mapView)
-        //        view = mapView
-        //        view.bringSubview(toFront: btn_next)
+        uiview_mapView.insertSubview(mapView, belowSubview: lbl_thanks)
         isMapInit = true
     }
     
@@ -98,8 +94,9 @@ class ReportViewController: UIViewController ,CLLocationManagerDelegate, GMSMapV
     
     func initLabel(){
         lbl_location.text = "\(locationManager.location!.coordinate.latitude) ,\(locationManager.location!.coordinate.longitude)"
-        
-        lbl_address.alpha = 0
+        lbl_address.text = "福星路100號"
+        lbl_address.alpha = 1
+        lbl_thanks.alpha = 0
     }
     
     // MARK - Button
@@ -117,33 +114,20 @@ class ReportViewController: UIViewController ,CLLocationManagerDelegate, GMSMapV
         
         // blur effect
         let blurEffect : UIBlurEffect!
-        var blurEffectView : UIVisualEffectView!
         
         blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
         blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.alpha = 0
-        blurEffectView.frame = uiview_mapView.bounds
-        blurEffectView.center = uiview_mapView.center
+        blurEffectView.frame.size = uiview_mapView.frame.size
+        blurEffectView.frame.origin = CGPoint.zero
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        blurEffectView.layer.cornerRadius = view.frame.width / 2 - 50
+        blurEffectView.layer.cornerRadius = uiview_mapView.frame.width / 2
         blurEffectView.clipsToBounds = true
-        view.addSubview(blurEffectView)
-        
-        // label report
-        var lbl_report = UILabel()
-        lbl_report.textColor = UIColor(rgba: 0x4A4A4AFF)
-        lbl_report.text = "感謝回報"
-        lbl_report.font = UIFont(name: "HelveticaNeue", size: 60)
-        lbl_report.frame = CGRect(x: 0 / 2, y: 310 , width: 200, height: 180.0)
-        lbl_report.sizeToFit()
-        lbl_report.textAlignment = .center
-        lbl_report.frame.origin.x = (view.frame.width - lbl_report.frame.width ) / 2
-        lbl_report.alpha = 0
-        view.addSubview(lbl_report)
+        uiview_mapView.insertSubview(blurEffectView, belowSubview: lbl_thanks)
         
         UIView.animate(withDuration: 1, delay: 0.3, options: .curveEaseIn, animations: {
-            blurEffectView.alpha = 0.7
-            lbl_report.alpha = 1
+            self.blurEffectView.alpha = 0.7
+            self.lbl_thanks.alpha = 1
         })
             
     }
