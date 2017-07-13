@@ -12,6 +12,7 @@ import Pulsator
 
 class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSMapViewDelegate, closeCommentVCProtocol{
     
+    var sizeconfig = sizeConfig()
     
     // scan view
     private var myCircleProgress: KYCircularProgress!
@@ -21,7 +22,7 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
     @IBOutlet weak var btn_scan: UIButton!
     
     // parameter
-    let offset_map : CGFloat = 150.0
+    let offset_map : CGFloat = sizeConfig.getSize("map_offset")
     let color_lightblue_lbl = UIColor(rgba : 0x388BB8FF)
     
     // label
@@ -202,12 +203,6 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
     func initMap() {
         lbl_prccessing.text = "定位中"
         lbl_prccessing.alpha = 1
-        // uiview init
-        let uiview_radius : CGFloat = view.frame.width / 2 - 50
-        let uiview_center = CGPoint(x: Int(view.frame.width / 2), y: Int(uiview_radius + 50 ))
-        uiview_mapView.frame = CGRect(x:0, y:0, width: uiview_radius * 2, height: uiview_radius * 2)
-        uiview_mapView.center = uiview_center
-        uiview_mapView.layer.cornerRadius = uiview_radius
         
         // uiview shadow
 //        uiview_mapView.layer.shadowColor = UIColor.white.cgColor
@@ -221,12 +216,11 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
                                               zoom: 10)
         
         self.mapView = GMSMapView.map(withFrame: uiview_mapView.frame, camera: camera)
+        self.mapView.frame.origin = CGPoint.zero
         mapView.delegate = self
         
-        mapView.layer.cornerRadius = uiview_radius
-        uiview_mapView = mapView
-        
-        self.view.addSubview(uiview_mapView)
+        mapView.layer.cornerRadius = uiview_mapView.frame.width / 2
+        uiview_mapView.addSubview(mapView)
         isMapInit = true
         
         UIView.animate(withDuration: 0.5, delay: 1.0, options: .curveEaseOut, animations:{
@@ -254,23 +248,19 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
         
 //        lbl_location.text = "\(locationManager.location!.coordinate.latitude) ,\(locationManager.location!.coordinate.longitude)"
         lbl_location.text = String(format: "%6f, %6f", locationManager.location!.coordinate.latitude, locationManager.location!.coordinate.longitude)
-        lbl_address.text = "逢甲路100號"
+        lbl_address.text = PASingleton.sharedInstance().getAddress()
         
         // blur effect
         let blurEffect : UIBlurEffect!
-        if #available(iOS 10.0, *) {
-            blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
-        } else {
-            blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
-        }
+        blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
         blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.alpha = 0
-        blurEffectView.frame = uiview_mapView.bounds
-        blurEffectView.center = uiview_mapView.center
+        blurEffectView.frame.size = uiview_mapView.frame.size
+        blurEffectView.frame.origin = CGPoint.zero
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        blurEffectView.layer.cornerRadius = view.frame.width / 2 - 50
+        blurEffectView.layer.cornerRadius = uiview_mapView.frame.width / 2
         blurEffectView.clipsToBounds = true
-        view.addSubview(blurEffectView)
+        uiview_mapView.addSubview(blurEffectView)
         
         UIView.animate(withDuration: 1.0, delay: 1.0, options: .curveEaseIn, animations: {
             self.blurEffectView.alpha = 0.7
@@ -290,12 +280,12 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
     // MARK: - Pulse
     func pulseStart(){
         
-        pulsator.radius = 190.0
+        pulsator.radius = uiview_mapView.frame.width / 2 + 50
         pulsator.numPulse = 5
         pulsator.animationDuration = 10
         pulsator.pulseInterval = 1
         pulsator.backgroundColor = UIColor(red: 0/255, green: 169/255, blue: 180/255, alpha: 1).cgColor
-        pulsator.position = CGPoint(x: Int(view.frame.width / 2), y: Int(view.frame.width / 2 ) )
+        pulsator.position = uiview_mapView.center
         self.view.layer.insertSublayer(pulsator, below: uiview_mapView.layer)
         pulsator.start()
         
@@ -305,13 +295,14 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
     // MARK: - Button
     
     @IBAction func btn_startAnalyse(_ sender: Any) {
-        let uiview_radius : CGFloat = view.frame.width / 2 - 50
+        let uiview_radius : CGFloat = uiview_mapView.frame.width / 2
         self.lbl_prccessing.alpha = 0
         pulsator.stop()
 //        uiview_mapView.layer.shadowColor = UIColor.clear.cgColor
 //        uiview_mapView.backgroundColor = UIColor.white
         progress = 0
         UIView.animate(withDuration: 1.5 ,delay: 0.5, options: .curveEaseOut, animations:{
+            //
             self.uiview_mapView.frame = CGRect(x:self.uiview_mapView.frame.origin.x, y: self.uiview_mapView.frame.origin.y + self.offset_map , width: uiview_radius * 2, height: uiview_radius * 2)
             self.blurEffectView.frame = CGRect(x:self.blurEffectView.frame.origin.x, y: self.blurEffectView.frame.origin.y + self.offset_map , width: uiview_radius * 2, height: uiview_radius * 2)
             
@@ -360,7 +351,6 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
     func closeComment() {
         
         NSLog("closeComment")
-        
         let viewBack : UIView = view.subviews.last!
         UIView.animate(withDuration: 0.3, animations: { () -> Void in
             //        self.willMove(toParentViewController: nil)
@@ -391,5 +381,40 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
 //    }
     
     
+}
+
+class sizeConfig{
+    
+    let ipad_size = [
+        "map_offset" : 50,
+    ]
+    
+    let iphone_size = [
+        "map_offset" : 50,
+    ]
+    init(){
+        return
+    }
+    
+    func getSize(key : String) -> CGFloat{
+        
+        switch UIDevice.current.userInterfaceIdiom {
+        case .phone:
+            return CGFloat(iphone_size[key]!)
+        case .pad:
+            return CGFloat(ipad_size[key]!)
+        case .tv:
+            print("error tv size")
+        case .carPlay:
+            print("error carPlay size")
+        case .unspecified:
+            print("error size")
+            // Uh, oh! What could it be?
+            
+        }
+            print("#ERROR No this SIZE")
+            return CGFloat(0)
+    }
+        
 }
 
