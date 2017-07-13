@@ -12,8 +12,6 @@ import Pulsator
 
 class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSMapViewDelegate, closeCommentVCProtocol{
     
-    var sizeconfig = sizeConfig()
-    
     // scan view
     private var myCircleProgress: KYCircularProgress!
     private var progress: UInt8 = 0
@@ -21,8 +19,8 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
     var lbl_score : UILabel = UILabel()
     @IBOutlet weak var btn_scan: UIButton!
     
+    let config  = sizeConfig()
     // parameter
-    let offset_map : CGFloat = sizeConfig.getSize("map_offset")
     let color_lightblue_lbl = UIColor(rgba : 0x388BB8FF)
     
     // label
@@ -39,6 +37,8 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
     @IBOutlet weak var uiview_mapView: UIView!
     let pulsator = Pulsator()
     let background_circle : UIView = UIView()
+    
+    @IBOutlet weak var constraint_mapY: NSLayoutConstraint!
     
     // monitor
     @IBOutlet weak var img_linebar: UIImageView!
@@ -100,17 +100,16 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
     
     private func configureMyCircleProgress(){
         
-        let uiview_radius : CGFloat = view.frame.width / 2 - 50
-        let uiview_center = CGPoint(x: Int(view.frame.width / 2), y: Int(uiview_radius + 120))
+//        let uiview_radius : CGFloat = view.frame.width / 2 - 50
+//        let uiview_center = CGPoint(x: Int(view.frame.width / 2), y: Int(uiview_radius + 120))
         
         myCircleProgress = KYCircularProgress(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height), showGuide: true)
-//        let center = CGPoint(x: view.frame.width / 2, y: view.frame.height / 2)
-//        let radius = CGFloat(view.frame.width/3) + 20.0
-        let radius : CGFloat = view.frame.width / 2 - 50
-        let center = CGPoint(x: Int(view.frame.width / 2), y: Int(radius + 50 + self.offset_map))
+//        let radius : CGFloat = view.frame.width / 2 - 50
+//        let center = CGPoint(x: Int(view.frame.width / 2), y: Int(radius + 50 + config.getSize(key: "map_offset")))
+//        let center = uiview_mapView.center
         
         let lineWidth = 15.0
-        myCircleProgress.path = UIBezierPath(arcCenter: center, radius: radius, startAngle: CGFloat(Double.pi)*1.5, endAngle: CGFloat(Double.pi)*3.5, clockwise: true)
+        myCircleProgress.path = UIBezierPath(arcCenter: self.uiview_mapView.center, radius: self.uiview_mapView.frame.width / 2, startAngle: CGFloat(Double.pi)*1.5, endAngle: CGFloat(Double.pi)*3.5, clockwise: true)
         myCircleProgress.lineWidth = lineWidth
         myCircleProgress.guideLineWidth = lineWidth
         myCircleProgress.guideColor = UIColor(rgba: 0xF6F6F6FF)
@@ -120,20 +119,23 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
         myCircleProgress.colors = [UIColor(rgba: 0x28FF28AA), UIColor(rgba: 0x0080FFAA), UIColor(rgba: 0xFF77FFAA), UIColor(rgba: 0xFF5151AA)]
 //        myCircleProgress.colors = [UIColor(rgba: 0x5AC8FAFF)]
         
-        background_circle.frame = CGRect( x:0, y:0, width: radius * 2, height: radius * 2 )
-        background_circle.center = center
+        background_circle.frame = CGRect( x:0, y:0, width: uiview_mapView.frame.width, height: uiview_mapView.frame.height )
+        background_circle.center = uiview_mapView.center
         background_circle.backgroundColor = UIColor(rgba: 0xF6F6F6FF)
-        background_circle.layer.cornerRadius = radius
+        background_circle.layer.cornerRadius = uiview_mapView.frame.width
         myCircleProgress.addSubview(background_circle)
         
-        let labelWidth = CGFloat(200.0)
 //        let textLabel = UILabel(frame: CGRect(x: (view.frame.width - labelWidth) / 2, y: (view.frame.height - 180) / 2 , width: labelWidth, height: 180.0))
-        lbl_score = UILabel(frame: CGRect(x: (view.frame.width - labelWidth) / 2, y: uiview_radius - 35 + self.offset_map , width: labelWidth, height: 180.0))
+        lbl_score = UILabel(frame: CGRect(x: (self.uiview_mapView.frame.width - config.getSize(key: "lbl_score_width")) / 2 , y: (uiview_mapView.frame.height - config.getSize(key: "lbl_score_height")) / 2 , width: config.getSize(key: "lbl_score_width"), height: config.getSize(key: "lbl_score_height")))
         
-        lbl_score.font = UIFont(name: "HelveticaNeue", size: 135)
+//        lbl_score.frame.width = 200
+//        lbl_score.frame.height = 180
+//        lbl_score.center = uiview_mapView.center
+        
+        lbl_score.font = UIFont(name: "HelveticaNeue", size: config.getSize(key: "lbl_score_size"))
         lbl_score.textAlignment = .center
         lbl_score.textColor = UIColor(rgba: 0x5AC8FAFF)
-        view.addSubview(lbl_score)
+        uiview_mapView.addSubview(lbl_score)
         
         myCircleProgress.progressChanged {
             (progress: Double, circularProgress: KYCircularProgress) in
@@ -295,17 +297,16 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
     // MARK: - Button
     
     @IBAction func btn_startAnalyse(_ sender: Any) {
-        let uiview_radius : CGFloat = uiview_mapView.frame.width / 2
         self.lbl_prccessing.alpha = 0
         pulsator.stop()
-//        uiview_mapView.layer.shadowColor = UIColor.clear.cgColor
-//        uiview_mapView.backgroundColor = UIColor.white
         progress = 0
+        
         UIView.animate(withDuration: 1.5 ,delay: 0.5, options: .curveEaseOut, animations:{
-            //
-            self.uiview_mapView.frame = CGRect(x:self.uiview_mapView.frame.origin.x, y: self.uiview_mapView.frame.origin.y + self.offset_map , width: uiview_radius * 2, height: uiview_radius * 2)
-            self.blurEffectView.frame = CGRect(x:self.blurEffectView.frame.origin.x, y: self.blurEffectView.frame.origin.y + self.offset_map , width: uiview_radius * 2, height: uiview_radius * 2)
-            
+            // 動畫 : 地圖 / (毛玻璃) 向下滑動
+//            self.uiview_mapView.frame = CGRect(x:self.uiview_mapView.frame.origin.x, y: self.uiview_mapView.frame.origin.y + self.config.getSize(key: "map_offset") , width: self.uiview_mapView.frame.width, height: self.uiview_mapView.frame.height)
+            self.constraint_mapY.constant -= self.config.getSize(key: "map_offset")
+            self.view.layoutIfNeeded()
+//
         } ,completion: {_ in
             self.configureMyCircleProgress()
             self.animationTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(dashboardViewController.updateProgress), userInfo: nil, repeats: true)
@@ -386,11 +387,18 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
 class sizeConfig{
     
     let ipad_size = [
-        "map_offset" : 50,
+        "map_offset" : 250,
+        "lbl_score_size" : 250,
+        "lbl_score_height" : 380,
+        "lbl_score_width" : 400
+        
     ]
     
     let iphone_size = [
-        "map_offset" : 50,
+        "map_offset" : 150,
+        "lbl_score_size" : 135,
+        "lbl_score_height" : 180,
+        "lbl_score_width" : 200
     ]
     init(){
         return

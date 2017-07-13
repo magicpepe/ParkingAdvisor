@@ -26,7 +26,6 @@ class PASingleton {
     private var PAlocation : CLLocationCoordinate2D = CLLocationCoordinate2D.init()
     private var PAaddress : String = "逢甲路100號"
     
-    public var hi = 50
     
     func returnTrue() -> String {
         return "Love <3"
@@ -47,5 +46,6 @@ class PASingleton {
     func getAddress() -> String{
         return self.PAaddress
     }
+    
     
 }

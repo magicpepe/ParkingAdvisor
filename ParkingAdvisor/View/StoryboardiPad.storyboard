@@ -625,6 +625,7 @@
                     <navigationItem key="navigationItem" id="Fb8-1T-d0b"/>
                     <connections>
                         <outlet property="btn_scan" destination="JCK-gJ-OWy" id="mRW-6n-gO2"/>
+                        <outlet property="constraint_mapY" destination="sTf-Me-iRN" id="J6e-zl-nh6"/>
                         <outlet property="img_linebar" destination="45A-nu-lN3" id="zF5-C7-URd"/>
                         <outlet property="img_moniotr" destination="oQn-o6-u6g" id="Nst-VD-OPN"/>
                         <outlet property="lbl_address" destination="83e-TP-jRj" id="OOL-HK-GgV"/>
