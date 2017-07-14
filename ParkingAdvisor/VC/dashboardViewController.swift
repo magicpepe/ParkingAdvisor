@@ -55,6 +55,7 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
     @IBOutlet weak var lbl_startMonitor : UILabel!
     private var monitorTimer = Timer()
     private var monitorCounter : Int = 0
+    private var isMonitor : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,7 +72,15 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
 //        configureMyCircleProgress()
     }
     
+    // MARK: - LIFE CYCLE
+    
     override func viewWillAppear(_ animated: Bool) {
+        
+        if(uiview_mapView == nil)
+        {
+            self.loadView()
+            self.viewDidLoad()
+        }
         progress = 0
         // lbl
         CT_lbl_safepoint_centerX.constant = self.view.frame.width
@@ -90,6 +99,7 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
         self.view.layoutIfNeeded()
         isStartAnalyse = false
         
+        
         initMap()
         
         
@@ -105,6 +115,7 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
         background_circle.removeFromSuperview()
     }
     
+    // MARK: - ViewController Method
     private func configureMyCircleProgress(){
         
         
@@ -328,21 +339,27 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
     
     @IBAction func btn_startMonitor(_ sender: Any) {
         NSLog("btn_startMonitor pressed")
-        monitorTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(dashboardViewController.upgradeMonitorTimer), userInfo: nil, repeats: true)
-        
+        if(self.isMonitor == false){
+            self.isMonitor = true
+            monitorTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(dashboardViewController.upgradeMonitorTimer), userInfo: nil, repeats: true)
+        }else{
+            self.stopMonitor()
+            self.isMonitor = false
+        }
     }
-    
     // MARK: Monitor
+    
     func upgradeMonitorTimer(){
         lbl_startMonitor.text = "停止監控"
         
         monitorCounter = monitorCounter + 1
         self.lbl_score.text = String(format: "%.2d:%.2d", monitorCounter / 60, monitorCounter % 60)
         
-        if (monitorCounter > 2){
-            monitorTimer.invalidate()
-            showComment()
-        }
+    }
+    func stopMonitor(){
+        monitorTimer.invalidate()
+        showComment()
+        
     }
     
     // MARK: - Comment
