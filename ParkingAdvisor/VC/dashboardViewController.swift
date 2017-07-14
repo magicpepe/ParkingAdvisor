@@ -45,6 +45,8 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
     @IBOutlet weak var CT_lbl_location_centerX: NSLayoutConstraint!
     @IBOutlet weak var CT_lbl_address_Y: NSLayoutConstraint!
     @IBOutlet weak var CT_lbl_address_centerX: NSLayoutConstraint!
+    @IBOutlet weak var CT_img_linebar_centerX: NSLayoutConstraint!
+    @IBOutlet weak var CT_lbl_safepoint_centerX: NSLayoutConstraint!
     
     // monitor
     @IBOutlet weak var img_linebar: UIImageView!
@@ -74,21 +76,22 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
     
     override func viewWillAppear(_ animated: Bool) {
         progress = 0
-//        animationTimer = Timer.scheduledTimer(timeInterval: 0.015, target: self, selector: #selector(dashboardViewController.updateProgress), userInfo: nil, repeats: true)
-//        lbl_safePoint.alpha = 0
-        lbl_safePoint.frame.origin.x = self.view.frame.width
+        // lbl
+        CT_lbl_safepoint_centerX.constant = self.view.frame.width
         lbl_location.alpha = 0
         lbl_address.alpha = 0
         lbl_prccessing.alpha = 0
-        
         
         // scan
         btn_scan.isHidden = true
         
         // monitor
         img_moniotr.alpha = 0
-        img_linebar.frame.origin.x = self.view.frame.width
+        CT_img_linebar_centerX.constant = view.frame.width
         lbl_startMonitor.alpha = 0
+        
+        self.view.layoutIfNeeded()
+        
         initMap()
         
         
@@ -99,31 +102,22 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
         animationTimer.invalidate()
         monitorTimer.invalidate()
         uiview_mapView?.removeFromSuperview()
-        myCircleProgress = nil
+        myCircleProgress?.removeFromSuperview()
         pulsator.stop()
         background_circle.removeFromSuperview()
     }
     
     private func configureMyCircleProgress(){
         
-//        let uiview_radius : CGFloat = view.frame.width / 2 - 50
-//        let uiview_center = CGPoint(x: Int(view.frame.width / 2), y: Int(uiview_radius + 120))
         
         myCircleProgress = KYCircularProgress(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height), showGuide: true)
-//        let radius : CGFloat = view.frame.width / 2 - 50
-//        let center = CGPoint(x: Int(view.frame.width / 2), y: Int(radius + 50 + config.getSize(key: "map_offset")))
-//        let center = uiview_mapView.center
         
         let lineWidth = 15.0
         myCircleProgress.path = UIBezierPath(arcCenter: self.uiview_mapView.center, radius: self.uiview_mapView.frame.width / 2, startAngle: CGFloat(Double.pi)*1.5, endAngle: CGFloat(Double.pi)*3.5, clockwise: true)
         myCircleProgress.lineWidth = lineWidth
         myCircleProgress.guideLineWidth = lineWidth
         myCircleProgress.guideColor = UIColor(rgba: 0xF6F6F6FF)
-//        myCircleProgress.backgroundColor = UIColor.black
-        
-//        myCircleProgress.colors = [UIColor(rgba: 0xFF3B30AA), UIColor(rgba: 0xFFCC00AA), UIColor(rgba: 0x4CD964AA), UIColor(rgba: 0x5AC8FAFF)]
         myCircleProgress.colors = [UIColor(rgba: 0x28FF28AA), UIColor(rgba: 0x0080FFAA), UIColor(rgba: 0xFF77FFAA), UIColor(rgba: 0xFF5151AA)]
-//        myCircleProgress.colors = [UIColor(rgba: 0x5AC8FAFF)]
         
         background_circle.frame = CGRect( x:0, y:0, width: uiview_mapView.frame.width, height: uiview_mapView.frame.height )
         background_circle.center = uiview_mapView.center
@@ -131,13 +125,7 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
         background_circle.layer.cornerRadius = uiview_mapView.frame.width
         myCircleProgress.addSubview(background_circle)
         
-//        let textLabel = UILabel(frame: CGRect(x: (view.frame.width - labelWidth) / 2, y: (view.frame.height - 180) / 2 , width: labelWidth, height: 180.0))
         lbl_score = UILabel(frame: CGRect(x: (self.uiview_mapView.frame.width - config.getSize(key: "lbl_score_width")) / 2 , y: (uiview_mapView.frame.height - config.getSize(key: "lbl_score_height")) / 2 , width: config.getSize(key: "lbl_score_width"), height: config.getSize(key: "lbl_score_height")))
-        
-//        lbl_score.frame.width = 200
-//        lbl_score.frame.height = 180
-//        lbl_score.center = uiview_mapView.center
-        
         lbl_score.font = UIFont(name: "HelveticaNeue", size: config.getSize(key: "lbl_score_size"))
         lbl_score.textAlignment = .center
         lbl_score.textColor = UIColor(rgba: 0x5AC8FAFF)
@@ -192,13 +180,14 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
                         // lbl X位置置中
                         self.CT_lbl_address_centerX.constant = 0
                         self.CT_lbl_location_centerX.constant = 0
-                        self.lbl_safePoint.frame.origin.x = (self.view.frame.width - self.lbl_safePoint.frame.width ) / 2
+                        self.CT_lbl_safepoint_centerX.constant = 0
                         self.view.layoutIfNeeded()
                         
                     },completion: {_ in
                         UIView.animate(withDuration: 0.5, animations: {
                             // img_linebar 從螢幕右邊往左飛入
-                            self.img_linebar.frame.origin.x = 0
+                            self.CT_img_linebar_centerX.constant = 0
+                            self.view.layoutIfNeeded()
                         },completion: {_ in
                             UIView.animate(withDuration: 0.5, animations: {
                                 // 開始監控的button圓形點顯示
@@ -222,14 +211,6 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
     func initMap() {
         lbl_prccessing.text = "定位中"
         lbl_prccessing.alpha = 1
-        
-        // uiview shadow
-//        uiview_mapView.layer.shadowColor = UIColor.white.cgColor
-//        uiview_mapView.layer.shadowOpacity = 0.8
-//        uiview_mapView.layer.shadowOffset = CGSize.zero
-//        uiview_mapView.layer.shadowRadius = 5
-        
-        
         let camera = GMSCameraPosition.camera(withLatitude: (locationManager.location?.coordinate.latitude)!,
                                               longitude: (locationManager.location?.coordinate.longitude)!,
                                               zoom: 10)
@@ -291,9 +272,6 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
             self.btn_scan.isHidden = false
         })
         
-        //        label attribute
-        //        lbl_location.textColor = UIColor(rgba: 0xFFFFFFFF)
-        
     }
     
     // MARK: - Pulse
@@ -320,7 +298,6 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
         
         UIView.animate(withDuration: 1.5 ,delay: 0.5, options: .curveEaseOut, animations:{
             // 動畫 : 地圖 / (毛玻璃) 向下滑動
-//            self.uiview_mapView.frame = CGRect(x:self.uiview_mapView.frame.origin.x, y: self.uiview_mapView.frame.origin.y + self.config.getSize(key: "map_offset") , width: self.uiview_mapView.frame.width, height: self.uiview_mapView.frame.height)
             self.constraint_mapY.constant -= self.config.getSize(key: "map_offset")
             self.view.layoutIfNeeded()
 //
@@ -345,7 +322,7 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
         monitorCounter = monitorCounter + 1
         self.lbl_score.text = String(format: "%.2d:%.2d", monitorCounter / 60, monitorCounter % 60)
         
-        if (monitorCounter > 10){
+        if (monitorCounter > 2){
             monitorTimer.invalidate()
             showComment()
         }
@@ -357,11 +334,12 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
         
         let commentVC : CommentViewController = storyboard!.instantiateViewController(withIdentifier: "CommentViewController") as! CommentViewController
         
+        
         commentVC.delegate = self
         commentVC.view.alpha = 0
         self.view.addSubview(commentVC.view)
         self.addChildViewController(commentVC)
-        UIView.animate(withDuration: 0.5 ,animations : {
+        UIView.animate(withDuration: 1 ,animations : {
             commentVC.view.alpha = 1
         })
     }
@@ -383,9 +361,15 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
             viewBack.removeFromSuperview()
         })
         
+//        self.viewDidDisappear(false)
+//        self.loadView()
+//        self.viewDidLoad()
+//        self.viewWillAppear(true)
     }
     
-    
+    func getTimer() -> Int{
+        return monitorCounter
+    }
     
     // MARK: - LocationManager
     
@@ -424,7 +408,9 @@ class sizeConfig{
         "lbl_score_chinese_size" : 80 ,
         "lbl_score_height" : 180,
         "lbl_score_width" : 200,
+        // lbl_safepoint (y + height) + offset
         "lbl_location_after_animation_y": 120,
+        // lbl_location_after_animation_y (y + height) + offset
         "lbl_address_after_animation_y": 149
     ]
     init(){

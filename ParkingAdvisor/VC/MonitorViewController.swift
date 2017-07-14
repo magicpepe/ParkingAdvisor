@@ -10,6 +10,8 @@ import UIKit
 import GoogleMaps
 
 class MonitorViewController: UIViewController,CLLocationManagerDelegate,GMSMapViewDelegate, closeCommentVCProtocol {
+    
+    
 
 //    預設未監控狀態
     private var isStart : Bool = false
@@ -186,6 +188,11 @@ class MonitorViewController: UIViewController,CLLocationManagerDelegate,GMSMapVi
         })      
         
     }
+    
+    func getTimer() -> Int {
+        return 0
+    }
+    
     
     /*
     // MARK: - Navigation
