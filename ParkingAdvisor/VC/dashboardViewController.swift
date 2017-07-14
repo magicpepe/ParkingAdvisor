@@ -38,7 +38,13 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
     let pulsator = Pulsator()
     let background_circle : UIView = UIView()
     
+    // constraint
     @IBOutlet weak var constraint_mapY: NSLayoutConstraint!
+    
+    @IBOutlet weak var CT_lbl_location_Y: NSLayoutConstraint!
+    @IBOutlet weak var CT_lbl_location_centerX: NSLayoutConstraint!
+    @IBOutlet weak var CT_lbl_address_Y: NSLayoutConstraint!
+    @IBOutlet weak var CT_lbl_address_centerX: NSLayoutConstraint!
     
     // monitor
     @IBOutlet weak var img_linebar: UIImageView!
@@ -161,34 +167,45 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
             // after score animate finished
             // text score view appear
             UIView.animate(withDuration: 1.5 ,delay: 0.5, options: .curveLinear, animations:{
+                // 分數消失
                 self.lbl_score.alpha = 0
             } ,completion: {_ in
-                self.lbl_score.font = UIFont(name: "HelveticaNeue", size: 80)
+                // 分數中文評語出現
+                self.lbl_score.font = UIFont(name: "HelveticaNeue", size: self.config.getSize(key: "lbl_score_chinese_size"))
                 self.lbl_score.text = "極安全"
-                self.lbl_score.frame.origin.y += 45
-                self.lbl_score.frame.origin.x -= 20
                 self.lbl_score.textColor = UIColor(rgba: 0x4A4A4AFF)
-                self.lbl_score.sizeToFit()
                 UIView.animate(withDuration: 1.5 ,delay: 0.5, options: .curveEaseOut, animations:{
                     self.lbl_score.alpha = 1
                     
                 } ,completion: {_ in
-                    self.lbl_location.frame.origin.x = self.view.frame.width
-                    self.lbl_location.frame.origin.y = 120
-                    self.lbl_address.frame.origin.x = self.view.frame.width
-                    self.lbl_address.frame.origin.y = 149
+                    // 地址 經緯度 飛入動畫
+                    // 先移出螢幕外 Y先到定位
+                    self.CT_lbl_location_centerX.constant = self.view.frame.width / 2
+                    self.CT_lbl_location_Y.constant = self.config.getSize(key: "lbl_location_after_animation_y")
+                    self.CT_lbl_address_centerX.constant = self.view.frame.width / 2
+                    self.CT_lbl_address_Y.constant = self.config.getSize(key: "lbl_address_after_animation_y")
+                    self.view.layoutIfNeeded()
+                    
                     UIView.animate(withDuration: 0.5, animations:{
-                        self.lbl_location.frame.origin.x = 43
-                        self.lbl_address.frame.origin.x = 43
-                        self.lbl_safePoint.frame.origin.x = 31
+                        // 地址 經緯度 飛入動畫
+                        // Y定位後 飛入 X變化
+                        // lbl X位置置中
+                        self.CT_lbl_address_centerX.constant = 0
+                        self.CT_lbl_location_centerX.constant = 0
+                        self.lbl_safePoint.frame.origin.x = (self.view.frame.width - self.lbl_safePoint.frame.width ) / 2
+                        self.view.layoutIfNeeded()
+                        
                     },completion: {_ in
                         UIView.animate(withDuration: 0.5, animations: {
+                            // img_linebar 從螢幕右邊往左飛入
                             self.img_linebar.frame.origin.x = 0
                         },completion: {_ in
                             UIView.animate(withDuration: 0.5, animations: {
+                                // 開始監控的button圓形點顯示
                                 self.img_moniotr.alpha = 1
                                 self.lbl_startMonitor.alpha = 1
                             },completion: {_ in
+                                // 開始監控
                                 self.monitorTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(dashboardViewController.upgradeMonitorTimer), userInfo: nil, repeats: true)
                             })
                         })
@@ -389,16 +406,26 @@ class sizeConfig{
     let ipad_size = [
         "map_offset" : 250,
         "lbl_score_size" : 250,
+        // 中文評語size
+        "lbl_score_chinese_size" : 120 ,
         "lbl_score_height" : 380,
-        "lbl_score_width" : 400
+        "lbl_score_width" : 400,
+        // lbl_safepoint (y + height) + offset
+        "lbl_location_after_animation_y": 155 + 28,
+        // lbl_location_after_animation_y (y + height) + offset
+        "lbl_address_after_animation_y": 213 + 28
         
     ]
     
     let iphone_size = [
         "map_offset" : 150,
         "lbl_score_size" : 135,
+        // 中文評語size
+        "lbl_score_chinese_size" : 80 ,
         "lbl_score_height" : 180,
-        "lbl_score_width" : 200
+        "lbl_score_width" : 200,
+        "lbl_location_after_animation_y": 120,
+        "lbl_address_after_animation_y": 149
     ]
     init(){
         return
@@ -423,6 +450,6 @@ class sizeConfig{
             print("#ERROR No this SIZE")
             return CGFloat(0)
     }
-        
+    
 }
 
