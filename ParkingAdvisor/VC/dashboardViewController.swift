@@ -22,6 +22,7 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
     let config  = sizeConfig()
     // parameter
     let color_lightblue_lbl = UIColor(rgba : 0x388BB8FF)
+    var isStartAnalyse : Bool = false
     
     // label
     @IBOutlet weak var lbl_location: UILabel!
@@ -89,8 +90,9 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
         img_moniotr.alpha = 0
         CT_img_linebar_centerX.constant = view.frame.width
         lbl_startMonitor.alpha = 0
-        
+        monitorCounter = 0
         self.view.layoutIfNeeded()
+        isStartAnalyse = false
         
         initMap()
         
@@ -193,10 +195,10 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
                                 // 開始監控的button圓形點顯示
                                 self.img_moniotr.alpha = 1
                                 self.lbl_startMonitor.alpha = 1
-                            },completion: {_ in
+                            },completion: nil
                                 // 開始監控
-                                self.monitorTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(dashboardViewController.upgradeMonitorTimer), userInfo: nil, repeats: true)
-                            })
+//                                self.monitorTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(dashboardViewController.upgradeMonitorTimer), userInfo: nil, repeats: true)
+                            )
                         })
                     })
                 })
@@ -292,21 +294,23 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
     // MARK: - Button
     
     @IBAction func btn_startAnalyse(_ sender: Any) {
-        self.lbl_prccessing.alpha = 0
-        pulsator.stop()
-        progress = 0
-        
-        UIView.animate(withDuration: 1.5 ,delay: 0.5, options: .curveEaseOut, animations:{
-            // 動畫 : 地圖 / (毛玻璃) 向下滑動
-            self.constraint_mapY.constant -= self.config.getSize(key: "map_offset")
-            self.view.layoutIfNeeded()
-//
-        } ,completion: {_ in
-            self.configureMyCircleProgress()
-            self.animationTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(dashboardViewController.updateProgress), userInfo: nil, repeats: true)
+        if(isStartAnalyse == false){
+            isStartAnalyse = true
+            self.lbl_prccessing.alpha = 0
+            pulsator.stop()
+            progress = 0
             
-        })
-        
+            UIView.animate(withDuration: 1.5 ,delay: 0.5, options: .curveEaseOut, animations:{
+                // 動畫 : 地圖 / (毛玻璃) 向下滑動
+                self.constraint_mapY.constant -= self.config.getSize(key: "map_offset")
+                self.view.layoutIfNeeded()
+    //
+            } ,completion: {_ in
+                self.configureMyCircleProgress()
+                self.animationTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(dashboardViewController.updateProgress), userInfo: nil, repeats: true)
+                
+            })
+        }
     }
     
     @IBAction func btn_startMonitor(_ sender: Any) {
@@ -361,10 +365,10 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
             viewBack.removeFromSuperview()
         })
         
-//        self.viewDidDisappear(false)
-//        self.loadView()
-//        self.viewDidLoad()
-//        self.viewWillAppear(true)
+        self.viewDidDisappear(false)
+        self.loadView()
+        self.viewWillAppear(true)
+        self.viewDidLoad()
     }
     
     func getTimer() -> Int{
