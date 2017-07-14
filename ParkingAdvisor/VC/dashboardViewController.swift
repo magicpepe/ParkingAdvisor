@@ -51,14 +51,10 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
     
     // monitor
     @IBOutlet weak var img_linebar: UIImageView!
-    @IBOutlet weak var img_moniotr: UIImageView!
+    @IBOutlet weak var img_moniotr: UIButton!
     @IBOutlet weak var lbl_startMonitor : UILabel!
     private var monitorTimer = Timer()
     private var monitorCounter : Int = 0
-    
-    
-    // 為了讓Timer到達指定等級停止 , 需要是小數
-    private var dangerousLevel = 0.93
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -144,8 +140,7 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
 
     
     @objc private func updateProgress() {
-        
-        if Double(progress) / Double(UInt8.max) < dangerousLevel  {
+        if Double(progress) / Double(UInt8.max) < Double(PASingleton.sharedInstance().getScore()) / Double(100)  {
             progress = progress &+ 1
             let normalizedProgress = Double(progress) / Double(UInt8.max)
             myCircleProgress.progress = normalizedProgress
@@ -162,7 +157,7 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
             } ,completion: {_ in
                 // 分數中文評語出現
                 self.lbl_score.font = UIFont(name: "HelveticaNeue", size: self.config.getSize(key: "lbl_score_chinese_size"))
-                self.lbl_score.text = "極安全"
+                self.lbl_score.text = self.setScoreChinese()
                 self.lbl_score.textColor = UIColor(rgba: 0x4A4A4AFF)
                 UIView.animate(withDuration: 1.5 ,delay: 0.5, options: .curveEaseOut, animations:{
                     self.lbl_score.alpha = 1
@@ -206,6 +201,24 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
             })
             
         }
+    }
+    
+    func setScoreChinese() -> String {
+        let score : Int = PASingleton.sharedInstance().getScore()
+        
+        if (score < 20){
+            return "極危險"
+        }else if (score <= 40){
+            return "危險"
+        }else if (score <= 60){
+            return "需注意"
+        }else if (score <= 80){
+            return "安全"
+        }else if (score <= 100){
+            return "極安全"
+        }
+        print("error -- no score --")
+        return "無資料"
     }
     
     // MARK: - MAP

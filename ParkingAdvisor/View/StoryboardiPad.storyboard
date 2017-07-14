@@ -595,13 +595,6 @@
                                     <constraint firstAttribute="height" constant="10" id="zJB-GS-BoO"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btn_circle" translatesAutoresizingMaskIntoConstraints="NO" id="oQn-o6-u6g">
-                                <rect key="frame" x="364" y="846" width="40" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="UMq-Uc-CmW"/>
-                                    <constraint firstAttribute="height" constant="40" id="blH-mQ-cYK"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V5B-IR-0Xi">
                                 <rect key="frame" x="294" y="906" width="180" height="41"/>
                                 <constraints>
@@ -636,27 +629,40 @@
                                     <action selector="btn_startAnalyse:" destination="hZP-lQ-30O" eventType="touchUpInside" id="uiB-pP-9Gq"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ICp-6C-2WH">
+                                <rect key="frame" x="354" y="836" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="0aU-hA-mO4"/>
+                                    <constraint firstAttribute="height" constant="60" id="8sF-EW-Glt"/>
+                                </constraints>
+                                <state key="normal" image="btn_circle">
+                                    <attributedString key="attributedTitle"/>
+                                </state>
+                                <connections>
+                                    <action selector="btn_startMonitor:" destination="hZP-lQ-30O" eventType="touchUpInside" id="tyD-hZ-Pz6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Au0-8f-g4h" firstAttribute="height" secondItem="vF9-km-eo2" secondAttribute="height" multiplier="0.44" id="12f-FV-60L"/>
                             <constraint firstItem="83e-TP-jRj" firstAttribute="centerX" secondItem="vF9-km-eo2" secondAttribute="centerX" id="2Cr-NU-uIb"/>
                             <constraint firstItem="Au0-8f-g4h" firstAttribute="centerX" secondItem="vF9-km-eo2" secondAttribute="centerX" id="AvW-tT-6kb"/>
-                            <constraint firstItem="oQn-o6-u6g" firstAttribute="centerY" secondItem="45A-nu-lN3" secondAttribute="centerY" id="BAb-F1-I9n"/>
                             <constraint firstItem="NHX-Y1-hh3" firstAttribute="top" secondItem="vF9-km-eo2" secondAttribute="topMargin" constant="607" id="GHA-TL-6ba"/>
-                            <constraint firstItem="oQn-o6-u6g" firstAttribute="centerX" secondItem="vF9-km-eo2" secondAttribute="centerX" id="I0Z-MF-91c"/>
                             <constraint firstItem="51r-rF-dX7" firstAttribute="top" secondItem="vF9-km-eo2" secondAttribute="top" constant="807" id="Ov5-WV-Uv7"/>
+                            <constraint firstItem="V5B-IR-0Xi" firstAttribute="top" secondItem="vF9-km-eo2" secondAttribute="topMargin" constant="886" id="Pkq-D4-SeP"/>
+                            <constraint firstItem="ICp-6C-2WH" firstAttribute="centerY" secondItem="45A-nu-lN3" secondAttribute="centerY" id="QaT-OE-91u"/>
                             <constraint firstItem="45A-nu-lN3" firstAttribute="width" secondItem="vF9-km-eo2" secondAttribute="width" id="V5i-Da-C5w"/>
                             <constraint firstItem="oCj-ps-X8A" firstAttribute="centerX" secondItem="vF9-km-eo2" secondAttribute="centerX" id="aX3-Jd-4s7"/>
-                            <constraint firstItem="V5B-IR-0Xi" firstAttribute="centerX" secondItem="oQn-o6-u6g" secondAttribute="centerX" id="dur-vH-A2s"/>
+                            <constraint firstItem="V5B-IR-0Xi" firstAttribute="centerX" secondItem="45A-nu-lN3" secondAttribute="centerX" id="deO-hd-Dpu"/>
                             <constraint firstItem="83e-TP-jRj" firstAttribute="top" secondItem="vF9-km-eo2" secondAttribute="top" constant="865" id="e08-QR-9OC"/>
                             <constraint firstItem="51r-rF-dX7" firstAttribute="centerX" secondItem="vF9-km-eo2" secondAttribute="centerX" id="gdn-uE-Jnd"/>
                             <constraint firstItem="45A-nu-lN3" firstAttribute="top" secondItem="vF9-km-eo2" secondAttribute="top" constant="861" id="hYf-Hr-AC9"/>
                             <constraint firstItem="NHX-Y1-hh3" firstAttribute="centerX" secondItem="vF9-km-eo2" secondAttribute="centerX" id="iy0-Xo-Bbb"/>
                             <constraint firstItem="oCj-ps-X8A" firstAttribute="top" secondItem="vF9-km-eo2" secondAttribute="top" constant="99" id="mzX-35-VdH"/>
-                            <constraint firstItem="V5B-IR-0Xi" firstAttribute="top" secondItem="vF9-km-eo2" secondAttribute="topMargin" constant="886" id="pRc-T3-efZ"/>
                             <constraint firstItem="45A-nu-lN3" firstAttribute="centerX" secondItem="vF9-km-eo2" secondAttribute="centerX" id="r6p-6F-rM4"/>
                             <constraint firstAttribute="top" secondItem="Au0-8f-g4h" secondAttribute="top" constant="-83" id="sTf-Me-iRN"/>
+                            <constraint firstItem="ICp-6C-2WH" firstAttribute="centerX" secondItem="vF9-km-eo2" secondAttribute="centerX" id="wab-6P-di5"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="定點掃描" image="tap_icon_scan_g" id="QkC-zk-kDb"/>
@@ -671,7 +677,7 @@
                         <outlet property="btn_scan" destination="JCK-gJ-OWy" id="mRW-6n-gO2"/>
                         <outlet property="constraint_mapY" destination="sTf-Me-iRN" id="J6e-zl-nh6"/>
                         <outlet property="img_linebar" destination="45A-nu-lN3" id="zF5-C7-URd"/>
-                        <outlet property="img_moniotr" destination="oQn-o6-u6g" id="Nst-VD-OPN"/>
+                        <outlet property="img_moniotr" destination="ICp-6C-2WH" id="Kwj-sZ-iQI"/>
                         <outlet property="lbl_address" destination="83e-TP-jRj" id="OOL-HK-GgV"/>
                         <outlet property="lbl_location" destination="51r-rF-dX7" id="FMb-cC-YER"/>
                         <outlet property="lbl_prccessing" destination="NHX-Y1-hh3" id="IhO-Oe-LsX"/>
