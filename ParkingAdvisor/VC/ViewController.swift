@@ -276,7 +276,7 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
 //        DetailVC.view.layoutIfNeeded()
         
         // iphone
-//        DetailVC.view.frame = CGRect(x: 10, y: 480, width: UIScreen.main.bounds.size.width - 20, height: UIScreen.main.bounds.size.height - 540)
+        //        DetailVC.view.frame = CGRect(x: 10, y: 480, width: UIScreen.main.bounds.size.width - 20, height: UIScreen.main.bounds.size.height - 540)
         
         // ipad
         DetailVC.view.frame = DetailVC.btn_close.frame
