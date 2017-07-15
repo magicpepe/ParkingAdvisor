@@ -436,16 +436,16 @@ class sizeConfig{
     ]
     
     let iphone_size = [
-        "map_offset" : 150,
+        "map_offset" : 102,
         "lbl_score_size" : 135,
         // 中文評語size
         "lbl_score_chinese_size" : 80 ,
         "lbl_score_height" : 180,
-        "lbl_score_width" : 200,
+        "lbl_score_width" : 250,
         // lbl_safepoint (y + height) + offset
-        "lbl_location_after_animation_y": 120,
+        "lbl_location_after_animation_y": 113,
         // lbl_location_after_animation_y (y + height) + offset
-        "lbl_address_after_animation_y": 149
+        "lbl_address_after_animation_y": 139
     ]
     init(){
         return
