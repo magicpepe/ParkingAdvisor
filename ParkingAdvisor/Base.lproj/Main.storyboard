@@ -150,50 +150,95 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="請問您對這次的停車" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J76-yB-RZe">
-                                <rect key="frame" x="70" y="72" width="234" height="68"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name=".PingFangTC-Regular" family=".PingFang TC" pointSize="24"/>
-                                <color key="textColor" red="0.2196078431372549" green="0.54509803921568623" blue="0.72156862745098038" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="服務滿意嗎？" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sb7-ez-pJk">
-                                <rect key="frame" x="70" y="123" width="234" height="56"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name=".PingFangTC-Regular" family=".PingFang TC" pointSize="24"/>
-                                <color key="textColor" red="0.2196078431372549" green="0.54509803921568623" blue="0.72156862745098038" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wOb-l1-NK1">
-                                <rect key="frame" x="0.0" y="232" width="180" height="180"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="report_sad"/>
-                                <connections>
-                                    <action selector="btn_sad:" destination="MYU-o4-R05" eventType="touchUpInside" id="GEv-Gk-FcU"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="61f-Al-jwg">
-                                <rect key="frame" x="195" y="232" width="180" height="180"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="61f-Al-jwg">
+                                <rect key="frame" x="236" y="426" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="82J-lO-13a"/>
+                                    <constraint firstAttribute="height" constant="120" id="tJe-AR-TBY"/>
+                                </constraints>
                                 <state key="normal" image="report_smile"/>
                                 <connections>
                                     <action selector="btn_smile:" destination="MYU-o4-R05" eventType="touchUpInside" id="OGH-jT-sub"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="您的意見讓我們變得更好" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqP-dQ-dbO">
-                                <rect key="frame" x="35" y="474" width="305" height="56"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name=".PingFangTC-Regular" family=".PingFang TC" pointSize="22"/>
-                                <color key="textColor" red="0.2196078431372549" green="0.54509803921568623" blue="0.72156862745098038" alpha="1" colorSpace="calibratedRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Pm-FB-QFb">
+                                <rect key="frame" x="31" y="569" width="352" height="68"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="352" id="Jtt-sv-2gt"/>
+                                    <constraint firstAttribute="height" constant="68" id="kdx-XR-5NH"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="請問您滿意本次的停車服務嗎？">
+                                        <attributes>
+                                            <color key="NSColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="20" name="PingFangTC-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JUb-ly-g4F">
+                                <rect key="frame" x="38.333333333333343" y="80" width="338.33333333333337" height="338.33333333333331"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g2Q-jr-Bjf">
+                                        <rect key="frame" x="49" y="113.33333333333333" width="240.33333333333337" height="111.99999999999999"/>
+                                        <color key="tintColor" red="0.21960784310000001" green="0.5450980392" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="240.5" id="Tuh-Ep-V5d"/>
+                                            <constraint firstAttribute="height" constant="112" id="fJo-f8-dg6"/>
+                                        </constraints>
+                                        <attributedString key="attributedText">
+                                            <fragment content="00:00">
+                                                <attributes>
+                                                    <font key="NSFont" size="91" name="SFProText-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="g2Q-jr-Bjf" firstAttribute="centerX" secondItem="JUb-ly-g4F" secondAttribute="centerX" id="Jx7-yS-Ns7"/>
+                                    <constraint firstItem="g2Q-jr-Bjf" firstAttribute="centerY" secondItem="JUb-ly-g4F" secondAttribute="centerY" id="YZy-A2-uWg"/>
+                                    <constraint firstAttribute="width" secondItem="JUb-ly-g4F" secondAttribute="height" id="Zyt-Qv-IGO"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wOb-l1-NK1">
+                                <rect key="frame" x="58" y="426" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="2jR-1g-1dM"/>
+                                    <constraint firstAttribute="width" constant="120" id="i6O-n7-4Ch"/>
+                                </constraints>
+                                <state key="normal" image="report_sad"/>
+                                <connections>
+                                    <action selector="btn_sad:" destination="MYU-o4-R05" eventType="touchUpInside" id="GEv-Gk-FcU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0Pm-FB-QFb" firstAttribute="centerX" secondItem="v1L-9f-DmH" secondAttribute="centerX" id="3tm-SR-rJf"/>
+                            <constraint firstItem="wOb-l1-NK1" firstAttribute="leading" secondItem="v1L-9f-DmH" secondAttribute="leadingMargin" constant="38" id="9Lg-O4-G3c"/>
+                            <constraint firstItem="0Pm-FB-QFb" firstAttribute="top" secondItem="v1L-9f-DmH" secondAttribute="topMargin" constant="549" id="C99-hb-DT5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="61f-Al-jwg" secondAttribute="trailing" constant="38" id="EZ0-eB-893"/>
+                            <constraint firstItem="JUb-ly-g4F" firstAttribute="width" secondItem="v1L-9f-DmH" secondAttribute="height" multiplier="0.46" id="W3j-By-6Vy"/>
+                            <constraint firstItem="wOb-l1-NK1" firstAttribute="top" secondItem="v1L-9f-DmH" secondAttribute="topMargin" constant="406" id="iJG-hw-2cb"/>
+                            <constraint firstItem="61f-Al-jwg" firstAttribute="centerY" secondItem="wOb-l1-NK1" secondAttribute="centerY" id="sMp-gQ-fwo"/>
+                            <constraint firstItem="JUb-ly-g4F" firstAttribute="top" secondItem="v1L-9f-DmH" secondAttribute="top" constant="80" id="xBM-PQ-ltJ"/>
+                            <constraint firstItem="JUb-ly-g4F" firstAttribute="centerX" secondItem="v1L-9f-DmH" secondAttribute="centerX" id="xYu-9G-VFe"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="lbl_timer" destination="g2Q-jr-Bjf" id="IPn-ui-rQV"/>
+                        <outlet property="uiview_circle" destination="JUb-ly-g4F" id="Jp0-Z4-Fw6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8gn-rz-LK0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="406" y="1467"/>
+            <point key="canvasLocation" x="405.79710144927537" y="1466.5760869565217"/>
         </scene>
         <!--設定-->
         <scene sceneID="hVU-eI-bv0">
