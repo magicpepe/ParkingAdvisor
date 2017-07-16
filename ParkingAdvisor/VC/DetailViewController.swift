@@ -23,8 +23,18 @@ class DetailViewController: UIViewController {
             delegate?.closeVC()
         }
     }
+    
+    @IBOutlet weak var btn_close: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        UIImage(named: "map_msg_bg")?.draw(in: self.view.frame)
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        self.view.backgroundColor = UIColor(patternImage: image)
+        
+        
         // Do any additional setup after loading the view.
     }
 

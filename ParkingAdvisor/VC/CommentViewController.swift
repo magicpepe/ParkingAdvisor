@@ -10,15 +10,38 @@ import UIKit
 
 protocol closeCommentVCProtocol {
     func closeComment()
+    func getTimer() -> Int
 }
 
 class CommentViewController: UIViewController {
     
     var delegate: closeCommentVCProtocol?
+    @IBOutlet weak var uiview_circle: UIView!
+    @IBOutlet weak var lbl_timer: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // set background
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        UIImage(named: "background_2")?.draw(in: self.view.bounds)
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        self.view.backgroundColor = UIColor(patternImage: image)
+        
+        let timer = self.delegate?.getTimer()
+        self.lbl_timer?.text = String(format: "%.2d:%.2d", timer! / 60, timer! % 60)
+        
+        // 設定圓角
+        uiview_circle.layer.cornerRadius = self.uiview_circle.frame.width / 2
+        // 設定邊框
+            // uiview shadow
+        uiview_circle.layer.shadowColor = UIColor.lightGray.cgColor
+        uiview_circle.layer.shadowOpacity = 0.8
+        uiview_circle.layer.shadowOffset = CGSize.zero
+        uiview_circle.layer.shadowRadius = 5
+        
+        
         // Do any additional setup after loading the view.
     }
 

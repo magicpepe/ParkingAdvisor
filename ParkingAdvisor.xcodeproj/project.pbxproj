@@ -27,9 +27,12 @@
 		70CE34251EA0C4BB00595C55 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CE34241EA0C4BB00595C55 /* BaseViewController.swift */; };
 		B100B7721EC41545008175AA /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100B7711EC41545008175AA /* TestViewController.swift */; };
 		B10D119F1F0E1CCB00798AE6 /* Pulsator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10D11961F0E1CCA00798AE6 /* Pulsator.swift */; };
+		B11641531F16AFA9003519C1 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11641521F16AFA9003519C1 /* TabBarViewController.swift */; };
 		B118D7091EF2770500DB64B7 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B118D7081EF2770500DB64B7 /* SwiftyJSON.swift */; };
 		B118D7131EF2B3E200DB64B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708D50411E9B502E00DB4ED9 /* ViewController.swift */; };
 		B118D71C1EF2B3E300DB64B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708D50411E9B502E00DB4ED9 /* ViewController.swift */; };
+		B1399B761F123F6600F44736 /* bstyle.json in Resources */ = {isa = PBXBuildFile; fileRef = B1399B751F123F6600F44736 /* bstyle.json */; };
+		B1399B811F1601D500F44736 /* StoryboardiPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1399B801F1601D500F44736 /* StoryboardiPad.storyboard */; };
 		B186B3951F0CC49900EB4998 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B186B3941F0CC49900EB4998 /* CommentViewController.swift */; };
 		B1E934171F04AD6600F45213 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E934161F04AD6600F45213 /* ReportViewController.swift */; };
 		B1E934211F04CCD900F45213 /* MonitorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E934201F04CCD900F45213 /* MonitorViewController.swift */; };
@@ -110,7 +113,7 @@
 		283651C21EA1332F00A014E1 /* KYCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KYCircularProgress.swift; path = ../Pods/KYCircularProgress/Source/KYCircularProgress.swift; sourceTree = "<group>"; };
 		283651C41EA13EDA00A014E1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		6C24AC545B5933788FF2F701 /* Pods-ParkingAdvisor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkingAdvisor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ParkingAdvisor/Pods-ParkingAdvisor.debug.xcconfig"; sourceTree = "<group>"; };
-		701E4D3E1EA485D800CAC177 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryViewController.swift; path = ../HistoryViewController.swift; sourceTree = "<group>"; };
+		701E4D3E1EA485D800CAC177 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		701E4D401EA4AA5800CAC177 /* DashboardViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController2.swift; sourceTree = "<group>"; };
 		701E4D421EA4B68D00CAC177 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		708D503C1E9B502E00DB4ED9 /* ParkingAdvisor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParkingAdvisor.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,11 +132,14 @@
 		70CE341E1E9CA63200595C55 /* dashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dashboardViewController.swift; sourceTree = "<group>"; };
 		70CE34201EA0B6AF00595C55 /* picts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = picts; sourceTree = "<group>"; };
 		70CE34221EA0BD0700595C55 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
-		70CE34241EA0C4BB00595C55 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseViewController.swift; path = ../BaseViewController.swift; sourceTree = "<group>"; };
+		70CE34241EA0C4BB00595C55 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		B100B7711EC41545008175AA /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		B10D11961F0E1CCA00798AE6 /* Pulsator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pulsator.swift; sourceTree = "<group>"; };
+		B11641521F16AFA9003519C1 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarViewController.swift; path = ../../../../TabBarViewController.swift; sourceTree = "<group>"; };
 		B118D6EE1EF2744200DB64B7 /* SwiftyJSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyJSON.xcodeproj; path = ../SwiftyJSON/SwiftyJSON.xcodeproj; sourceTree = "<group>"; };
 		B118D7081EF2770500DB64B7 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = ../Pods/SwiftyJSON/Source/SwiftyJSON.swift; sourceTree = "<group>"; };
+		B1399B751F123F6600F44736 /* bstyle.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = bstyle.json; sourceTree = "<group>"; };
+		B1399B801F1601D500F44736 /* StoryboardiPad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StoryboardiPad.storyboard; sourceTree = "<group>"; };
 		B186B3941F0CC49900EB4998 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		B1E934161F04AD6600F45213 /* ReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		B1E934201F04CCD900F45213 /* MonitorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonitorViewController.swift; sourceTree = "<group>"; };
@@ -214,27 +220,16 @@
 		708D503E1E9B502E00DB4ED9 /* ParkingAdvisor */ = {
 			isa = PBXGroup;
 			children = (
-				B186B3941F0CC49900EB4998 /* CommentViewController.swift */,
+				B11641491F16204A003519C1 /* VC */,
 				B118D7081EF2770500DB64B7 /* SwiftyJSON.swift */,
 				B10D11961F0E1CCA00798AE6 /* Pulsator.swift */,
-				B1E934221F0A2A8E00F45213 /* SettingViewController.swift */,
-				B1E934161F04AD6600F45213 /* ReportViewController.swift */,
-				B100B7711EC41545008175AA /* TestViewController.swift */,
-				701E4D3E1EA485D800CAC177 /* HistoryViewController.swift */,
 				283651C21EA1332F00A014E1 /* KYCircularProgress.swift */,
-				70CE34241EA0C4BB00595C55 /* BaseViewController.swift */,
-				2817CD641F01365B002DDEB7 /* DetailViewController.swift */,
 				708D503F1E9B502E00DB4ED9 /* AppDelegate.swift */,
-				708D50411E9B502E00DB4ED9 /* ViewController.swift */,
-				70CE341E1E9CA63200595C55 /* dashboardViewController.swift */,
-				701E4D401EA4AA5800CAC177 /* DashboardViewController2.swift */,
-				70CE34221EA0BD0700595C55 /* MenuViewController.swift */,
-				B1E934201F04CCD900F45213 /* MonitorViewController.swift */,
 				280C1E851F0ABF4600CE2B1C /* PASingleton.swift */,
-				708D50431E9B502E00DB4ED9 /* Main.storyboard */,
+				B1399B8A1F1601E900F44736 /* View */,
 				701E4D421EA4B68D00CAC177 /* Assets.xcassets */,
-				708D50481E9B502E00DB4ED9 /* LaunchScreen.storyboard */,
 				708D504B1E9B502E00DB4ED9 /* Info.plist */,
+				B1399B751F123F6600F44736 /* bstyle.json */,
 			);
 			path = ParkingAdvisor;
 			sourceTree = "<group>";
@@ -257,6 +252,26 @@
 			path = ParkingAdvisorUITests;
 			sourceTree = "<group>";
 		};
+		B11641491F16204A003519C1 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				B186B3941F0CC49900EB4998 /* CommentViewController.swift */,
+				B1E934221F0A2A8E00F45213 /* SettingViewController.swift */,
+				B1E934161F04AD6600F45213 /* ReportViewController.swift */,
+				B100B7711EC41545008175AA /* TestViewController.swift */,
+				701E4D3E1EA485D800CAC177 /* HistoryViewController.swift */,
+				70CE34241EA0C4BB00595C55 /* BaseViewController.swift */,
+				2817CD641F01365B002DDEB7 /* DetailViewController.swift */,
+				708D50411E9B502E00DB4ED9 /* ViewController.swift */,
+				70CE341E1E9CA63200595C55 /* dashboardViewController.swift */,
+				701E4D401EA4AA5800CAC177 /* DashboardViewController2.swift */,
+				70CE34221EA0BD0700595C55 /* MenuViewController.swift */,
+				B1E934201F04CCD900F45213 /* MonitorViewController.swift */,
+				B11641521F16AFA9003519C1 /* TabBarViewController.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
 		B118D6EF1EF2744200DB64B7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,6 +284,16 @@
 				B118D7061EF2744200DB64B7 /* SwiftyJSON tvOS Tests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		B1399B8A1F1601E900F44736 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				708D50431E9B502E00DB4ED9 /* Main.storyboard */,
+				708D50481E9B502E00DB4ED9 /* LaunchScreen.storyboard */,
+				B1399B801F1601D500F44736 /* StoryboardiPad.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -444,9 +469,11 @@
 			files = (
 				70CE34211EA0B6B000595C55 /* picts in Resources */,
 				708D504A1E9B502E00DB4ED9 /* LaunchScreen.storyboard in Resources */,
+				B1399B761F123F6600F44736 /* bstyle.json in Resources */,
 				708D506E1E9B529600DB4ED9 /* Podfile in Resources */,
 				708D50451E9B502E00DB4ED9 /* Main.storyboard in Resources */,
 				701E4D431EA4B68D00CAC177 /* Assets.xcassets in Resources */,
+				B1399B811F1601D500F44736 /* StoryboardiPad.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,6 +550,7 @@
 				2817CD651F01365B002DDEB7 /* DetailViewController.swift in Sources */,
 				70CE34231EA0BD0700595C55 /* MenuViewController.swift in Sources */,
 				B1E934211F04CCD900F45213 /* MonitorViewController.swift in Sources */,
+				B11641531F16AFA9003519C1 /* TabBarViewController.swift in Sources */,
 				708D50421E9B502E00DB4ED9 /* ViewController.swift in Sources */,
 				701E4D411EA4AA5800CAC177 /* DashboardViewController2.swift in Sources */,
 				B1E934231F0A2A8F00F45213 /* SettingViewController.swift in Sources */,
@@ -579,6 +607,7 @@
 				708D50441E9B502E00DB4ED9 /* Base */,
 			);
 			name = Main.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		708D50481E9B502E00DB4ED9 /* LaunchScreen.storyboard */ = {
@@ -587,6 +616,7 @@
 				708D50491E9B502E00DB4ED9 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -692,6 +722,7 @@
 			baseConfigurationReference = 6C24AC545B5933788FF2F701 /* Pods-ParkingAdvisor.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = XW3GGB6ENP;
 				INFOPLIST_FILE = ParkingAdvisor/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -707,6 +738,7 @@
 			baseConfigurationReference = 1BAE6EC73489FCC20AC9F816 /* Pods-ParkingAdvisor.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				DEVELOPMENT_TEAM = XW3GGB6ENP;
 				INFOPLIST_FILE = ParkingAdvisor/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
