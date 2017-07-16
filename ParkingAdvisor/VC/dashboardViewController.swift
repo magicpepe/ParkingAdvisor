@@ -275,6 +275,7 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
         }
         self.mapView.frame.origin = CGPoint.zero
         mapView.delegate = self
+        
         if(uiview_mapView != nil){
             mapView.layer.cornerRadius = uiview_mapView.frame.width / 2
             uiview_mapView.addSubview(mapView)

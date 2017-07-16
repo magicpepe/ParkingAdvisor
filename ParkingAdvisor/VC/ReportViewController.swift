@@ -125,7 +125,8 @@ class ReportViewController: UIViewController ,CLLocationManagerDelegate, GMSMapV
     // MARK - Label
     
     func initLabel(){
-        lbl_location.text = "\(PASingleton.sharedInstance().getLocation().latitude) ,\(PASingleton.sharedInstance().getLocation().longitude)"
+        lbl_location.text = String(format: "%6f, %6f", PASingleton.sharedInstance().getLocation().latitude, PASingleton.sharedInstance().getLocation().longitude)
+        
         lbl_address.text = "福星路100號"
         lbl_thanks.alpha = 0
     }

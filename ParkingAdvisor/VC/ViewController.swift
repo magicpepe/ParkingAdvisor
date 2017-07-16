@@ -109,6 +109,14 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
         
         self.mapView = GMSMapView.map(withFrame: CGRect(x:0 ,y:0 , width:uiview_mapView.frame.width ,height : uiview_mapView.frame.height), camera: camera)
         mapView.delegate = self
+        
+        
+        // set Min & Max Zoom
+        if (UIDevice.current.userInterfaceIdiom == .phone){
+            mapView.setMinZoom(17, maxZoom: 23)
+        }else if (UIDevice.current.userInterfaceIdiom == .pad){
+            mapView.setMinZoom(15, maxZoom: 23)
+        }
         mapView.settings.myLocationButton = true
         let marker = GMSMarker()
         
@@ -228,7 +236,14 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
         
         
     }
-
+    
+    func didTapMyLocationButton(for mapView: GMSMapView) -> Bool {
+        let vancouver = CLLocationCoordinate2D(latitude:PASingleton.sharedInstance().getLocation().latitude, longitude: PASingleton.sharedInstance().getLocation().longitude)
+        let vancouverCam = GMSCameraUpdate.setTarget(vancouver)
+        mapView.animate(with: vancouverCam)
+        return true
+    }
+    
     
     // MARK: - DetailView Controll
     
