@@ -33,6 +33,30 @@ class ReportViewController: UIViewController ,CLLocationManagerDelegate, GMSMapV
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        // 取得定位要求
+        locationManager.requestAlwaysAuthorization()
+        locationManager.requestWhenInUseAuthorization()
+        if CLLocationManager.locationServicesEnabled(){
+            locationManager.delegate = self
+            locationManager.distanceFilter = kCLLocationAccuracyNearestTenMeters
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.startUpdatingLocation()
+        }
+        
+        if CLLocationManager.authorizationStatus() == .notDetermined{
+            locationManager.requestAlwaysAuthorization()
+        }
+            // 2. 用戶不同意
+        else if CLLocationManager.authorizationStatus() == .denied {
+            let alert = UIAlertController(title: "Alert", message: "未提供GPS資訊", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "瞭解", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
+        }
+            // 3. 用戶已經同意
+        else if CLLocationManager.authorizationStatus() == .authorizedAlways {
+            locationManager.startUpdatingLocation()
+        }
         
         // set background
         UIGraphicsBeginImageContext(self.view.frame.size)
@@ -75,8 +99,8 @@ class ReportViewController: UIViewController ,CLLocationManagerDelegate, GMSMapV
 //        let locValue:CLLocationCoordinate2D = PASingleton.sharedInstance().getLocation()
 //        print("initMaps Locations = \(locValue.latitude) \(locValue.longitude)")
 //
-        let camera = GMSCameraPosition.camera(withLatitude: (locationManager.location?.coordinate.latitude)!,
-                                              longitude: (locationManager.location?.coordinate.longitude)!,
+        let camera = GMSCameraPosition.camera(withLatitude: PASingleton.sharedInstance().getLocation().latitude,
+                                              longitude: PASingleton.sharedInstance().getLocation().longitude,
                                               zoom: 16)
         
         let m_frame = CGRect.init(origin: CGPoint.zero, size: uiview_mapView.frame.size)
@@ -101,7 +125,7 @@ class ReportViewController: UIViewController ,CLLocationManagerDelegate, GMSMapV
     // MARK - Label
     
     func initLabel(){
-        lbl_location.text = "\(locationManager.location!.coordinate.latitude) ,\(locationManager.location!.coordinate.longitude)"
+        lbl_location.text = "\(PASingleton.sharedInstance().getLocation().latitude) ,\(PASingleton.sharedInstance().getLocation().longitude)"
         lbl_address.text = "福星路100號"
         lbl_thanks.alpha = 0
     }

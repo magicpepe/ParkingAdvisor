@@ -50,13 +50,7 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
     
     
     override func loadView() {
-        
         super.loadView()
-        
-        
-//        let locValue:CLLocationCoordinate2D = locationManager.location!.coordinate
-//        print("locations = \(locValue.latitude) \(locValue.longitude)")
-
     }
 
     override func viewDidLoad() {
@@ -146,14 +140,9 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
     // MARK: - LocationManager
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        var locValue:CLLocationCoordinate2D = manager.location!.coordinate
+        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
         print("locations = \(locValue.latitude) \(locValue.longitude)")
         
-        
-        /// ------ testing -------
-        locValue.latitude = 24.178805
-        locValue.longitude = 120.644828
-        /// ------ testing -------
         
         // singleton
         PASingleton.sharedInstance().setLocation(location: locValue)

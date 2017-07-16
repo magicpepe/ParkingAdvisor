@@ -76,6 +76,34 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
     
     override func viewWillAppear(_ animated: Bool) {
         
+        // 取得定位要求
+        locationManager.requestAlwaysAuthorization()
+        locationManager.requestWhenInUseAuthorization()
+        if CLLocationManager.locationServicesEnabled(){
+            locationManager.delegate = self
+            locationManager.distanceFilter = kCLLocationAccuracyNearestTenMeters
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.startUpdatingLocation()
+        }
+        
+        if CLLocationManager.authorizationStatus() == .notDetermined{
+            locationManager.requestAlwaysAuthorization()
+        }
+            // 2. 用戶不同意
+        else if CLLocationManager.authorizationStatus() == .denied {
+            let alert = UIAlertController(title: "Alert", message: "未提供GPS資訊", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "瞭解", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
+        }
+            // 3. 用戶已經同意
+        else if CLLocationManager.authorizationStatus() == .authorizedAlways {
+            locationManager.startUpdatingLocation()
+        }
+        
+        
+    
+        
         if(uiview_mapView == nil)
         {
             self.loadView()
@@ -98,11 +126,12 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
         monitorCounter = 0
         self.view.layoutIfNeeded()
         isStartAnalyse = false
+        isMapInit = false
         
-        
-        initMap()
-        
-        
+        // pulse
+        pulseInit()
+        // blur
+        blurInit()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -112,6 +141,7 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
         uiview_mapView?.removeFromSuperview()
         myCircleProgress?.removeFromSuperview()
         pulsator.stop()
+        pulsator.removeFromSuperlayer()
         background_circle.removeFromSuperview()
     }
     
@@ -237,17 +267,19 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
     func initMap() {
         lbl_prccessing.text = "定位中"
         lbl_prccessing.alpha = 1
-        let camera = GMSCameraPosition.camera(withLatitude: (locationManager.location?.coordinate.latitude)!,
-                                              longitude: (locationManager.location?.coordinate.longitude)!,
+        let camera = GMSCameraPosition.camera(withLatitude: PASingleton.sharedInstance().getLocation().latitude,
+                                              longitude: PASingleton.sharedInstance().getLocation().longitude,
                                               zoom: 10)
-        
+        if(uiview_mapView != nil){
         self.mapView = GMSMapView.map(withFrame: uiview_mapView.frame, camera: camera)
+        }
         self.mapView.frame.origin = CGPoint.zero
         mapView.delegate = self
-        
-        mapView.layer.cornerRadius = uiview_mapView.frame.width / 2
-        uiview_mapView.addSubview(mapView)
-        isMapInit = true
+        if(uiview_mapView != nil){
+            mapView.layer.cornerRadius = uiview_mapView.frame.width / 2
+            uiview_mapView.addSubview(mapView)
+            isMapInit = true
+        }
         
         UIView.animate(withDuration: 0.5, delay: 1.0, options: .curveEaseOut, animations:{
             self.lbl_prccessing.alpha = 0
@@ -261,8 +293,8 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
     func updateCameraByGPS() {
         
         lbl_prccessing.text = "處理中"
-        let camera = GMSCameraPosition.camera(withLatitude: (locationManager.location?.coordinate.latitude)!,
-                                              longitude: (locationManager.location?.coordinate.longitude)!,
+        let camera = GMSCameraPosition.camera(withLatitude: PASingleton.sharedInstance().getLocation().latitude,
+                                              longitude: PASingleton.sharedInstance().getLocation().longitude,
                                               zoom: 10)
         let marker = GMSMarker()
         marker.position = camera.target
@@ -273,9 +305,39 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
         CATransaction.commit()
         
 //        lbl_location.text = "\(locationManager.location!.coordinate.latitude) ,\(locationManager.location!.coordinate.longitude)"
-        lbl_location.text = String(format: "%6f, %6f", locationManager.location!.coordinate.latitude, locationManager.location!.coordinate.longitude)
+        lbl_location.text = String(format: "%6f, %6f", PASingleton.sharedInstance().getLocation().latitude, PASingleton.sharedInstance().getLocation().longitude)
         lbl_address.text = PASingleton.sharedInstance().getAddress()
         
+        // blur effect
+        if(uiview_mapView != nil){
+            uiview_mapView.addSubview(blurEffectView)
+        }
+        UIView.animate(withDuration: 1.0, delay: 1.0, options: .curveEaseIn, animations: {
+            self.blurEffectView.alpha = 0.7
+        },completion: {_ in
+            self.lbl_prccessing.text = "輕觸開始分析"
+            self.lbl_location.alpha = 1
+            self.lbl_address.alpha = 1
+            self.pulsator.start()
+            self.btn_scan.isHidden = false
+        })
+        
+    }
+    
+    // MARK: - Pulse
+    func pulseInit(){
+        
+        pulsator.radius = uiview_mapView.frame.width / 2 + 50
+        pulsator.numPulse = 5
+        pulsator.animationDuration = 10
+        pulsator.pulseInterval = 1
+        pulsator.backgroundColor = UIColor(red: 0/255, green: 169/255, blue: 180/255, alpha: 1).cgColor
+        pulsator.position = uiview_mapView.center
+        self.view.layer.insertSublayer(pulsator, below: uiview_mapView.layer)
+        
+    }
+    
+    func blurInit(){
         // blur effect
         let blurEffect : UIBlurEffect!
         blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
@@ -286,34 +348,8 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         blurEffectView.layer.cornerRadius = uiview_mapView.frame.width / 2
         blurEffectView.clipsToBounds = true
-        uiview_mapView.addSubview(blurEffectView)
-        
-        UIView.animate(withDuration: 1.0, delay: 1.0, options: .curveEaseIn, animations: {
-            self.blurEffectView.alpha = 0.7
-        },completion: {_ in
-            self.lbl_prccessing.text = "輕觸開始分析"
-            self.lbl_location.alpha = 1
-            self.lbl_address.alpha = 1
-            self.pulseStart()
-            self.btn_scan.isHidden = false
-        })
         
     }
-    
-    // MARK: - Pulse
-    func pulseStart(){
-        
-        pulsator.radius = uiview_mapView.frame.width / 2 + 50
-        pulsator.numPulse = 5
-        pulsator.animationDuration = 10
-        pulsator.pulseInterval = 1
-        pulsator.backgroundColor = UIColor(red: 0/255, green: 169/255, blue: 180/255, alpha: 1).cgColor
-        pulsator.position = uiview_mapView.center
-        self.view.layer.insertSublayer(pulsator, below: uiview_mapView.layer)
-        pulsator.start()
-        
-    }
-    
     
     // MARK: - Button
     
@@ -407,14 +443,20 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
     
     // MARK: - LocationManager
     
-//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
-//        print("locations = \(locValue.latitude) \(locValue.longitude)")
-//
-//        // singleton
-//        PASingleton.sharedInstance().setLocation(location: locValue)
-//
-//    }
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
+        
+        // singleton
+        PASingleton.sharedInstance().setLocation(location: locValue)
+        
+        if (!isMapInit){
+            initMap()
+            isMapInit = true
+        }
+        
+    }
+    
     
     
 }
