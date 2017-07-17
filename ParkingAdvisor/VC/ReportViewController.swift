@@ -136,6 +136,7 @@ class ReportViewController: UIViewController ,CLLocationManagerDelegate, GMSMapV
         NSLog("btn_press_towing")
         if (isReported == false){
             reported()
+            btn_towing.isHighlighted = true
             isReported = true
         }
     }
@@ -144,6 +145,7 @@ class ReportViewController: UIViewController ,CLLocationManagerDelegate, GMSMapV
         NSLog("btn_press_billing")
         if (isReported == false){
             reported()
+            btn_billing.isHighlighted = true
             isReported = true
         }
     }

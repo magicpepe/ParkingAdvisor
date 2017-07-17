@@ -23,9 +23,9 @@ class PASingleton {
     private init(){
     }
     
-    private var PAlocation : CLLocationCoordinate2D = CLLocationCoordinate2D.init(latitude: 24.123456, longitude: 120.787878)
-    private var PAaddress : String = "逢甲路100號"
-    private var PAscore : Int = 87
+    private var PAlocation : CLLocationCoordinate2D = CLLocationCoordinate2D.init(latitude: 24.178868, longitude: 120.645101)
+    private var PAaddress : String = "福星路440號"
+    private var PAscore : Int = 30
     
     func returnTrue() -> String {
         return "Love <3"

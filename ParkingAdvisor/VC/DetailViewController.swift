@@ -36,7 +36,13 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         UIGraphicsBeginImageContext(self.view.frame.size)
-        UIImage(named: "map_msg_bg")?.draw(in: self.view.frame)
+        // set Min & Max Zoom
+        if (UIDevice.current.userInterfaceIdiom == .phone){
+            UIImage(named: "map_msg_bg")?.draw(in: self.view.frame)
+        }else if (UIDevice.current.userInterfaceIdiom == .pad){
+            UIImage(named: "msg_bg_ipad")?.draw(in: self.view.frame)
+        }
+        
         let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         self.view.backgroundColor = UIColor(patternImage: image)
