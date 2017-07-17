@@ -11,6 +11,7 @@
 		2817CD651F01365B002DDEB7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2817CD641F01365B002DDEB7 /* DetailViewController.swift */; };
 		283651C31EA1332F00A014E1 /* KYCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283651C21EA1332F00A014E1 /* KYCircularProgress.swift */; };
 		283651C51EA13EDA00A014E1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 283651C41EA13EDA00A014E1 /* CoreLocation.framework */; };
+		289679B01F1CC6740046DB5F /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289679AF1F1CC6740046DB5F /* TabBarViewController.swift */; };
 		701E4D3F1EA485D800CAC177 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701E4D3E1EA485D800CAC177 /* HistoryViewController.swift */; };
 		701E4D411EA4AA5800CAC177 /* DashboardViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701E4D401EA4AA5800CAC177 /* DashboardViewController2.swift */; };
 		701E4D431EA4B68D00CAC177 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 701E4D421EA4B68D00CAC177 /* Assets.xcassets */; };
@@ -27,7 +28,6 @@
 		70CE34251EA0C4BB00595C55 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CE34241EA0C4BB00595C55 /* BaseViewController.swift */; };
 		B100B7721EC41545008175AA /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100B7711EC41545008175AA /* TestViewController.swift */; };
 		B10D119F1F0E1CCB00798AE6 /* Pulsator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10D11961F0E1CCA00798AE6 /* Pulsator.swift */; };
-		B11641531F16AFA9003519C1 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11641521F16AFA9003519C1 /* TabBarViewController.swift */; };
 		B118D7091EF2770500DB64B7 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B118D7081EF2770500DB64B7 /* SwiftyJSON.swift */; };
 		B118D7131EF2B3E200DB64B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708D50411E9B502E00DB4ED9 /* ViewController.swift */; };
 		B118D71C1EF2B3E300DB64B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708D50411E9B502E00DB4ED9 /* ViewController.swift */; };
@@ -113,6 +113,7 @@
 		2817CD641F01365B002DDEB7 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		283651C21EA1332F00A014E1 /* KYCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KYCircularProgress.swift; path = ../Pods/KYCircularProgress/Source/KYCircularProgress.swift; sourceTree = "<group>"; };
 		283651C41EA13EDA00A014E1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		289679AF1F1CC6740046DB5F /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		6C24AC545B5933788FF2F701 /* Pods-ParkingAdvisor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkingAdvisor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ParkingAdvisor/Pods-ParkingAdvisor.debug.xcconfig"; sourceTree = "<group>"; };
 		701E4D3E1EA485D800CAC177 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		701E4D401EA4AA5800CAC177 /* DashboardViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController2.swift; sourceTree = "<group>"; };
@@ -136,7 +137,6 @@
 		70CE34241EA0C4BB00595C55 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		B100B7711EC41545008175AA /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		B10D11961F0E1CCA00798AE6 /* Pulsator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pulsator.swift; sourceTree = "<group>"; };
-		B11641521F16AFA9003519C1 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarViewController.swift; path = ../../../../TabBarViewController.swift; sourceTree = "<group>"; };
 		B118D6EE1EF2744200DB64B7 /* SwiftyJSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyJSON.xcodeproj; path = ../SwiftyJSON/SwiftyJSON.xcodeproj; sourceTree = "<group>"; };
 		B118D7081EF2770500DB64B7 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = ../Pods/SwiftyJSON/Source/SwiftyJSON.swift; sourceTree = "<group>"; };
 		B1399B751F123F6600F44736 /* bstyle.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = bstyle.json; sourceTree = "<group>"; };
@@ -270,7 +270,7 @@
 				701E4D401EA4AA5800CAC177 /* DashboardViewController2.swift */,
 				70CE34221EA0BD0700595C55 /* MenuViewController.swift */,
 				B1E934201F04CCD900F45213 /* MonitorViewController.swift */,
-				B11641521F16AFA9003519C1 /* TabBarViewController.swift */,
+				289679AF1F1CC6740046DB5F /* TabBarViewController.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -554,7 +554,7 @@
 				2817CD651F01365B002DDEB7 /* DetailViewController.swift in Sources */,
 				70CE34231EA0BD0700595C55 /* MenuViewController.swift in Sources */,
 				B1E934211F04CCD900F45213 /* MonitorViewController.swift in Sources */,
-				B11641531F16AFA9003519C1 /* TabBarViewController.swift in Sources */,
+				289679B01F1CC6740046DB5F /* TabBarViewController.swift in Sources */,
 				708D50421E9B502E00DB4ED9 /* ViewController.swift in Sources */,
 				701E4D411EA4AA5800CAC177 /* DashboardViewController2.swift in Sources */,
 				B1E934231F0A2A8F00F45213 /* SettingViewController.swift in Sources */,
@@ -729,7 +729,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = XW3GGB6ENP;
 				INFOPLIST_FILE = ParkingAdvisor/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MCLAB.ParkingAdvisor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -745,7 +744,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				DEVELOPMENT_TEAM = XW3GGB6ENP;
 				INFOPLIST_FILE = ParkingAdvisor/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MCLAB.ParkingAdvisor;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -322,7 +322,7 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
             uiview_mapView.addSubview(blurEffectView)
         }
         UIView.animate(withDuration: 1.0, delay: 1.0, options: .curveEaseIn, animations: {
-            self.blurEffectView.alpha = 0.7
+            self.blurEffectView.alpha = 0.9
         },completion: {_ in
             self.lbl_prccessing.text = "輕觸開始分析"
             self.lbl_location.alpha = 1
@@ -349,7 +349,7 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
     func blurInit(){
         // blur effect
         let blurEffect : UIBlurEffect!
-        blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        blurEffect = UIBlurEffect(style: UIBlurEffectStyle.extraLight)
         blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.alpha = 0
         blurEffectView.frame.size = uiview_mapView.frame.size
