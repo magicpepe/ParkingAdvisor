@@ -51,7 +51,6 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
     
     // marker tapped
     var marker_tapped : GMSMarker = GMSMarker()
-    var isTapMylocation : Bool = false
     
     override func loadView() {
         super.loadView()
@@ -109,7 +108,7 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
         
         let camera = GMSCameraPosition.camera(withLatitude: (locValue.latitude),
                                               longitude: (locValue.longitude),
-                                              zoom: 18)
+                                              zoom: 19)
         
         
         self.mapView = GMSMapView.map(withFrame: CGRect(x:0 ,y:0 , width:uiview_mapView.frame.width ,height : uiview_mapView.frame.height), camera: camera)
@@ -167,7 +166,8 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
         }
         mapView.settings.myLocationButton = true
         let marker = GMSMarker()
-        
+        marker.snippet = String(PASingleton.sharedInstance().getScore())
+        marker.title = PASingleton.sharedInstance().getAddress()
         marker.position = camera.target
         //        marker.snippet = "Hello World"
         //        marker.appearAnimation = GMSMarkerAnimationPop
@@ -308,7 +308,6 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
     func mapView(_ mapView : GMSMapView, didTapMarker marker: GMSMarker){
         
         NSLog("marker did tap")
-        isTapMylocation = false
         self.marker_tapped = marker
         if(detailVCisOn == true){
             self.updateVC()
@@ -373,36 +372,21 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
     }
     
     func updateVC(){
-        isTapMylocation = false
         closeVC()
         showVC()
         return
     }
     
     func getLocation() -> String{
-        if (!isTapMylocation){
-            return String(format: "%6f, %6f", marker_tapped.position.latitude, marker_tapped.position.longitude)
-        }else{
-            return String(format: "%6f, %6f", PASingleton.sharedInstance().getLocation().latitude, PASingleton.sharedInstance().getLocation().longitude)
-        }
+        return String(format: "%6f, %6f", marker_tapped.position.latitude, marker_tapped.position.longitude)
     }
     func getAddress() -> String{
-        if (!isTapMylocation){
-            return marker_tapped.title!
+        return marker_tapped.title!
             
-        }else{
-            return PASingleton.sharedInstance().getAddress()
-        }
-        
         
     }
     func getScore() -> String{
-        if (!isTapMylocation){
-            return marker_tapped.snippet!
-            
-        }else{
-            return String(PASingleton.sharedInstance().getScore())
-        }
+        return marker_tapped.snippet!
         
     }
     
@@ -411,7 +395,9 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
     // MARK: - Button
     
     @IBAction func btn_detail(_ sender: Any) {
-        isTapMylocation = true
+        marker_tapped.snippet = String(PASingleton.sharedInstance().getScore())
+        marker_tapped.title = PASingleton.sharedInstance().getAddress()
+        marker_tapped.position = PASingleton.sharedInstance().getLocation()
         showVC()
     }
 }

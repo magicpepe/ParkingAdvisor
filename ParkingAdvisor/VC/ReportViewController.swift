@@ -137,6 +137,8 @@ class ReportViewController: UIViewController ,CLLocationManagerDelegate, GMSMapV
         if (isReported == false){
             reported()
             btn_towing.isHighlighted = true
+            
+            self.view.layoutIfNeeded()
             isReported = true
         }
     }
@@ -146,6 +148,7 @@ class ReportViewController: UIViewController ,CLLocationManagerDelegate, GMSMapV
         if (isReported == false){
             reported()
             btn_billing.isHighlighted = true
+            self.view.layoutIfNeeded()
             isReported = true
         }
     }
