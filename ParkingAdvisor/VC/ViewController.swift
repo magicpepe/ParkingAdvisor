@@ -50,13 +50,7 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
     
     
     override func loadView() {
-        
         super.loadView()
-        
-        
-//        let locValue:CLLocationCoordinate2D = locationManager.location!.coordinate
-//        print("locations = \(locValue.latitude) \(locValue.longitude)")
-
     }
 
     override func viewDidLoad() {
@@ -115,6 +109,14 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
         
         self.mapView = GMSMapView.map(withFrame: CGRect(x:0 ,y:0 , width:uiview_mapView.frame.width ,height : uiview_mapView.frame.height), camera: camera)
         mapView.delegate = self
+        
+        
+        // set Min & Max Zoom
+        if (UIDevice.current.userInterfaceIdiom == .phone){
+            mapView.setMinZoom(17, maxZoom: 23)
+        }else if (UIDevice.current.userInterfaceIdiom == .pad){
+            mapView.setMinZoom(15, maxZoom: 23)
+        }
         mapView.settings.myLocationButton = true
         let marker = GMSMarker()
         
@@ -146,14 +148,9 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
     // MARK: - LocationManager
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        var locValue:CLLocationCoordinate2D = manager.location!.coordinate
+        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
         print("locations = \(locValue.latitude) \(locValue.longitude)")
         
-        
-        /// ------ testing -------
-        locValue.latitude = 24.178805
-        locValue.longitude = 120.644828
-        /// ------ testing -------
         
         // singleton
         PASingleton.sharedInstance().setLocation(location: locValue)
@@ -239,7 +236,14 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
         
         
     }
-
+    
+    func didTapMyLocationButton(for mapView: GMSMapView) -> Bool {
+        let vancouver = CLLocationCoordinate2D(latitude:PASingleton.sharedInstance().getLocation().latitude, longitude: PASingleton.sharedInstance().getLocation().longitude)
+        let vancouverCam = GMSCameraUpdate.setTarget(vancouver)
+        mapView.animate(with: vancouverCam)
+        return true
+    }
+    
     
     // MARK: - DetailView Controll
     
