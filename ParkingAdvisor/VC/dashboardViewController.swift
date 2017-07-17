@@ -161,25 +161,27 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
         myCircleProgress.guideColor = UIColor(rgba: 0xF6F6F6FF)
         myCircleProgress.colors = [UIColor(rgba: 0x28FF28AA), UIColor(rgba: 0x0080FFAA), UIColor(rgba: 0xFF77FFAA), UIColor(rgba: 0xFF5151AA)]
         
-        background_circle.frame = CGRect( x:0, y:0, width: uiview_mapView.frame.width, height: uiview_mapView.frame.height )
-        background_circle.center = uiview_mapView.center
-        background_circle.backgroundColor = UIColor(rgba: 0xF6F6F6FF)
-        background_circle.layer.cornerRadius = uiview_mapView.frame.width
-        myCircleProgress.addSubview(background_circle)
-        
+        if(self.uiview_mapView != nil){
+            background_circle.frame = CGRect( x:0, y:0, width: uiview_mapView.frame.width, height: uiview_mapView.frame.height )
+            background_circle.center = uiview_mapView.center
+            background_circle.backgroundColor = UIColor(rgba: 0xF6F6F6FF)
+            background_circle.layer.cornerRadius = uiview_mapView.frame.width
+            myCircleProgress.addSubview(background_circle)
+            
         lbl_score = UILabel(frame: CGRect(x: (self.uiview_mapView.frame.width - config.getSize(key: "lbl_score_width")) / 2 , y: (uiview_mapView.frame.height - config.getSize(key: "lbl_score_height")) / 2 , width: config.getSize(key: "lbl_score_width"), height: config.getSize(key: "lbl_score_height")))
         lbl_score.font = UIFont(name: "HelveticaNeue", size: config.getSize(key: "lbl_score_size"))
         lbl_score.textAlignment = .center
         lbl_score.textColor = UIColor(rgba: 0x5AC8FAFF)
         uiview_mapView.addSubview(lbl_score)
-        
+        }
         myCircleProgress.progressChanged {
             (progress: Double, circularProgress: KYCircularProgress) in
 //            print("progress: \(progress)")
             self.lbl_score.text = "\(Int(progress * 100.0))"
         }
-        view.insertSubview(myCircleProgress, belowSubview: self.uiview_mapView)
-
+        if(self.uiview_mapView != nil){
+            view.insertSubview(myCircleProgress, belowSubview: self.uiview_mapView)
+        }
     }
 
     

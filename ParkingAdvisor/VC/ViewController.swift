@@ -395,10 +395,17 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
     // MARK: - Button
     
     @IBAction func btn_detail(_ sender: Any) {
-        marker_tapped.snippet = String(PASingleton.sharedInstance().getScore())
-        marker_tapped.title = PASingleton.sharedInstance().getAddress()
-        marker_tapped.position = PASingleton.sharedInstance().getLocation()
+        var tMarker = GMSMarker()
+        tMarker.snippet = String(PASingleton.sharedInstance().getScore())
+        tMarker.title = PASingleton.sharedInstance().getAddress()
+        tMarker.position = PASingleton.sharedInstance().getLocation()
+        marker_tapped = tMarker
+        
         showVC()
+        let vancouver = CLLocationCoordinate2D(latitude:PASingleton.sharedInstance().getLocation().latitude, longitude: PASingleton.sharedInstance().getLocation().longitude)
+        let vancouverCam = GMSCameraUpdate.setTarget(vancouver)
+        mapView.animate(with: vancouverCam)
+        
     }
 }
 

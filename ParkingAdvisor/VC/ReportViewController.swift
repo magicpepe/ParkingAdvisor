@@ -127,7 +127,7 @@ class ReportViewController: UIViewController ,CLLocationManagerDelegate, GMSMapV
     func initLabel(){
         lbl_location.text = String(format: "%6f, %6f", PASingleton.sharedInstance().getLocation().latitude, PASingleton.sharedInstance().getLocation().longitude)
         
-        lbl_address.text = "福星路100號"
+        lbl_address.text = PASingleton.sharedInstance().getAddress()
         lbl_thanks.alpha = 0
     }
     
@@ -136,9 +136,8 @@ class ReportViewController: UIViewController ,CLLocationManagerDelegate, GMSMapV
         NSLog("btn_press_towing")
         if (isReported == false){
             reported()
-            btn_towing.isHighlighted = true
-            
-            self.view.layoutIfNeeded()
+            btn_towing.setImage(UIImage(named: "btn_dark"), for: .normal)
+            btn_towing.layoutIfNeeded()
             isReported = true
         }
     }
@@ -147,8 +146,8 @@ class ReportViewController: UIViewController ,CLLocationManagerDelegate, GMSMapV
         NSLog("btn_press_billing")
         if (isReported == false){
             reported()
-            btn_billing.isHighlighted = true
-            self.view.layoutIfNeeded()
+            btn_billing.setImage(UIImage(named: "btn_dark"), for: .normal)
+            btn_billing.layoutIfNeeded()
             isReported = true
         }
     }
