@@ -126,7 +126,8 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
         monitorCounter = 0
         self.view.layoutIfNeeded()
         isStartAnalyse = false
-        isMapInit = false
+//        isMapInit = false
+        initMap()
         
         // pulse
         pulseInit()
@@ -152,31 +153,35 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
         myCircleProgress = KYCircularProgress(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height), showGuide: true)
         
         let lineWidth = 15.0
-        myCircleProgress.path = UIBezierPath(arcCenter: self.uiview_mapView.center, radius: self.uiview_mapView.frame.width / 2, startAngle: CGFloat(Double.pi)*1.5, endAngle: CGFloat(Double.pi)*3.5, clockwise: true)
+        if(self.uiview_mapView != nil){
+            myCircleProgress.path = UIBezierPath(arcCenter: self.uiview_mapView.center, radius: self.uiview_mapView.frame.width / 2, startAngle: CGFloat(Double.pi)*1.5, endAngle: CGFloat(Double.pi)*3.5, clockwise: true)
+        }
         myCircleProgress.lineWidth = lineWidth
         myCircleProgress.guideLineWidth = lineWidth
         myCircleProgress.guideColor = UIColor(rgba: 0xF6F6F6FF)
         myCircleProgress.colors = [UIColor(rgba: 0x28FF28AA), UIColor(rgba: 0x0080FFAA), UIColor(rgba: 0xFF77FFAA), UIColor(rgba: 0xFF5151AA)]
         
-        background_circle.frame = CGRect( x:0, y:0, width: uiview_mapView.frame.width, height: uiview_mapView.frame.height )
-        background_circle.center = uiview_mapView.center
-        background_circle.backgroundColor = UIColor(rgba: 0xF6F6F6FF)
-        background_circle.layer.cornerRadius = uiview_mapView.frame.width
-        myCircleProgress.addSubview(background_circle)
-        
+        if(self.uiview_mapView != nil){
+            background_circle.frame = CGRect( x:0, y:0, width: uiview_mapView.frame.width, height: uiview_mapView.frame.height )
+            background_circle.center = uiview_mapView.center
+            background_circle.backgroundColor = UIColor(rgba: 0xF6F6F6FF)
+            background_circle.layer.cornerRadius = uiview_mapView.frame.width
+            myCircleProgress.addSubview(background_circle)
+            
         lbl_score = UILabel(frame: CGRect(x: (self.uiview_mapView.frame.width - config.getSize(key: "lbl_score_width")) / 2 , y: (uiview_mapView.frame.height - config.getSize(key: "lbl_score_height")) / 2 , width: config.getSize(key: "lbl_score_width"), height: config.getSize(key: "lbl_score_height")))
         lbl_score.font = UIFont(name: "HelveticaNeue", size: config.getSize(key: "lbl_score_size"))
         lbl_score.textAlignment = .center
         lbl_score.textColor = UIColor(rgba: 0x5AC8FAFF)
         uiview_mapView.addSubview(lbl_score)
-        
+        }
         myCircleProgress.progressChanged {
             (progress: Double, circularProgress: KYCircularProgress) in
 //            print("progress: \(progress)")
             self.lbl_score.text = "\(Int(progress * 100.0))"
         }
-        view.insertSubview(myCircleProgress, belowSubview: self.uiview_mapView)
-
+        if(self.uiview_mapView != nil){
+            view.insertSubview(myCircleProgress, belowSubview: self.uiview_mapView)
+        }
     }
 
     
@@ -210,7 +215,10 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
                     self.CT_lbl_location_Y.constant = self.config.getSize(key: "lbl_location_after_animation_y")
                     self.CT_lbl_address_centerX.constant = self.view.frame.width / 2
                     self.CT_lbl_address_Y.constant = self.config.getSize(key: "lbl_address_after_animation_y")
+                    self.lbl_location.alpha = 1
+                    self.lbl_address.alpha = 1
                     self.view.layoutIfNeeded()
+                    
                     
                     UIView.animate(withDuration: 0.5, animations:{
                         // 地址 經緯度 飛入動畫
@@ -360,10 +368,12 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
             self.lbl_prccessing.alpha = 0
             pulsator.stop()
             progress = 0
-            
             UIView.animate(withDuration: 1.5 ,delay: 0.5, options: .curveEaseOut, animations:{
                 // 動畫 : 地圖 / (毛玻璃) 向下滑動
                 self.constraint_mapY.constant -= self.config.getSize(key: "map_offset")
+                self.lbl_address.alpha = 0
+                self.lbl_location.alpha = 0
+                
                 self.view.layoutIfNeeded()
     //
             } ,completion: {_ in
@@ -444,19 +454,19 @@ class dashboardViewController: UIViewController ,CLLocationManagerDelegate, GMSM
     
     // MARK: - LocationManager
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
-        print("locations = \(locValue.latitude) \(locValue.longitude)")
-        
-        // singleton
-        PASingleton.sharedInstance().setLocation(location: locValue)
-        
-        if (!isMapInit){
-            initMap()
-            isMapInit = true
-        }
-        
-    }
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
+//        print("locations = \(locValue.latitude) \(locValue.longitude)")
+//
+//        // singleton
+//        PASingleton.sharedInstance().setLocation(location: locValue)
+//
+//        if (!isMapInit){
+//            initMap()
+//            isMapInit = true
+//        }
+//
+//    }
     
     
     

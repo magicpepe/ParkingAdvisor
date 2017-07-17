@@ -166,6 +166,9 @@
                     </view>
                     <connections>
                         <outlet property="btn_close" destination="Qq0-qU-3kg" id="hHD-To-XLU"/>
+                        <outlet property="lbl_detail_address" destination="tF6-h6-bUG" id="px0-lR-v42"/>
+                        <outlet property="lbl_detail_location" destination="WeT-z8-1V7" id="ogc-hT-gB1"/>
+                        <outlet property="lbl_detail_score" destination="oXb-28-1DE" id="3lp-5q-LFh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hhb-FE-6dL" userLabel="First Responder" sceneMemberID="firstResponder"/>

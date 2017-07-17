@@ -49,6 +49,9 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
     @IBOutlet weak var btn_arrow: UIButton!
     
     
+    // marker tapped
+    var marker_tapped : GMSMarker = GMSMarker()
+    
     override func loadView() {
         super.loadView()
     }
@@ -81,7 +84,8 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
         }
         
         addSlideMenuButton()
-        
+        initMap()
+        getPointFromAPI(location: PASingleton.sharedInstance().getLocation())
 //        getPointFromAPI(location: locationManager.location!.coordinate)
         
         
@@ -104,7 +108,7 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
         
         let camera = GMSCameraPosition.camera(withLatitude: (locValue.latitude),
                                               longitude: (locValue.longitude),
-                                              zoom: 17)
+                                              zoom: 19)
         
         
         self.mapView = GMSMapView.map(withFrame: CGRect(x:0 ,y:0 , width:uiview_mapView.frame.width ,height : uiview_mapView.frame.height), camera: camera)
@@ -115,7 +119,7 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
         if (UIDevice.current.userInterfaceIdiom == .phone){
             mapView.setMinZoom(17, maxZoom: 23)
         }else if (UIDevice.current.userInterfaceIdiom == .pad){
-            mapView.setMinZoom(15, maxZoom: 23)
+            mapView.setMinZoom(17, maxZoom: 20)
         }
         mapView.settings.myLocationButton = true
         let marker = GMSMarker()
@@ -145,22 +149,61 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
         isMapInit = true
     }
     
+    func initMap() {
+        let camera = GMSCameraPosition.camera(withLatitude: PASingleton.sharedInstance().getLocation().latitude,
+                                              longitude: PASingleton.sharedInstance().getLocation().longitude,
+                                              zoom: 17)
+        
+        self.mapView = GMSMapView.map(withFrame: CGRect(x:0 ,y:0 , width:uiview_mapView.frame.width ,height : uiview_mapView.frame.height), camera: camera)
+        mapView.delegate = self
+        
+        
+        // set Min & Max Zoom
+        if (UIDevice.current.userInterfaceIdiom == .phone){
+            mapView.setMinZoom(17, maxZoom: 23)
+        }else if (UIDevice.current.userInterfaceIdiom == .pad){
+            mapView.setMinZoom(17, maxZoom: 20)
+        }
+        mapView.settings.myLocationButton = true
+        let marker = GMSMarker()
+        marker.snippet = String(PASingleton.sharedInstance().getScore())
+        marker.title = PASingleton.sharedInstance().getAddress()
+        marker.position = camera.target
+        //        marker.snippet = "Hello World"
+        //        marker.appearAnimation = GMSMarkerAnimationPop
+        
+        do {
+            // Set the map style by passing the URL of the local file.
+            if let styleURL = Bundle.main.url(forResource: "bstyle", withExtension: "json") {
+                mapView.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
+            } else {
+                NSLog("Unable to find style.json")
+            }
+        } catch {
+            NSLog("One or more of the map styles failed to load. \(error)")
+        }
+        
+        marker.map = mapView
+        uiview_mapView.addSubview(mapView)
+        isMapInit = true
+    }
+    
     // MARK: - LocationManager
 
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
-        print("locations = \(locValue.latitude) \(locValue.longitude)")
-        
-        
-        // singleton
-        PASingleton.sharedInstance().setLocation(location: locValue)
-        
-        if !isMapInit{
-            initMap(location: locValue)
-            getPointFromAPI(location: locationManager.location!.coordinate)
-
-        }
-    }
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
+//        print("locations = \(locValue.latitude) \(locValue.longitude)")
+//
+//
+//        // singleton
+//        PASingleton.sharedInstance().setLocation(location: locValue)
+//
+//        if !isMapInit{
+//            initMap(location: locValue)
+//            getPointFromAPI(location: locationManager.location!.coordinate)
+//
+//        }
+//    }
     
     
     // MARK: - MAP POINT
@@ -193,19 +236,37 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
             "}" +
         "}" +
         "]"
-        print("origin data :\(data)")
+//        print("origin data :\(data)")
+//
+//        if let dataFromString = data.data(using: .utf8 , allowLossyConversion: false){
+//            let json = JSON(data:dataFromString)
+//            let Garray = json[0]["green"]["location"].arrayValue
+//            let Yarray = json[0]["yellow"]["location"].arrayValue
+//            let Rarray = json[0]["red"]["location"].arrayValue
+//
+//            showPointAtMap(arrayToShow: Garray as NSArray,color : "green")
+//            showPointAtMap(arrayToShow: Yarray as NSArray,color : "yellow")
+//            showPointAtMap(arrayToShow: Rarray as NSArray,color : "red")
+//
+//        }
         
-        if let dataFromString = data.data(using: .utf8 , allowLossyConversion: false){
-            let json = JSON(data:dataFromString)
-            let Garray = json[0]["green"]["location"].arrayValue
-            let Yarray = json[0]["yellow"]["location"].arrayValue
-            let Rarray = json[0]["red"]["location"].arrayValue
-            
-            showPointAtMap(arrayToShow: Garray as NSArray,color : "green")
-            showPointAtMap(arrayToShow: Yarray as NSArray,color : "yellow")
-            showPointAtMap(arrayToShow: Rarray as NSArray,color : "red")
-
+        if let path = Bundle.main.path(forResource: "database", ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
+                let jsonObj = JSON(data: data)
+                if jsonObj != JSON.null {
+                    print("jsonData:\(jsonObj)")
+                    showPointAtMap(arrayToShow: jsonObj)
+                } else {
+                    print("Could not get json from file, make sure that file contains valid json.")
+                }
+            } catch let error {
+                print(error.localizedDescription)
+            }
+        } else {
+            print("Invalid filename/path.")
         }
+        
     }
     
     func showPointAtMap(arrayToShow :NSArray ,color :String){
@@ -222,18 +283,38 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
         
         
     }
+    func showPointAtMap(arrayToShow :JSON){
+        
+        for i in (0..<arrayToShow.count){
+            let position = CLLocationCoordinate2D(latitude: arrayToShow[i]["lat"].doubleValue , longitude: arrayToShow[i]["long"].doubleValue )
+            let point = GMSMarker(position: position)
+            
+            point.title = arrayToShow[i]["roadname"].stringValue
+            
+            if ( arrayToShow[i]["score"].intValue < 40){
+                point.icon = UIImage(named: "map_point_red")
+            }else if( arrayToShow[i]["score"].intValue < 70){
+                point.icon = UIImage(named: "map_point_yellow")
+            }else if( arrayToShow[i]["score"].intValue <= 100){
+                point.icon = UIImage(named: "map_point_green")
+            }
+            point.snippet = arrayToShow[i]["score"].stringValue
+            point.map = self.mapView
+            
+        }
+    }
     // MARK: - MAP Delegate
     
     func mapView(_ mapView : GMSMapView, didTapMarker marker: GMSMarker){
         
         NSLog("marker did tap")
-        
+        self.marker_tapped = marker
         if(detailVCisOn == true){
             self.updateVC()
             return
+        }else{
+            self.showVC()
         }
-        self.showVC()
-        
         
     }
     
@@ -291,13 +372,40 @@ class ViewController: BaseViewController ,CLLocationManagerDelegate, closeDetail
     }
     
     func updateVC(){
+        closeVC()
+        showVC()
         return
     }
+    
+    func getLocation() -> String{
+        return String(format: "%6f, %6f", marker_tapped.position.latitude, marker_tapped.position.longitude)
+    }
+    func getAddress() -> String{
+        return marker_tapped.title!
+            
+        
+    }
+    func getScore() -> String{
+        return marker_tapped.snippet!
+        
+    }
+    
+    
     
     // MARK: - Button
     
     @IBAction func btn_detail(_ sender: Any) {
+        var tMarker = GMSMarker()
+        tMarker.snippet = String(PASingleton.sharedInstance().getScore())
+        tMarker.title = PASingleton.sharedInstance().getAddress()
+        tMarker.position = PASingleton.sharedInstance().getLocation()
+        marker_tapped = tMarker
+        
         showVC()
+        let vancouver = CLLocationCoordinate2D(latitude:PASingleton.sharedInstance().getLocation().latitude, longitude: PASingleton.sharedInstance().getLocation().longitude)
+        let vancouverCam = GMSCameraUpdate.setTarget(vancouver)
+        mapView.animate(with: vancouverCam)
+        
     }
 }
 
