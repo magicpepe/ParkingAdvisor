@@ -71,6 +71,9 @@ class ReportViewController: UIViewController ,CLLocationManagerDelegate, GMSMapV
         initMap()
         initLabel()
         isReported = false
+        btn_billing.setImage(UIImage(named: "btn_circle"), for: .normal)
+        btn_towing.setImage(UIImage(named: "btn_circle"), for: .normal)
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -157,7 +160,7 @@ class ReportViewController: UIViewController ,CLLocationManagerDelegate, GMSMapV
         // blur effect
         let blurEffect : UIBlurEffect!
         
-        blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        blurEffect = UIBlurEffect(style: UIBlurEffectStyle.extraLight)
         blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.alpha = 0
         blurEffectView.frame.size = uiview_mapView.frame.size
@@ -168,7 +171,7 @@ class ReportViewController: UIViewController ,CLLocationManagerDelegate, GMSMapV
         uiview_mapView.insertSubview(blurEffectView, belowSubview: lbl_thanks)
         
         UIView.animate(withDuration: 1, delay: 0.3, options: .curveEaseIn, animations: {
-            self.blurEffectView.alpha = 0.7
+            self.blurEffectView.alpha = 0.9
             self.lbl_thanks.alpha = 1
         })
     }
