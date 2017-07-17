@@ -288,13 +288,88 @@
                     <view key="view" contentMode="scaleToFill" id="Q8j-oD-1e1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="WnB-U4-RNx">
+                                <rect key="frame" x="218" y="151" width="160" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="3m0-Z1-wgM"/>
+                                    <constraint firstAttribute="height" constant="40" id="YCM-CY-dAh"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="機車"/>
+                                    <segment title="汽車"/>
+                                </segments>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="olx-o9-57v">
+                                <rect key="frame" x="35" y="144" width="158" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="bLz-qD-DFB"/>
+                                    <constraint firstAttribute="width" constant="158" id="e0F-tw-viB"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="模式選擇">
+                                        <attributes>
+                                            <color key="NSBackgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                            <color key="NSColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="36" name=".PingFangTC-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8n-Fb-8lR">
+                                <rect key="frame" x="82.666666666666686" y="652" width="249" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="c0y-Ej-lxf"/>
+                                    <constraint firstAttribute="width" constant="249" id="gOG-yc-e8C"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Ver  0.1.003">
+                                        <attributes>
+                                            <color key="NSColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="20" name="STYuanti-TC-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jv5-sY-UZY">
+                                <rect key="frame" x="59" y="622" width="296" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="Ugj-Xw-EMg"/>
+                                    <constraint firstAttribute="width" constant="296" id="kge-rV-FuZ"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="POWER  BY  MCLAB  2017">
+                                        <attributes>
+                                            <color key="NSColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="23" name="STYuanti-TC-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mmz-45-lOo" firstAttribute="top" secondItem="jv5-sY-UZY" secondAttribute="bottom" constant="34" id="023-Bb-rLx"/>
+                            <constraint firstItem="WnB-U4-RNx" firstAttribute="centerY" secondItem="olx-o9-57v" secondAttribute="centerY" id="8zm-Mo-fej"/>
+                            <constraint firstItem="WnB-U4-RNx" firstAttribute="leading" secondItem="olx-o9-57v" secondAttribute="trailing" constant="25" id="Bgk-TC-WnK"/>
+                            <constraint firstItem="f8n-Fb-8lR" firstAttribute="centerX" secondItem="Q8j-oD-1e1" secondAttribute="centerX" id="O86-R8-oGc"/>
+                            <constraint firstItem="olx-o9-57v" firstAttribute="leading" secondItem="Q8j-oD-1e1" secondAttribute="leadingMargin" constant="15" id="Pt0-8C-Hdq"/>
+                            <constraint firstItem="mmz-45-lOo" firstAttribute="top" secondItem="f8n-Fb-8lR" secondAttribute="bottom" constant="8" id="SUB-ge-7c5"/>
+                            <constraint firstItem="olx-o9-57v" firstAttribute="top" secondItem="hVO-dW-jKy" secondAttribute="bottom" constant="124" id="Vs1-A0-pwl"/>
+                            <constraint firstItem="jv5-sY-UZY" firstAttribute="centerX" secondItem="Q8j-oD-1e1" secondAttribute="centerX" id="i9H-KA-BTB"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="設定" image="tap_icon_setting_g" id="O1v-Gn-u9h"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YWL-DK-QJC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3998" y="681"/>
+            <point key="canvasLocation" x="3997.1014492753625" y="680.70652173913049"/>
         </scene>
         <!--DashboardViewController2-->
         <scene sceneID="n2i-ji-ByW">
@@ -744,23 +819,35 @@
                                     <constraint firstItem="m7V-Em-9B8" firstAttribute="centerY" secondItem="mbf-Uw-0OS" secondAttribute="centerY" id="lAf-cj-odZ"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CgG-SR-M6E">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CgG-SR-M6E">
                                 <rect key="frame" x="82" y="153" width="250" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="esk-bN-abJ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="address">
+                                        <attributes>
+                                            <font key="NSFont" size="17" name="STYuanti-TC-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dhi-hF-hGL">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dhi-hF-hGL">
                                 <rect key="frame" x="82" y="124" width="250" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="YkV-zX-qyK"/>
                                     <constraint firstAttribute="height" constant="21" id="uYF-Iw-XpD"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="location">
+                                        <attributes>
+                                            <font key="NSFont" size="17" name="STYuanti-TC-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line_bar" translatesAutoresizingMaskIntoConstraints="NO" id="j8Q-zr-qbS">
@@ -802,7 +889,7 @@
                                     <fragment content="危險回報">
                                         <attributes>
                                             <color key="NSColor" red="0.2196078431372549" green="0.54509803921568623" blue="0.72156862745098038" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="30" name="PingFangTC-Regular"/>
+                                            <font key="NSFont" size="30" name="STYuanti-TC-Regular"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>

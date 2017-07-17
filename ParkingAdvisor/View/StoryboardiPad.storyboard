@@ -91,7 +91,7 @@
                                     <fragment content="24.180379, 120.650229">
                                         <attributes>
                                             <color key="NSColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="21" name="SFProText-Regular"/>
+                                            <font key="NSFont" metaFont="system" size="21"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
@@ -229,7 +229,7 @@
                                         <attributedString key="attributedText">
                                             <fragment content="00:00">
                                                 <attributes>
-                                                    <font key="NSFont" size="96" name="SFProText-Regular"/>
+                                                    <font key="NSFont" metaFont="system" size="96"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
@@ -278,13 +278,88 @@
                     <view key="view" contentMode="scaleToFill" id="y7q-dc-KBy">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4pc-iy-RrO">
+                                <rect key="frame" x="423" y="175.5" width="240" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="Fgj-gm-U5v"/>
+                                    <constraint firstAttribute="height" constant="40" id="kL9-dU-Gkm"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="機車"/>
+                                    <segment title="汽車"/>
+                                </segments>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S0M-aS-5xC">
+                                <rect key="frame" x="102" y="158" width="281" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="281" id="3Zc-Lh-pK5"/>
+                                    <constraint firstAttribute="height" constant="75" id="Kvk-5d-p73"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="模式選擇">
+                                        <attributes>
+                                            <color key="NSBackgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                            <color key="NSColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="45" name=".PingFangTC-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O3n-f5-UX0">
+                                <rect key="frame" x="235" y="842" width="299" height="53"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="53" id="34F-az-cJk"/>
+                                    <constraint firstAttribute="width" constant="299" id="VZM-tq-N5f"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="POWER  BY  MCLAB  2017">
+                                        <attributes>
+                                            <color key="NSColor" red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="23" name="STYuanti-TC-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4rk-DP-aDx">
+                                <rect key="frame" x="235" y="903" width="299" height="53"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="53" id="OVN-hw-Z0M"/>
+                                    <constraint firstAttribute="width" constant="299" id="gNf-gr-D3B"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Ver  0.1.003">
+                                        <attributes>
+                                            <color key="NSColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="20" name="STYuanti-TC-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="O3n-f5-UX0" firstAttribute="centerX" secondItem="y7q-dc-KBy" secondAttribute="centerX" id="0ag-yo-JsI"/>
+                            <constraint firstItem="4pc-iy-RrO" firstAttribute="centerY" secondItem="S0M-aS-5xC" secondAttribute="centerY" id="21r-RI-CLr"/>
+                            <constraint firstItem="4rk-DP-aDx" firstAttribute="bottom" secondItem="O3n-f5-UX0" secondAttribute="bottom" constant="61" id="6mQ-Rl-sgf"/>
+                            <constraint firstItem="4rk-DP-aDx" firstAttribute="centerX" secondItem="y7q-dc-KBy" secondAttribute="centerX" id="ABf-rU-GxD"/>
+                            <constraint firstItem="jJs-kk-M31" firstAttribute="top" secondItem="4rk-DP-aDx" secondAttribute="bottom" constant="19" id="JXw-dT-F7s"/>
+                            <constraint firstItem="S0M-aS-5xC" firstAttribute="leading" secondItem="y7q-dc-KBy" secondAttribute="leadingMargin" constant="82" id="VKJ-0j-pxQ"/>
+                            <constraint firstItem="4pc-iy-RrO" firstAttribute="leading" secondItem="S0M-aS-5xC" secondAttribute="trailing" constant="40" id="qjV-6x-cME"/>
+                            <constraint firstItem="S0M-aS-5xC" firstAttribute="top" secondItem="v09-7R-Tji" secondAttribute="bottom" constant="138" id="wXg-gD-T5L"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="設定" image="tap_icon_setting_g" id="Hbc-Xa-NVr"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qvE-hn-3z8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3998" y="681"/>
+            <point key="canvasLocation" x="3997.65625" y="680.859375"/>
         </scene>
         <!--DashboardViewController2-->
         <scene sceneID="Pr5-6J-6Gx">
@@ -549,7 +624,7 @@
                                 <attributedString key="attributedText">
                                     <fragment content="Label">
                                         <attributes>
-                                            <font key="NSFont" size="48" name="SFProText-Regular"/>
+                                            <font key="NSFont" metaFont="system" size="48"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -565,7 +640,7 @@
                                 <attributedString key="attributedText">
                                     <fragment content="Label">
                                         <attributes>
-                                            <font key="NSFont" size="28" name="SFProText-Regular"/>
+                                            <font key="NSFont" metaFont="system" size="28"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
