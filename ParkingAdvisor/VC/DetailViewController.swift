@@ -10,12 +10,19 @@ import UIKit
 
 protocol closeDetailVCProtocol {
     func closeVC()
+    func getLocation() -> String
+    func getAddress() -> String
+    func getScore() -> String
 }
 
 class DetailViewController: UIViewController {
     
     var delegate: closeDetailVCProtocol?
-
+    
+    @IBOutlet weak var lbl_detail_location: UILabel!
+    @IBOutlet weak var lbl_detail_address: UILabel!
+    @IBOutlet weak var lbl_detail_score: UILabel!
+    
     
     @IBAction func close_detailVC(_ sender: AnyObject) {
 //        closeVC()
@@ -37,7 +44,14 @@ class DetailViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+        lbl_detail_location.text = self.delegate?.getLocation()
+        lbl_detail_address.text = self.delegate?.getAddress()
+        lbl_detail_score.text = self.delegate?.getScore()
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
